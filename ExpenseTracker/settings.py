@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ["https://*.mydomain.com", "http://localhost:5173"]
+AUTH_USER_MODEL = "api.User"
 
 INSTALLED_APPS = [
     "django.contrib.admin",
