@@ -1,0 +1,36 @@
+.hero {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0rem 3rem 0rem;
+  border: 0px solid white;
+}
+
+.section-content {
+  padding-left: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid white;
+  min-height: 550px;
+}
+
+.hero-subheading {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.sub-section {
+  width: 600px;
+  padding-right: 80px;
+}
+
+.img-content {
+  max-width: 555px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 10px;
+  padding-right: 0;
+}
