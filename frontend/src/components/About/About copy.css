@@ -1,0 +1,95 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.center {
+  text-align: center;
+}
+
+.management-team-section {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.management-team-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.management-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.management-card h3 {
+  margin-top: 0;
+}
+
+
+
+.information-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.business-information-card,
+.careers-card {
+  width: 450px;
+  margin: 0 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.legal-and-social-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.legal-section,
+.social-section {
+  width: 450px;
+  margin: 0 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.legal-links a,
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.legal-links a:hover,
+.social-links a:hover {
+  background-color: #ddd;
+  border-color: #999;
+}

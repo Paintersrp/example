@@ -1,0 +1,65 @@
+.contact-info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  justify-items: center;
+}
+
+@media (max-width: 1024px) {
+  .contact-info-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-card {
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  min-height: 250px;
+  min-width: 500px;
+  background-color: #333333;
+  max-height: 250px;
+}
+
+.card-header {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.job-position {
+  margin-bottom: 5px;
+}
+
+.job-position h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-card button {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.card-body-btn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.contact-card button:hover {
+  background-color: darkgreen;
+}

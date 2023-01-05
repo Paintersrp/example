@@ -1,0 +1,97 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff !important;
+  height: 60px;
+}
+
+.nav-middle,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+.nav-left a {
+  font-size: 1.25rem;
+  padding-left: 40px;
+  font-weight: 700 !important;
+}
+
+.nav-left a,
+.nav-middle a,
+.nav-right a {
+  margin: 0px 10px 0px 10px;
+}
+
+.nav-left a:hover,
+.nav-middle a:hover,
+.nav-right a:hover {
+  color: rgb(44, 90, 230);
+  transform: scale(1.15);
+  transition: transform 0.01s;
+}
+
+.nav-middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-right {
+  margin-right: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+/* Add styles for the menu button and menu */
+.nav-menu-button {
+  display: none; /* Hide the menu button on larger screens */
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.nav-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-menu a {
+  display: block;
+  margin: 10px 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Show the menu button and hide the links on smaller screens */
+@media (max-width: 768px) {
+  .nav-left,
+  .nav-middle,
+  .nav-right {
+    display: none;
+  }
+
+  .nav-menu-button {
+    display: block;
+  }
+}
