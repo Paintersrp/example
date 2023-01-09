@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import { CSSTransition } from "react-transition-group";
 import testimonialData from "./testimonialData";
 import "./TestimonialSection.css";
+import { Slide } from "@material-ui/core";
 
 function TestimonialSection() {
   return (
