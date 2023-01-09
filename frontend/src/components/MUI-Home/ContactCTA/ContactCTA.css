@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.fade-in-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.slide-in-from-bottom {
+  transform: translateY(100%);
+}
+
+.slide-in-from-bottom.slide-in-from-bottom-active {
+  transform: translateY(0);
+  transition: transform 300ms;
+}
+
+.break-spacing {
+  margin-bottom: 5px;
+}
+
+.card-test2 {
+  padding: 10px;
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 435px;
+  margin-bottom: 20px;
+}
+
+.icon-container-feat {
+  align-items: center !important;
+  min-height: 40px !important;
+}

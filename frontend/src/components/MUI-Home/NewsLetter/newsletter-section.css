@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+.newsletter-section-form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter-section-text {
+  width: 100%;
+}
+
+.newsletter-section-subtitle {
+  margin-bottom: 8px;
+}
+
+.newsletter-section-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter-section-text-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.newsletter-section-button {
+  width: 100%;
+}
+
+.news-card {
+  display: flex;
+  justify-content: center;
+  background-color: #1c1c1c !important;
+  padding-bottom: 10px;
+}
+
+.news-text-card {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  background-color: #1c1c1c !important;
+  color: white !important;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.text-container-newsletter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

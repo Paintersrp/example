@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+.testimonial-carousel {
+  padding: 32px 16px 16px 16px;
+  max-width: 1000px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar {
+  padding-right: 10px;
+}
+
+.car-container {
+  background-color: #242424;
+}
+
+.testimonial-carousel .carousel-item {
+  width: 80%;
+  padding: 16px;
+}
+
+.testimonial-carousel .carousel-item .card {
+  width: 100%;
+}
+
+.testimonial-carousel .carousel-item .card .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-carousel .carousel-item .card .card-content .avatar {
+  width: 128px;
+  height: 128px;
+  margin: 16px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonial-carousel .carousel-item .card .card-content .subtitle1 {
+  margin: 16px;
+}
+
+.subtitle1 {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.card-test {
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+}
+
+.card-text {
+  padding: 0px 40px 0px 40px;
+}
