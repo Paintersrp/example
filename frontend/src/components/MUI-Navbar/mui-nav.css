@@ -105,10 +105,6 @@
   font-family: "Poppins", sans-serif !important;
 }
 
-.MuiListItemText-root:hover {
-  color: #fdd835 !important;
-}
-
 .divider-color {
   background-color: #fff !important;
 }

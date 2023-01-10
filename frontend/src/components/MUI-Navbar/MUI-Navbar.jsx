@@ -37,7 +37,7 @@ function MUI_Navbar() {
             <Link to="/" className="navbar-link">
               Home
             </Link>
-            <Link to="/" className="navbar-link">
+            <Link to="/about" className="navbar-link">
               About
             </Link>
             <Link to="/" className="navbar-link">

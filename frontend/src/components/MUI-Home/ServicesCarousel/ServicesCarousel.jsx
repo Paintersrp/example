@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -21,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 1000,
     margin: "0 auto",
     padding: theme.spacing(2),
+  },
+  pagecontainer: {
+    width: "100%",
+    display: "flex",
+    justifyConten: "center",
+    alignItems: "center",
   },
   media: {
     height: 300,
@@ -102,33 +108,9 @@ export default function ServiceCardCarousel() {
 
   const feature = selectedFeature;
 
-  const serviceRef = React.createRef();
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer2 = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            console.log("Should be Visible");
-          }
-        });
-      },
-      { rootMargin: "0px 0px 0% 0px" }
-    );
-
-    observer2.observe(serviceRef.current);
-    console.log(serviceRef.current);
-
-    return () => {
-      observer2.unobserve(serviceRef.current);
-    };
-  }, []);
-
   return (
-    <Slide in={visible} direction="up" timeout={1000} ref={serviceRef}>
-      <Grid container spacing={2}>
+    <Slide in={true} direction="up" timeout={1000}>
+      <Grid container spacing={2} className={classes.pagecontainer}>
         {servicesData.map((service) => (
           <Grid item key={service.id} xs={12} sm={6} md={4}>
             <Card className={classes.card}>

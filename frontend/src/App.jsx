@@ -7,6 +7,7 @@ import LoginForm from "./components/MUI-Login/LoginForm";
 import MUI_Navbar from "./components/MUI-Navbar/MUI-Navbar";
 import MuiFooter from "./components/MUI-Footer/MUI-Footer";
 import LandingPage from "./components/MUI-Home/LandingPage";
+import AboutPage from "./components/MUI-About/AboutPage";
 
 function App() {
   return (
@@ -14,13 +15,12 @@ function App() {
       <SEOHeader />
       <ScrollToTop />
       <MUI_Navbar />
-      <div className="landing-container">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterForm />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
+      </Routes>
       <MuiFooter />
     </Router>
   );
