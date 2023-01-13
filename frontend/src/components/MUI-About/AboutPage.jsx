@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import InformationSection from "./InformationSection/InformationSection";
 import TeamMembers from "./TeamMembers/TeamMembers";
 import JobsSection from "./JobsSection/JobsSection";
+import FAQAccordion from "./FAQAccordion/FAQAccordion";
+import BusinessContactInformation from "./ContactSection/ContactSection";
 
 const members = [
   {
@@ -36,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 function AboutPage() {
   const classes = useStyles();
-  
+
   return (
     <div className="landing-container">
       <div>
@@ -46,9 +48,17 @@ function AboutPage() {
         <div className="">
           <TeamMembers members={members} />
         </div>
+        
         <Divider variant="fullWidth" className={classes.divider} />
         <div className="card-container-about">
           <JobsSection />
+        </div>
+        <div className="card-container-about">
+          <BusinessContactInformation members={members} />
+        </div>
+        <Divider variant="fullWidth" className={classes.divider} />
+        <div className="card-container-about">
+          <FAQAccordion />
         </div>
       </div>
     </div>

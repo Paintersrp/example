@@ -6,9 +6,7 @@ import TestimonialsCarousel from "./TestimonialsCarousel/TestimonialsCarousel";
 import CareersOpportunities from "./CareerOpportunities/CareerOpportunities";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-  },
+  root: {},
   gridcontainer: {},
 }));
 
@@ -16,22 +14,16 @@ const JobsSection = () => {
   const classes = useStyles();
 
   return (
-    <div className="">
-      <div className="card-container-about">
-        <Grid container spacing={0} justifyContent="center" alignItems="center">
-          <Grid
-            item
-            xs={12}
-            md={10}
-            lg={8}
-            justifyContent="center"
-            className={classes.gridcontainer}
-          >
-            <CareersOpportunities />
-          </Grid>
-        </Grid>
-      </div>
-    </div>
+    <Grid container spacing={0} justifyContent="center" alignItems="center">
+      <Grid
+        item
+        xs={12}
+        justifyContent="center"
+        className={classes.gridcontainer}
+      >
+        <CareersOpportunities />
+      </Grid>
+    </Grid>
   );
 };
 
