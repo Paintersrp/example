@@ -91,7 +91,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "700",
     fontFamily: "Poppins",
     marginBottom: 20,
+  },
+  subtitle: {
     marginTop: 25,
+    fontFamily: "Poppins",
+    fontWeight: 600,
+    textAlign: "center",
+    color: "gold",
+    fontSize: "0.8rem",
   },
 }));
 
@@ -141,6 +148,9 @@ export default function LatestNews() {
   return (
     <Grid container spacing={0} className={classes.root}>
       <Grid item xs={12}>
+        <Typography variant="h4" className={classes.subtitle}>
+          In the Know
+        </Typography>
         <Typography variant="h4" className={classes.title}>
           Latest News
         </Typography>

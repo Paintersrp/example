@@ -7,27 +7,31 @@ import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import { deepPurple } from "@material-ui/core/colors";
-import { Container, Divider } from "@material-ui/core";
+import { Container, Divider, Paper } from "@material-ui/core";
+import { SlideOnScroll } from "../../Test/Animations/SlideViewPort";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#242424",
+    padding: 40,
   },
   card: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     maxWidth: 400,
-    padding: theme.spacing(1),
+    minWidth: 400,
+    padding: theme.spacing(3),
     margin: theme.spacing(1.5),
-    backgroundColor: "#1C1C1C",
+    boxShadow: theme.shadows[7],
+    backgroundColor: "#202020",
     "&:hover": {
-      transform: "scale(1.05)",
-      boxShadow: theme.shadows[8],
-      opacity: 0.9,
+      transform: "scale(1.02)",
+      boxShadow: theme.shadows[14],
     },
   },
   avatar: {
@@ -38,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     "&:hover": {
       transform: "scale(1.05)",
-      opacity: 0.9,
     },
   },
   image: {
@@ -56,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     "&:hover": {
       transform: "scale(1.05)",
-      opacity: 0.9,
     },
   },
   gridContainer: {
@@ -69,34 +71,36 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 0,
   },
   name: {
-    fontWeight: "bold",
+    fontWeight: 800,
     marginBottom: theme.spacing(1),
     fontFamily: "Poppins",
     color: "#f9f9f9",
     fontSize: "1.5rem",
     "&:hover": {
-      transform: "scale(1.05)",
-      opacity: 0.9,
+      transform: "scale(1.02)",
+      opacity: 0.95,
     },
   },
   position: {
     color: "#f9f9f9",
-    fontWeight: "bold",
+    fontWeight: 450,
+    fontSize: "1rem",
     marginBottom: theme.spacing(1),
     fontFamily: "Poppins",
     "&:hover": {
-      transform: "scale(1.05)",
-      opacity: 0.9,
+      transform: "scale(1.02)",
+      opacity: 0.95,
     },
   },
   bio: {
     color: "#f9f9f9",
-    marginTop: theme.spacing(0),
+    marginTop: theme.spacing(1),
     fontSize: "0.9rem",
     fontWeight: 450,
     fontFamily: "Poppins",
     "&:hover": {
-      opacity: 0.9,
+      transform: "scale(1.02)",
+      opacity: 0.95,
     },
   },
   title: {
@@ -114,6 +118,14 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 10,
     color: "white",
     backgroundColor: "white",
+  },
+  paper: {
+    padding: 40,
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    backgroundColor: "#242424",
+    boxShadow: theme.spacing(6),
   },
 }));
 
@@ -160,28 +172,33 @@ export default function TeamMembers({ members }) {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={0} justifyContent="center">
-        <Grid item xs={12} key="divider">
-          <Divider variant="fullWidth" className={classes.divider} />
-        </Grid>
-        <Grid item xs={12} key="title">
-          <Typography variant="h4" className={classes.title}>
-            Management
-          </Typography>
-        </Grid>
-        {members.map((member) => (
-          <Grid
-            item
-            xs={12}
-            md={6}
-            lg={4}
-            key={member.name}
-            className={classes.cardContainer}
-          >
-            <TeamMemberCard {...member} />
+      <Paper elevation={9} className={classes.paper}>
+        <Grid container spacing={0} justifyContent="center">
+          <Grid item xs={12} key="title">
+            <Typography variant="h4" className={classes.title}>
+              Our Team
+            </Typography>
           </Grid>
-        ))}
-      </Grid>
+          <Grid item xs={12} key="divider">
+            <Divider variant="fullWidth" className={classes.divider} />
+          </Grid>
+
+          {members.map((member) => (
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+              xl={4}
+              key={member.name}
+              className={classes.cardContainer}
+            >
+              <TeamMemberCard {...member} />
+            </Grid>
+          ))}
+        </Grid>
+      </Paper>
     </div>
   );
 }

@@ -22,15 +22,15 @@ const useStyles = makeStyles((theme) => ({
   pricingCard: {
     color: "white",
     backgroundColor: "#212121",
-    width: "30%",
-    margin: theme.spacing(2),
-    boxShadow:
-      "0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)",
+    maxWidth: 375,
+    minWidth: 375,
+    margin: theme.spacing(4),
+    padding: theme.spacing(3),
+    boxShadow: theme.shadows[7],
     transition: "box-shadow 0.3s ease-in-out",
     "&:hover": {
-      boxShadow:
-        "0px 3px 6px 0px rgba(0,0,0,0.2), 0px 3px 3px 0px rgba(0,0,0,0.14), 0px 4px 3px -2px rgba(0,0,0,0.12)",
-      transform: "scale(1.01)",
+      transform: "scale(1.02)",
+      boxShadow: theme.shadows[14],
     },
 
     [theme.breakpoints.down("md")]: {
@@ -44,23 +44,25 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   pricingTitle: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(0),
     fontWeight: 700,
-    fontSize: "2rem",
+    fontSize: "1.75rem",
     textAlign: "center",
     fontFamily: "Poppins",
+    color: "gold",
+    opacity: 0.9,
   },
   pricingPrice: {
-    fontSize: "40px",
+    fontSize: "1.3rem",
     textAlign: "center",
-    display: "inline-block",
-    fontFamily: "Poppins",
+    paddingTop: 5,
+    paddingBottom: 5,
+    margin: 0,
   },
   pricingAmount: {
-    fontSize: "50px",
+    fontSize: "1.25rem",
     fontWeight: 600,
     color: "gray.800",
-    display: "inline-block",
   },
   pricingFeatures: {
     listStyle: "none",
@@ -75,6 +77,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     color: "white",
     "&:hover": {
+      transform: "scale(1.02)",
+      boxShadow: theme.shadows[7],
       backgroundColor: theme.palette.primary.dark,
     },
   },
@@ -88,13 +92,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Poppins",
   },
   checkIcon: {
-    color: "#006400;",
+    color: "#009900;",
     marginRight: "10px",
   },
   media: {
-    height: 300,
+    height: 200,
     width: "auto",
-    scale: "0.75",
+    scale: "0.95",
+    padding: 0,
+    marginBottom: 20,
+    "&:hover": {
+      transform: "scale(1.02)",
+    },
   },
 }));
 
@@ -204,9 +213,8 @@ export default function PricingOverview() {
               </Typography>
               <Grid container direction="row" align="center" justify="center">
                 <Typography className={classes.pricingPrice}>
-                  <div style={{ display: "flex" }}>${plan.price}</div>
+                  <div style={{ display: "flex" }}>${plan.price}/month</div>
                 </Typography>
-                <Typography className={classes.pricingText}>/month</Typography>
               </Grid>
               <List className={classes.pricingFeatures}>
                 {plan.features.map((feature) => (
@@ -216,7 +224,7 @@ export default function PricingOverview() {
                   </ListItem>
                 ))}
               </List>
-              <Grid container spacing={2}>
+              <Grid container spacing={3}>
                 <Grid item xs={6}>
                   <Button
                     className={classes.pricingButton}

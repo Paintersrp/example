@@ -6,6 +6,7 @@ import {
   Avatar,
   Container,
 } from "@material-ui/core";
+import { SlideOnScroll } from "../Animations/SlideViewPort";
 import testimonials from "./testimonials.json";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,19 +39,23 @@ const useStyles = makeStyles((theme) => ({
       left: "50%",
       transform: "translateX(-50%)",
     },
+    "&:hover": {
+      transform: "scale(1.02)",
+      boxShadow: theme.shadows[10],
+    },
   },
   testimonialHeading: {
     fontFamily: "Poppins",
-    fontSize: "1.15rem",
+    fontSize: "1.0rem",
     marginBottom: 10,
-    color: "white",
-    fontWeight: 700,
+    color: "gold",
+    fontWeight: 600,
   },
   testimonialText: {
     fontFamily: "Poppins",
     textAlign: "center",
     color: "white",
-    fontSize: "0.9rem",
+    fontSize: "0.85rem",
   },
   testimonialAvatar: {
     fontFamily: "Poppins",
@@ -62,16 +67,27 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       marginBottom: theme.spacing(1),
     },
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
   },
   testimonialAvatarName: {
     fontFamily: "Poppins",
     fontWeight: 600,
+    fontSize: "0.85rem",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
   },
   testimonialAvatarTitle: {
     fontFamily: "Poppins",
     fontSize: theme.typography.body2.fontSize,
     backgroundColor: "#1C1C1C",
     color: "white",
+    fontSize: "0.85rem",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
   },
   speechBubbles: {
     fontFamily: "Poppins",
@@ -84,9 +100,17 @@ const useStyles = makeStyles((theme) => ({
   },
   speechBubblesHeading: {
     fontFamily: "Poppins",
-    fontWeight: "bold",
-    margin: theme.spacing(4, 0, 2),
+    fontWeight: 700,
+    margin: theme.spacing(0, 0, 0),
     textAlign: "center",
+  },
+  speechBubblesSubHeading: {
+    fontFamily: "Poppins",
+    fontWeight: 600,
+    margin: 0,
+    textAlign: "center",
+    color: "gold",
+    fontSize: "0.8rem",
   },
   speechBubblesText: {
     fontFamily: "Poppins",
@@ -147,11 +171,14 @@ export default function BetterTestimonials() {
       <Container maxWidth="7xl">
         <Grid container spacing={4}>
           <Grid item xs={12}>
+            <Typography
+              variant="h4"
+              className={classes.speechBubblesSubHeading}
+            >
+              Testimonials
+            </Typography>
             <Typography variant="h4" className={classes.speechBubblesHeading}>
               Our Clients Speak
-            </Typography>
-            <Typography variant="body1" className={classes.speechBubblesText}>
-              We have been working with clients around the world
             </Typography>
           </Grid>
           {testimonials.map((testimonial, index) => (
@@ -162,17 +189,21 @@ export default function BetterTestimonials() {
               md={6}
               className={classes.speechBubbles}
             >
-              <Testimonial>
-                <TestimonialContent>
-                  <TestimonialHeading>{testimonial.heading}</TestimonialHeading>
-                  <TestimonialText>{testimonial.text}</TestimonialText>
-                </TestimonialContent>
-                <TestimonialAvatar
-                  src={testimonial.avatar.src}
-                  name={testimonial.avatar.name}
-                  title={testimonial.avatar.title}
-                />
-              </Testimonial>
+              <SlideOnScroll direction="down">
+                <Testimonial>
+                  <TestimonialContent>
+                    <TestimonialHeading>
+                      {testimonial.heading}
+                    </TestimonialHeading>
+                    <TestimonialText>{testimonial.text}</TestimonialText>
+                  </TestimonialContent>
+                  <TestimonialAvatar
+                    src={testimonial.avatar.src}
+                    name={testimonial.avatar.name}
+                    title={testimonial.avatar.title}
+                  />
+                </Testimonial>
+              </SlideOnScroll>
             </Grid>
           ))}
         </Grid>

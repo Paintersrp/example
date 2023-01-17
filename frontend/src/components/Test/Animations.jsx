@@ -60,6 +60,38 @@ import { Grid } from "@material-ui/core";
 import Sidebar from "./Sidebar";
 import HeroGrid from "./StatsGrid/StatsGrid";
 import BetterTestimonials from "./BetterTestimonials/BetterTestimonials";
+import { TeamMembers } from "./Animations/SlideViewPort";
+import OurTeam from "./BetterTeam/BetterTeam";
+
+const members = [
+  {
+    id: 1,
+    name: "John Smith",
+    position: "CEO",
+    img: "https://via.placeholder.com/150",
+    bio: "John has been in the industry for over 10 years and has a wealth of experience in leading successful teams.",
+    linkedin: "https://www.linkedin.com/in/john-smith",
+    twitter: "https://twitter.com/johnsmith",
+    facebook: "https://www.facebook.com/john.smith",
+  },
+  {
+    id: 2,
+    name: "Jane Doe",
+    position: "CFO",
+    img: "https://via.placeholder.com/150",
+    bio: "Jane is a finance expert and has helped many companies achieve their financial goals.",
+    linkedin: "https://www.linkedin.com/in/jane-doe",
+    twitter: "https://twitter.com/janedoe",
+  },
+  {
+    id: 3,
+    name: "Bob Johnson",
+    position: "CTO",
+    img: "https://via.placeholder.com/150",
+    bio: "Bob has a strong background in software development and is always on the cutting edge of technology.",
+    linkedin: "https://www.linkedin.com/in/bob-johnson",
+  },
+];
 
 export function TypingEffect({ text, duration }) {
   const animation = useAnimation();
@@ -130,6 +162,8 @@ export default function MyAdvancedAnimations() {
               <div className="numchange">
                 <NumberCounter end={100} />
               </div>
+              <TeamMembers />
+              <OurTeam members={members} />
             </AnimateSharedLayout>
           </div>
         </div>

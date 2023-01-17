@@ -86,7 +86,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.error.main,
   },
   text: {
-    color: theme.palette.grey[400],
+    marginTop: 5,
+    color: "gold",
   },
 }));
 

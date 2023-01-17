@@ -1,12 +1,20 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Container, Box, Typography, Button } from "@material-ui/core";
-import { NumberCounter } from "../Animations";
+import {
+  Grid,
+  Container,
+  Box,
+  Typography,
+  Button,
+  Slide,
+} from "@material-ui/core";
+import { NumberCounter, TypingEffect } from "../Animations";
 import { Link } from "react-router-dom";
+import { SlideOnScroll } from "../Animations/SlideViewPort";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Poppins",
-    backgroundColor: theme.palette.grey[900],
+    backgroundColor: "#242424",
     paddingTop: theme.spacing(12),
     paddingBottom: theme.spacing(12),
     position: "relative",
@@ -18,13 +26,11 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     right: 0,
     top: 0,
-    background:
-      "linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, transparent 100%)",
+    backgroundColor: "#212121",
     display: "none",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
-      background:
-        "linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%)",
+      backgroundColor: "#1C1C1C",
     },
     [theme.breakpoints.up("md")]: {
       display: "block",
@@ -34,14 +40,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Poppins",
     fontWeight: 700,
     textTransform: "uppercase",
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(1),
     fontSize: "1.25rem",
-    color: theme.palette.grey[500],
+    color: "gold",
   },
   heading: {
     fontFamily: "Poppins",
     color: "white",
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(0),
     fontSize: "2.25rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "1.5rem",
@@ -62,15 +68,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2.25rem",
     color: "white",
     textAlign: "left",
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(2),
     [theme.breakpoints.down("md")]: {
       fontSize: "2rem",
     },
   },
   statContent: {
     fontFamily: "Poppins",
-    fontSize: "1.25rem",
-    color: theme.palette.grey[400],
+    fontSize: "1.1rem",
+    color: "white",
     [theme.breakpoints.down("md")]: {
       fontSize: "1rem",
       padding: "0px 20px 0px 20px",
@@ -90,12 +96,14 @@ const useStyles = makeStyles((theme) => ({
   },
   gridItemLeft: {
     fontFamily: "Poppins",
+    paddingRight: 20,
     [theme.breakpoints.up("md")]: {
       textAlign: "center",
     },
   },
   gridItemRight: {
     fontFamily: "Poppins",
+    paddingLeft: 20,
     [theme.breakpoints.up("md")]: {
       textAlign: "center",
     },
@@ -110,6 +118,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Poppins",
     display: "flex",
     justifyContent: "center",
+    color: "gold",
+  },
+  btnCta: {
+    "&:hover": {
+      transform: "scale(1.02)",
+      boxShadow: theme.shadows[7],
+      backgroundColor: theme.palette.primary.dark,
+    },
   },
 }));
 
@@ -121,45 +137,52 @@ export default function HeroGrid() {
       <div className={classes.overlay} />
       <Container maxWidth="lg" className={classes.gridContainer}>
         <Grid container className={classes.grid}>
-          <Grid item xs={12} md={6} className={classes.gridItemLeft}>
-            <Box className={classes.title}>Custom Designs</Box>
-            <Typography variant="h1" className={classes.heading}>
-              Modern Framework, Design, and Hosting
-            </Typography>
-            <Box className={classes.text}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Obcaecati iusto facilis rem. Libero fuga qui at expedita obcaecati
-              necessitatibus adipisci fugit dicta sunt corporis, modi quae
-              accusantium, accusamus voluptate? Saepe et corporis sit eligendi,
-              tenetur minus officia iusto vitae, nostrum placeat provident ipsam
-              consequatur pariatur optio quaerat qui, ea natus!
-            </Box>
-            <Button
-              component={Link}
-              to="/about"
-              color="primary"
-              variant="contained"
-              className="cta-btn"
-            >
-              <h1 className="cta-btn">Get Started</h1>
-            </Button>
-          </Grid>
-          <Grid item xs={12} md={6} className={classes.gridItemRight}>
-            <Grid container spacing={4} className={classes.statsGrid}>
-              {stats.map((stat) => (
-                <Grid item xs={12} key={stat.title}>
-                  <Box className={classes.statTitle}>
-                    <div className={classes.statsFlex}>
-                      <NumberCounter seconds={2} end={stat.title} />
-                      {stat.operator}
-                    </div>
-                  </Box>
-                  <div className={classes.statsFlex}>
-                    <Box className={classes.statContent}>{stat.content}</Box>
-                  </div>
-                </Grid>
-              ))}
+          <Slide in={true} direction="right" timeout={1000}>
+            <Grid item xs={12} md={6} className={classes.gridItemLeft}>
+              <Box className={classes.title}>Custom Designs</Box>
+              <Typography variant="h1" className={classes.heading}>
+                Modern Framework, Design, and Hosting
+              </Typography>
+              <Box className={classes.text}>
+                <TypingEffect
+                  duration="0.02"
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus pretium elit sed consectetur ultricies. Praesent
+                lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin
+                sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare
+                diam, ac fermentum massa diam a nisi."
+                ></TypingEffect>
+              </Box>
+              <Button
+                component={Link}
+                to="/about"
+                color="primary"
+                variant="contained"
+                className={classes.btnCta}
+              >
+                Get Started
+              </Button>
             </Grid>
+          </Slide>
+
+          <Grid item xs={12} md={6} className={classes.gridItemRight}>
+            <Slide in={true} direction="left" timeout={1000}>
+              <Grid container spacing={4} className={classes.statsGrid}>
+                {stats.map((stat) => (
+                  <Grid item xs={12} key={stat.title}>
+                    <Box className={classes.statTitle}>
+                      <div className={classes.statsFlex}>
+                        <NumberCounter seconds={2} end={stat.title} />
+                        {stat.operator}
+                      </div>
+                    </Box>
+                    <div className={classes.statsFlex}>
+                      <Box className={classes.statContent}>{stat.content}</Box>
+                    </div>
+                  </Grid>
+                ))}
+              </Grid>
+            </Slide>
           </Grid>
         </Grid>
       </Container>

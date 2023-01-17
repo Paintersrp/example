@@ -29,6 +29,11 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #212121 !important;
 }
 
+.g-container :hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #212121 !important;
+}
+
 .feature-icon {
   color: white;
 }
@@ -42,14 +47,14 @@
 .feature-title {
   font-size: 1.1rem !important;
   font-weight: bold;
-  color: white;
+  color: gold;
   margin: 10px 0;
 }
 
 .feature-subheader {
   font-size: 0.9rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
 }
 
 @media (min-width: 600px) {
