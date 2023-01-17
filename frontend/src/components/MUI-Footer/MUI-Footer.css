@@ -36,6 +36,7 @@
 .footer-link {
   color: white;
   margin-right: 8px;
+  overflow: hidden;
 }
 
 .footer-link:hover {

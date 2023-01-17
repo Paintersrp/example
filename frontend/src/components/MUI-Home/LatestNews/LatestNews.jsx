@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import articles from "./articles.json";
 import Paper from "@material-ui/core/Paper";
+import { TestimonialHeading } from "../../Test/BetterTestimonials/BetterTestimonials";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,6 +85,14 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     fontSize: "14px",
   },
+  title: {
+    textAlign: "center",
+    color: "#f9f9f9",
+    fontWeight: "700",
+    fontFamily: "Poppins",
+    marginBottom: 20,
+    marginTop: 25,
+  },
 }));
 
 export default function LatestNews() {
@@ -131,6 +140,11 @@ export default function LatestNews() {
 
   return (
     <Grid container spacing={0} className={classes.root}>
+      <Grid item xs={12}>
+        <Typography variant="h4" className={classes.title}>
+          Latest News
+        </Typography>
+      </Grid>
       {articlesData.map((article) => (
         <Grid
           item

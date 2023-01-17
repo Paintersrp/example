@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 import imageData from "./imageData";
 import "./MainSection.css";
+import { TypingEffect } from "../../Test/Animations";
 
 function MainSection() {
   return (
@@ -20,11 +21,19 @@ function MainSection() {
                 Main Section
               </Typography>
               <Typography variant="body1" gutterBottom>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <TypingEffect
+                  duration="0.02"
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Phasellus pretium elit sed consectetur ultricies. Praesent
                 lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin
                 sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare
-                diam, ac fermentum massa diam a nisi.
+                diam, ac fermentum massa diam a nisi."
+                ></TypingEffect>
+                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus pretium elit sed consectetur ultricies. Praesent
+                lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin
+                sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare
+                diam, ac fermentum massa diam a nisi. */}
               </Typography>
             </div>
           </Slide>

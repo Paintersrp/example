@@ -9,25 +9,36 @@ import Container from "@material-ui/core/Container";
 import ServiceCardCarousel from "./ServicesCarousel/ServicesCarousel";
 import LatestNews from "./LatestNews/LatestNews";
 import MyComponent from "../Test/spring";
+import PricingPage from "../Test/BetterServices/CardPage";
+import PricingOverview from "../Test/BetterServicePage/ServicesPage";
+import BetterTestimonials from "../Test/BetterTestimonials/BetterTestimonials";
+import HeroGrid from "../Test/StatsGrid/StatsGrid";
+import BetterNewsletter from "../Test/BetterNewsletter/BetterNewsletter";
 
 function LandingPage() {
   return (
     <div className="landing-container">
       <div>
         <div className="">
-          <MainSection />
+          <HeroGrid />
         </div>
-        <ServiceCardCarousel />
+        <div className="">
+          <PricingOverview />
+        </div>
         <div className="">
           <FeatureTiles />
         </div>
         <div className="car-container">
-          <TestimonialSection />
+          {/* <TestimonialSection /> */}
+          <BetterTestimonials />
         </div>
         <div className="">
           <LatestNews />
         </div>
         <div className="">
+          <BetterNewsletter />
+        </div>
+        {/* <div className="">
           <Container component="main" maxWidth="false" className="big-tester">
             <Grid
               container
@@ -58,7 +69,7 @@ function LandingPage() {
               </Grid>
             </Grid>
           </Container>
-        </div>
+        </div> */}
       </div>
     </div>
   );
