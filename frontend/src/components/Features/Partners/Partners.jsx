@@ -74,7 +74,7 @@ const partners = [
   { icon: FaStackOverflow, alt: "Stack Overflow" },
 ];
 
-export default function OurPartners() {
+export default function Partners() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -95,28 +95,6 @@ export default function OurPartners() {
             alignment="center"
             showDivider={true}
           />
-          {/* <Typography gutterBottom className={classes.subheading}>
-            Our Partners
-          </Typography>
-          <Typography gutterBottom className={classes.heading}>
-            Trusted by Many
-          </Typography>
-          <Typography
-            variant="body1"
-            gutterBottom
-            style={{
-              fontFamily: "Roboto",
-              color: "white",
-              marginBottom: 15,
-              fontWeight: 400,
-              fontSize: "0.9rem",
-            }}
-          >
-            We are proud to work with some of the world's leading companies and
-            organizations.
-          </Typography>
-          <Divider style={{ backgroundColor: "white", marginBottom: 15 }} /> */}
-
           <Grid
             container
             spacing={3}

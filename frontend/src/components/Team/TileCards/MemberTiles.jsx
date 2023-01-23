@@ -8,7 +8,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import { deepPurple } from "@material-ui/core/colors";
 import { Container, Divider, Paper } from "@material-ui/core";
-import { SlideOnScroll } from "../../Animations/SlideViewPort";
+import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TeamMemberCard({ name, position, bio, image }) {
+function MemberTiles({ name, position, bio, image }) {
   const classes = useStyles();
 
   return (
@@ -194,7 +194,7 @@ export default function TeamMembers({ members }) {
               key={member.name}
               className={classes.cardContainer}
             >
-              <TeamMemberCard {...member} />
+              <MemberTiles {...member} />
             </Grid>
           ))}
         </Grid>

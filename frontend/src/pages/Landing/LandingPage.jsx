@@ -3,11 +3,11 @@ import FeatureTiles from "../../components/Features/FeatureTiles/FeatureTiles";
 import { Grid } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
 import LatestNews from "../../components/Features/LatestNews/LatestNews";
-import PricingOverview from "../../components/Pricing/BetterServicePage/ServicesPage";
-import BetterTestimonials from "../../components/Testimonials/BetterTestimonials/BetterTestimonials";
+import PricingOverview from "../../components/Pricing/StandardPricing/Pricing";
+import BetterTestimonials from "../../components/Testimonials/SpeechBubbleTestimonials/SpeechBubbles";
 import HeroCarousel from "../../components/Heros/HeroCarousel/HeroCarousel";
 import BetterNewsletter from "../../components/Forms/Newsletter/NewsletterForm";
-import CompatibilitySection from "../../components/Features/Compatibility/Compatibility";
+import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
   FaTwitter,
   FaFacebook,
@@ -76,7 +76,7 @@ function LandingPage() {
           <HeroCarousel items={items} />
         </div>
         <div>
-          <CompatibilitySection partners={partners} />
+          <IconScroller data={partners} />
         </div>
         <div className="">
           <PricingOverview />

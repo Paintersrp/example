@@ -42,9 +42,9 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-export default function CompatibilitySection({ partners }) {
+export default function IconScroller({ data }) {
   const classes = useStyles();
-  const duplicatedPartners = [...partners, ...partners, ...partners];
+  const duplicatedPartners = [...data, ...data, ...data];
   const [isScrolling, setIsScrolling] = useState(true);
 
   return (

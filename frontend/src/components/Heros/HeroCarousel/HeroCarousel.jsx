@@ -12,8 +12,8 @@ import {
 } from "@material-ui/core";
 import { NumberCounter, TypingEffect } from "../../../pages/Test/Test";
 import { Link } from "react-router-dom";
-import { SlideOnScroll } from "../../Animations/SlideViewPort";
-import { TypingIn } from "../../Animations/TypingIn";
+import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
+import { TypingIn } from "../../Animations/Typography/TypingIn/TypingIn";
 import CarouselX from "../../Carousels/ImgCarousel/ImgCarousel";
 import Carousel from "react-material-ui-carousel";
 
@@ -200,8 +200,6 @@ export default function HeroCarousel({ items }) {
     </Box>
   );
 }
-
-
 
 const stats = [
   {

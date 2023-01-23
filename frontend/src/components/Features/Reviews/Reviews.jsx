@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomerReviews = () => {
+const Reviews = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -136,4 +136,4 @@ const CustomerReviews = () => {
   );
 };
 
-export default CustomerReviews;
+export default Reviews;

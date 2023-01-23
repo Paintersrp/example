@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   },
 });
 
-const WhatWeDo2 = ({ data }) => {
+const WhatWeDo = ({ data }) => {
   const classes = useStyles();
 
   return (
@@ -68,4 +68,4 @@ const WhatWeDo2 = ({ data }) => {
     </Box>
   );
 };
-export default WhatWeDo2;
+export default WhatWeDo;

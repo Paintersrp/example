@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CompanyProcess({ data, title, subtitle }) {
+export default function OurProcess({ data, title, subtitle }) {
   const classes = useStyles();
 
   return (

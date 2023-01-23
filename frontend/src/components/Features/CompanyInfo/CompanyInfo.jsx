@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function InformationSection() {
+export default function CompanyInfo() {
   const classes = useStyles();
 
   return (

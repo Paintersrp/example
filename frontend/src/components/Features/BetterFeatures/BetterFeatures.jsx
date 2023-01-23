@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Grid, Typography } from "@material-ui/core";
-import { FaAssistant, FaDonate, FaInTransit } from "react-icons/fa";
+import { FaHelicopter, FaDonate, FaTruckPickup } from "react-icons/fa";
 
 const Feature = ({ title, text, icon }) => {
   return (
@@ -22,7 +22,7 @@ const Feature = ({ title, text, icon }) => {
 
 const featureData = [
   {
-    icon: <FaAssistant size={40} />,
+    icon: <FaHelicopter size={40} />,
     title: "Lifetime Support",
     text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...",
   },
@@ -32,13 +32,13 @@ const featureData = [
     text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...",
   },
   {
-    icon: <FaInTransit size={40} />,
+    icon: <FaTruckPickup size={40} />,
     title: "Instant Delivery",
     text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...",
   },
 ];
 
-export default function SimpleThreeColumns() {
+export default function BetterFeatures() {
   return (
     <Box p={4}>
       <Grid container spacing={3}>

@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import articles from "./articles.json";
 import Paper from "@material-ui/core/Paper";
-import { TestimonialHeading } from "../../Testimonials/BetterTestimonials/BetterTestimonials";
+import { TestimonialHeading } from "../../Testimonials/SpeechBubbleTestimonials/SpeechBubbles";
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -6,7 +6,7 @@ import {
   Avatar,
   Container,
 } from "@material-ui/core";
-import { SlideOnScroll } from "../../Animations/SlideViewPort";
+import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
 import testimonials from "./testimonials.json";
 
 const useStyles = makeStyles((theme) => ({

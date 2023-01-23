@@ -51,11 +51,11 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import "./test.css";
-import GridListWithCTA from "../../components/Features/FeatureCTA/FeatureCTA";
+import FeatureCTA from "../../components/Features/FeatureCTA/FeatureCTA";
 import { FaCode, FaPencilRuler, FaServer } from "react-icons/fa";
 import CategoryTiles from "../../components/Features/Categories/Categories";
 import FeaturedProducts from "../../components/Features/FeaturedProducts/FeaturedProduct";
-import CompanyProcess from "../../components/Features/OurProcess/OurProcess";
+import OurProcess from "../../components/Features/OurProcess/OurProcess";
 import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 import LockIcon from "@material-ui/icons/Lock";
 import DesignIcon from "@material-ui/icons/Brush";
@@ -63,8 +63,8 @@ import DevelopIcon from "@material-ui/icons/Code";
 import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
 import FormHero from "../../components/Heros/FormHero/FormHero";
-import OurPartners from "../../components/Features/Partners/Partners";
-import CompatibilitySection from "../../components/Features/Compatibility/Compatibility";
+import Partners from "../../components/Features/Partners/Partners";
+import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
   FaTwitter,
   FaFacebook,
@@ -74,7 +74,7 @@ import {
   FaGithub,
   FaStackOverflow,
 } from "react-icons/fa";
-import CustomerReviews from "../../components/Features/Reviews/Reviews";
+import Reviews from "../../components/Features/Reviews/Reviews";
 
 const members = [
   {
@@ -299,20 +299,20 @@ export default function TestPage() {
               <CategoryTiles />
             </div>
             <div>
-              <CustomerReviews />
+              <Reviews />
             </div>
             <div>
-              <CompatibilitySection partners={partners} />
+              <IconScroller data={partners} />
             </div>
             <div>
-              <CompanyProcess
+              <OurProcess
                 data={data2}
                 title="Creating and Hosting Websites"
                 subtitle="Our Process"
               />
             </div>
             <div>
-              <GridListWithCTA />
+              <FeatureCTA />
             </div>
 
             <div>
@@ -320,7 +320,7 @@ export default function TestPage() {
             </div>
 
             <div>
-              <OurPartners />
+              <Partners />
             </div>
 
             {/* <div>

@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ExpoEvents() {
+export default function EventSchedule() {
   const classes = useStyles();
   const eventData = [
     {

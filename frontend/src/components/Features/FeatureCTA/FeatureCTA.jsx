@@ -152,7 +152,7 @@ const Feature = ({ text, icon }) => {
   );
 };
 
-export default function GridListWithCTA() {
+export default function FeatureCTA() {
   const classes = useStyles();
 
   return (

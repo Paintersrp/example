@@ -5,9 +5,9 @@ import Paper from "@material-ui/core/Paper";
 import features from "./features-data";
 import { Slide } from "@material-ui/core";
 import "./Features.css";
-import { SlideOnScroll } from "../../Animations/SlideViewPort";
+import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
 
-export default function Features() {
+export default function FeatureTiles() {
   // const featuresRef = React.createRef();
   // const [visible, setVisible] = useState(false);
 

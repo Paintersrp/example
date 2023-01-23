@@ -1,9 +1,9 @@
 import React from "react";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import InformationSection from "../../components/Features/CompanyInfo/InformationSection";
-import TeamMembers from "../../components/Team/TeamMembers/TeamMembers";
-import FAQAccordion from "../../components/Accordions/FAQAccordion";
+import CompanyInfo from "../../components/Features/CompanyInfo/CompanyInfo";
+import TeamMembers from "../../components/Team/TileCards/MemberTiles";
+import FAQAccordion from "../../components/Accordions/FAQ/FAQAccordion";
 import BusinessContactInformation from "../../components/Contact/BasicContact/ContactSection";
 import CareersOpportunities from "../../components/Jobs/CareerOpportunities/CareerOpportunities";
 
@@ -42,7 +42,7 @@ function AboutPage() {
     <div className="landing-container">
       <div>
         <div className="">
-          <InformationSection />
+          <CompanyInfo />
         </div>
         <div className="">
           <TeamMembers members={members} />

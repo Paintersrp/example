@@ -48,8 +48,11 @@ function MUI_Navbar() {
             <Link to="/test" className="navbar-link">
               Test
             </Link>
-            <Link to="/Heroes" className="navbar-link">
+            <Link to="/heroes" className="navbar-link">
               Heroes
+            </Link>
+            <Link to="/features" className="navbar-link">
+              Features
             </Link>
           </div>
         </Hidden>
