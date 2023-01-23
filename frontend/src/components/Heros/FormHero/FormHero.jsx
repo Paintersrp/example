@@ -21,6 +21,7 @@ import {
 } from "react-icons/fa";
 import * as Yup from "yup";
 import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
+import ContactForm from "../../Forms/Contact/ContactForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -238,6 +239,16 @@ function FormHero() {
     setIsSubmitting(false);
   };
 
+  const options = [
+    { label: "Website Development", value: "Website Development" },
+    { label: "Mobile App Development", value: "Mobile App Development" },
+    { label: "Digital Marketing", value: "Digital Marketing" },
+    { label: "General Inquiry", value: "General Inquiry" },
+    { label: "Support", value: "Support" },
+    { label: "Partnership", value: "Partnership" },
+    { label: "Other", value: "Other" },
+  ];
+
   return (
     <div className={classes.root}>
       <div
@@ -328,107 +339,7 @@ function FormHero() {
               </div>
             </Grid>
             <Grid item xs={12} md={6}>
-              <form onSubmit={handleSubmit}>
-                <FormControl
-                  variant="outlined"
-                  fullWidth
-                  className={classes.field}
-                >
-                  <InputLabel id="service-label">Service</InputLabel>
-                  <Select
-                    labelId="service-label"
-                    id="service-select"
-                    name="service"
-                    label="Service"
-                    value={values.service}
-                    onChange={handleChange}
-                    MenuProps={{
-                      anchorOrigin: {
-                        vertical: "bottom",
-                        horizontal: "left",
-                      },
-                      transformOrigin: {
-                        vertical: "top",
-                        horizontal: "left",
-                      },
-                      getContentAnchorEl: null,
-                    }}
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value="Website Development">
-                      Website Development
-                    </MenuItem>
-                    <MenuItem value="Mobile App Development">
-                      Mobile App Development
-                    </MenuItem>
-                    <MenuItem value="Digital Marketing">
-                      Digital Marketing
-                    </MenuItem>
-                  </Select>
-                  {values.errors.service && (
-                    <div className={classes.errorText}>
-                      {values.errors.service}
-                    </div>
-                  )}
-                </FormControl>
-                <TextField
-                  name="name"
-                  label="Name"
-                  variant="outlined"
-                  fullWidth
-                  error={values.errors.name}
-                  helperText={values.errors.name}
-                  value={values.name}
-                  onChange={handleChange}
-                  className={classes.field}
-                />
-                <TextField
-                  name="email"
-                  label="Email"
-                  variant="outlined"
-                  fullWidth
-                  error={values.errors.email}
-                  helperText={values.errors.email}
-                  value={values.email}
-                  onChange={handleChange}
-                  className={classes.field}
-                />
-                <TextField
-                  name="phone"
-                  label="Phone"
-                  variant="outlined"
-                  fullWidth
-                  error={values.errors.phone}
-                  helperText={values.errors.phone}
-                  value={values.phone}
-                  onChange={handleChange}
-                  className={classes.field}
-                />
-                <TextField
-                  name="message"
-                  label="Message"
-                  variant="outlined"
-                  fullWidth
-                  multiline
-                  rows={4}
-                  error={values.errors.message}
-                  helperText={values.errors.message}
-                  value={values.message}
-                  onChange={handleChange}
-                  className={classes.field}
-                />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={classes.button}
-                >
-                  Send
-                </Button>
-              </form>
+              <ContactForm selectOptions={options} />
             </Grid>
           </Grid>
         </Paper>

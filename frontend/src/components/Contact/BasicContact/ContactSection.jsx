@@ -20,6 +20,7 @@ import {
   FaEnvelopeSquare,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import ContactForm from "../../Forms/Contact/ContactForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -140,6 +141,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const options = [
+  { label: "Website Development", value: "Website Development" },
+  { label: "Mobile App Development", value: "Mobile App Development" },
+  { label: "Digital Marketing", value: "Digital Marketing" },
+  { label: "General Inquiry", value: "General Inquiry" },
+  { label: "Support", value: "Support" },
+  { label: "Partnership", value: "Partnership" },
+  { label: "Other", value: "Other" },
+];
+
 export default function BusinessContactInformation() {
   const classes = useStyles();
   const [inquiryType, setInquiryType] = React.useState("");
@@ -233,57 +244,9 @@ export default function BusinessContactInformation() {
         </Grid>
         <Grid item sm={12} md={6} className={classes.tester}>
           <Paper elevation={6} className={classes.paperContainer}>
+            <h2 style={{ color: "white" }}>Contact Us</h2>
             <Grid item xs={12} className={classes.tester}>
-              <Grid item xs={12}>
-                <Typography variant="h5" className={classes.typography3}>
-                  Message Us
-                </Typography>
-              </Grid>
-              <form onSubmit={handleSubmit}>
-                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel htmlFor="inquiry-type">Inquiry Type</InputLabel>
-                  <Select
-                    value={inquiryType}
-                    onChange={handleChange}
-                    input={<Input id="inquiry-type" />}
-                    className={classes.select}
-                    variant="filled"
-                  >
-                    <MenuItem value={"general"}>General</MenuItem>
-                    <MenuItem value={"sales"}>Sales</MenuItem>
-                    <MenuItem value={"support"}>Support</MenuItem>
-                    <MenuItem value={"career"}>Career</MenuItem>
-                  </Select>
-                </FormControl>
-                <TextField
-                  className={classes.textField}
-                  label="Name"
-                  variant="outlined"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <TextField
-                  className={classes.textField}
-                  label="Email"
-                  variant="outlined"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <TextField
-                  className={classes.textField}
-                  label="Message"
-                  variant="outlined"
-                  multiline
-                  rows={4}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-              </form>
-              <Grid item xs={12} className={classes.tester}>
-                <Button className={classes.submitButton} type="submit">
-                  Send
-                </Button>
-              </Grid>
+              <ContactForm selectOptions={options} />
             </Grid>
           </Paper>
         </Grid>
