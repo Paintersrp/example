@@ -1,7 +1,7 @@
 import React from "react";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import BetterHero from "../../../components/Heros/BetterHero/BetterHero";
+import StandardHero from "../../../components/Heros/StandardHero/StandardHero";
 import BgImgHero from "../../../components/Heros/BgImgHero/BgImgHero";
 import FormHero from "../../../components/Heros/FormHero/FormHero";
 import HeroCarousel from "../../../components/Heros/HeroCarousel/HeroCarousel";
@@ -16,17 +16,17 @@ const useStyles = makeStyles((theme) => ({
 
 const items = [
   {
-    image: "public/images/masonry/img1.jpg",
+    image: "images/masonry/img1.jpg",
     buttonText: "View Project",
     buttonLink: "/item-1",
   },
   {
-    image: "public/images/masonry/img2.jpg",
+    image: "images/masonry/img2.jpg",
     buttonText: "View Project",
     buttonLink: "/item-2",
   },
   {
-    image: "public/images/masonry/img3.jpg",
+    image: "images/masonry/img3.jpg",
     buttonText: "View Project",
     buttonLink: "/item-3",
   },
@@ -112,9 +112,9 @@ function HeroesDemo() {
               margin: 0,
             }}
           >
-            BetterHero
+            StandardHero
           </h2>
-          <BetterHero />
+          <StandardHero />
         </div>
         <Divider variant="fullWidth" className={classes.divider} />
         <div>

@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BetterHero() {
+export default function StandardHero() {
   const classes = useStyles();
 
   return (
