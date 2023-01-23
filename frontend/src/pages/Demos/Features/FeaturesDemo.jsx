@@ -164,7 +164,7 @@ const featureComponents = [
   },
   {
     component: IconScroller,
-    title: "CompatibilitySection",
+    title: "IconScroller",
     props: { data: partners },
   },
   {

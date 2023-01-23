@@ -14,7 +14,7 @@ import { GiEnergySword } from "react-icons/gi";
 import { Hidden } from "@material-ui/core";
 import "./mui-nav.css";
 
-function MUI_Navbar() {
+function SimpleCollapse() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -164,4 +164,4 @@ function MUI_Navbar() {
   );
 }
 
-export default MUI_Navbar;
+export default SimpleCollapse;

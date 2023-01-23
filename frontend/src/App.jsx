@@ -4,7 +4,7 @@ import ScrollToTop from "./components/Other/HOC/ScrollToTop/ScrollToTop";
 import SEOHeader from "./components/Other/SEOHeader/SEOHeader";
 import RegisterForm from "./components/Forms/Register/RegisterForm";
 import LoginForm from "./components/Forms/Login/LoginForm";
-import MUI_Navbar from "./components/Navigation/Simple-Collapse/MUI-Navbar";
+import SimpleCollapse from "./components/Navigation/SimpleCollapse/SimpleCollapse";
 import MuiFooter from "./components/Footer/SimpleFooter/SimpleFooter";
 import LandingPage from "./pages/Landing/LandingPage";
 import AboutPage from "./pages/About/AboutPage";
@@ -14,15 +14,14 @@ import TestPage from "./pages/Test/Test";
 import PricingOverview from "./components/Pricing/StandardPricing/Pricing";
 import HeroDemo from "./pages/Demos/Heroes/HeroesDemo";
 import FeatureDemo from "./pages/Demos/Features/FeaturesDemo";
-import TemporaryDrawer from "./components/Navigation/Drawer-Based/Drawer-Based";
+import DrawerBased from "./components/Navigation/DrawerBased/DrawerBased";
 
 function App() {
   return (
     <Router>
       <SEOHeader />
       <ScrollToTop />
-      <MUI_Navbar />
-      <TemporaryDrawer />
+      <DrawerBased />
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
