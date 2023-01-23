@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -108,11 +109,12 @@ export default function CategoryTiles() {
   return (
     <div style={{ display: "flex", justifyContent: "center", padding: 40 }}>
       <Paper className={classes.outerPaper} elevation={9}>
-        <Typography className={classes.subheading}>Categories</Typography>
-        <Typography className={classes.heading}>
-          Explore Our Products
-        </Typography>
-
+        <TitleBlock
+          subtitle="Categories"
+          title="Explore Our Products"
+          alignment="Center"
+          showDivider={false}
+        />
         <div className={classes.root}>
           <Grid container spacing={1}>
             {categories.map((category) => (

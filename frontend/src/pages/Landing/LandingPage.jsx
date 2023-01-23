@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import LatestNews from "../../components/Features/LatestNews/LatestNews";
 import PricingOverview from "../../components/Pricing/BetterServicePage/ServicesPage";
 import BetterTestimonials from "../../components/Testimonials/BetterTestimonials/BetterTestimonials";
-import HeroGrid from "../../components/Heros/HeroCarousel/HeroCarousel";
+import HeroCarousel from "../../components/Heros/HeroCarousel/HeroCarousel";
 import BetterNewsletter from "../../components/Forms/Newsletter/NewsletterForm";
 import CompatibilitySection from "../../components/Features/Compatibility/Compatibility";
 import {
@@ -50,12 +50,30 @@ const partners = [
   },
 ];
 
+const items = [
+  {
+    image: "images/masonry/img1.jpg",
+    buttonText: "View Project",
+    buttonLink: "/item-1",
+  },
+  {
+    image: "images/masonry/img2.jpg",
+    buttonText: "View Project",
+    buttonLink: "/item-2",
+  },
+  {
+    image: "images/masonry/img3.jpg",
+    buttonText: "View Project",
+    buttonLink: "/item-3",
+  },
+];
+
 function LandingPage() {
   return (
     <div className="landing-container">
       <div>
         <div className="">
-          <HeroGrid />
+          <HeroCarousel items={items} />
         </div>
         <div>
           <CompatibilitySection partners={partners} />

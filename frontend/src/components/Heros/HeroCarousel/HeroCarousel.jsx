@@ -154,7 +154,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function HeroGrid() {
+export default function HeroCarousel({ items }) {
   const classes = useStyles();
 
   return (
@@ -192,7 +192,7 @@ export default function HeroGrid() {
           </Slide>
           <Grid item xs={12} md={6}>
             <SlideOnScroll from="right">
-              <CarouselX />
+              <CarouselX items={items} />
             </SlideOnScroll>
           </Grid>
         </Grid>
@@ -200,6 +200,8 @@ export default function HeroGrid() {
     </Box>
   );
 }
+
+
 
 const stats = [
   {

@@ -62,7 +62,7 @@ import DesignIcon from "@material-ui/icons/Brush";
 import DevelopIcon from "@material-ui/icons/Code";
 import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
-import HireUsCTA from "../../components/Heros/FormHero/FormHero";
+import FormHero from "../../components/Heros/FormHero/FormHero";
 import OurPartners from "../../components/Features/Partners/Partners";
 import CompatibilitySection from "../../components/Features/Compatibility/Compatibility";
 import {
@@ -293,7 +293,7 @@ export default function TestPage() {
                 </div>
               </div> */}
             <div>
-              <HireUsCTA />
+              <FormHero />
             </div>
             <div>
               <CategoryTiles />

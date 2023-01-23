@@ -10,6 +10,7 @@ import {
   Card,
 } from "@material-ui/core";
 import { FaCheck, FaHeart, FaStar, FaRocket } from "react-icons/fa";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,9 +57,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   featureText: {
-    fontSize: "0.9rem",
-    fontFamily: "Poppins",
-    fontWeight: "500",
+    fontSize: "0.95rem",
+    fontWeight: 400,
+    fontFamily: "Roboto",
+    letterSpacing: 0.25,
     textAlign: "left",
     marginLeft: 10,
   },
@@ -108,21 +110,19 @@ const getFeatures = () => {
   return [
     {
       text: "Our platform offers a user-friendly interface that makes it easy for you to navigate and find the information you need, with a simple and intuitive design that makes it easy to use.",
-      icon: <FaCheck size={20} color="white" style={{ marginRight: "10px" }} />,
+      icon: <FaCheck size={20} color="gold" style={{ marginRight: "10px" }} />,
     },
     {
       text: "We pride ourselves on providing exceptional customer service, with dedicated support team available 24/7 to assist you with any questions or concerns you may have.",
-      icon: <FaHeart size={20} color="white" style={{ marginRight: "10px" }} />,
+      icon: <FaHeart size={20} color="gold" style={{ marginRight: "10px" }} />,
     },
     {
       text: "Our platform offers a wide range of features that are tailored to meet the needs of our customers, including advanced analytics, reporting, and data visualization tools.",
-      icon: <FaStar size={20} color="white" style={{ marginRight: "10px" }} />,
+      icon: <FaStar size={20} color="gold" style={{ marginRight: "10px" }} />,
     },
     {
       text: "Our platform is designed to be highly scalable and efficient, ensuring that it can handle large amounts of data and traffic without any issues.",
-      icon: (
-        <FaRocket size={20} color="white" style={{ marginRight: "10px" }} />
-      ),
+      icon: <FaRocket size={20} color="gold" style={{ marginRight: "10px" }} />,
     },
   ];
 };
@@ -160,21 +160,12 @@ export default function GridListWithCTA() {
       <Grid container spacing={2} className={classes.gridContainer}>
         <Grid item xs={12} md={8}>
           <Paper elevation={9} className={classes.paper}>
-            <Typography className={classes.subtitle}>
-              Advanced Features
-            </Typography>
-            <Typography variant="h2" className={classes.title}>
-              Web Design
-            </Typography>
-            <Typography variant="body1" className={classes.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequatur, vel enim a deleniti, eaque fugiat asperiores tempore
-              temporibus similique veritatis eos libero reiciendis iste tempora
-              totam at facere? Laudantium atque incidunt nam porro. Molestias
-              asperiores corporis exercitationem deleniti aliquam et!
-            </Typography>
-
-            <Divider style={{ backgroundColor: "white" }} />
+            <TitleBlock
+              subtitle="Advanced Features"
+              title="Web Design"
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, vel enim a deleniti, eaque fugiat asperiores tempore temporibus similique veritatis eos libero reiciendis iste tempora totam at facere? Laudantium atque incidunt nam porro. Molestias asperiores corporis exercitationem deleniti aliquam et!"
+              alignment="Left"
+            />
             {getFeatures().map((feature) => (
               <Feature
                 key={feature.text}

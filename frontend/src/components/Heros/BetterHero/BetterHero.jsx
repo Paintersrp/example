@@ -10,6 +10,7 @@ import {
   CardContent,
   CardActions,
 } from "@material-ui/core";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -48,27 +49,46 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CallToActionWithVideo() {
+export default function BetterHero() {
   const classes = useStyles();
 
   return (
     <Container className={classes.container}>
       <Grid container spacing={4} alignItems="center">
-        <Grid item xs={12} md={6}>
-          <Typography className={classes.preheading}>Titfucker</Typography>
-          <Typography variant="h1" className={classes.heading}>
-            Write once, use everywhere!
-          </Typography>
-          <Typography variant="body1" className={classes.subheading}>
-            Snippy is a rich coding snippets app that lets you create your own
-            code snippets, categorize them, and even sync them in the cloud so
-            you can use them anywhere. All that is free!
-          </Typography>
-          <Box mt={4}>
-            <Button variant="contained" color="primary">
-              Get started
-            </Button>
-          </Box>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div style={{ maxWidth: "80%" }}>
+            <TitleBlock
+              subtitle="Get Started"
+              title="Let's bring your ideas to life"
+              description="We understand that every project is unique and requires a
+                personalized approach. Our team is here to help you turn
+                your vision into reality. Whether you need a new website, mobile app, or just some
+                help with digital marketing, we've got you covered."
+              alignment="Center"
+              showDivider={true}
+            />
+            <Box
+              mt={4}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                variant="contained"
+                color="primary"
+                style={{ marginTop: 10 }}
+              >
+                Get started
+              </Button>
+            </Box>
+          </div>
         </Grid>
         <Grid item xs={12} md={6}>
           <Card className={classes.card}>

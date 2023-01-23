@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import StarRatings from "react-star-ratings";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const CustomButton = withStyles({
   label: {
@@ -123,7 +124,15 @@ function FeaturedProducts({ products }) {
       <div className={classes.flexGrid}>
         <Paper elevation={9} className={classes.paper}>
           <Grid container spacing={2} className={classes.gridContainer}>
-            <Typography className={classes.subheading}>
+            <TitleBlock
+              subtitle="Featured Products"
+              title="Check out our top picks"
+              description="These products have been hand-selected by our team and are sure to
+              impress."
+              alignment="Center"
+              showDivider={false}
+            />
+            {/* <Typography className={classes.subheading}>
               Featured Products
             </Typography>
             <Typography className={classes.heading}>
@@ -133,9 +142,14 @@ function FeaturedProducts({ products }) {
               These products have been hand-selected by our team and are sure to
               impress.
             </Typography>
-            <Divider className={classes.divider} />
+            <Divider className={classes.divider} /> */}
 
-            <Grid container spacing={2} justifyContent="center">
+            <Grid
+              container
+              spacing={2}
+              justifyContent="center"
+              style={{ marginTop: 10 }}
+            >
               {products.map((product) => (
                 <Grid
                   item

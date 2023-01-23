@@ -12,6 +12,7 @@ import Navbar from "./components/Navigation/Sidebar/Sidebar";
 import Sidebar from "./components/Navigation/Sidebar/Sidebar";
 import TestPage from "./pages/Test/Test";
 import PricingOverview from "./components/Pricing/BetterServicePage/ServicesPage";
+import HeroesDemo from "./pages/Demos/Components/Heroes";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
 
         <Route path="/services" element={<TestPage />} />
         <Route path="/contact" element={<AboutPage />} />
+
+        <Route path="/heroes" element={<HeroesDemo />} />
       </Routes>
       <MuiFooter />
     </Router>

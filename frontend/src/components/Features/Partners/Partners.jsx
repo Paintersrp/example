@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Divider, Grid, Paper, Typography } from "@material-ui/core";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,7 +87,15 @@ export default function OurPartners() {
         }}
       >
         <Paper className={classes.paper} elevation={9}>
-          <Typography gutterBottom className={classes.subheading}>
+          <TitleBlock
+            subtitle="Our Partners"
+            title="Trusted by Many"
+            description="We are proud to work with some of the world's leading companies and
+            organizations."
+            alignment="center"
+            showDivider={true}
+          />
+          {/* <Typography gutterBottom className={classes.subheading}>
             Our Partners
           </Typography>
           <Typography gutterBottom className={classes.heading}>
@@ -106,8 +115,13 @@ export default function OurPartners() {
             We are proud to work with some of the world's leading companies and
             organizations.
           </Typography>
-          <Divider style={{ backgroundColor: "white", marginBottom: 15 }} />
-          <Grid container spacing={3} style={{ marginBottom: 0 }}>
+          <Divider style={{ backgroundColor: "white", marginBottom: 15 }} /> */}
+
+          <Grid
+            container
+            spacing={3}
+            style={{ marginTop: 10, marginBottom: 10 }}
+          >
             {partners.map(({ icon: Icon, alt }, index) => (
               <Grid item xs={6} sm={3} className={classes.grid} key={index}>
                 <Icon className={classes.logo} alt={alt} />

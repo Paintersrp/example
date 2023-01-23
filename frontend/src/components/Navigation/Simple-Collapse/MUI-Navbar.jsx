@@ -48,6 +48,9 @@ function MUI_Navbar() {
             <Link to="/test" className="navbar-link">
               Test
             </Link>
+            <Link to="/Heroes" className="navbar-link">
+              Heroes
+            </Link>
           </div>
         </Hidden>
         <Hidden xsDown>

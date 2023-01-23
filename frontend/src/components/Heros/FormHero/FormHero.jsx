@@ -20,6 +20,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import * as Yup from "yup";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -201,7 +202,7 @@ const validationSchema = Yup.object().shape({
     .required("Message is required"),
 });
 
-function HireUsCTA() {
+function FormHero() {
   const classes = useStyles();
   const [values, setValues] = useState({
     name: "",
@@ -255,43 +256,28 @@ function HireUsCTA() {
               style={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <Typography gutterBottom className={classes.subheading}>
-                Get Started
-              </Typography>
-              <Typography gutterBottom className={classes.heading}>
-                Let's bring your ideas to life
-              </Typography>
-              <Divider style={{ backgroundColor: "white", marginBottom: 20 }} />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  style={{
-                    maxWidth: "90%",
-                  }}
-                >
-                  <Typography gutterBottom className={classes.text}>
-                    We understand that every project is unique and requires a
-                    personalized approach. Our team is here to help you turn
-                    your vision into reality.
-                  </Typography>
-                  <Typography gutterBottom className={classes.text}>
-                    Whether you need a new website, mobile app, or just some
-                    help with digital marketing, we've got you covered.
-                  </Typography>
-                </div>
+              <div style={{ maxWidth: "80%" }}>
+                <TitleBlock
+                  subtitle="Get Started"
+                  title="Let's bring your ideas to life"
+                  description="We understand that every project is unique and requires a
+                personalized approach. Our team is here to help you turn
+                your vision into reality. Whether you need a new website, mobile app, or just some
+                help with digital marketing, we've got you covered."
+                  alignment="Center"
+                  showDivider={true}
+                />
               </div>
+
               <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
+                  marginTop: 10,
                 }}
               >
                 <Button
@@ -451,4 +437,4 @@ function HireUsCTA() {
   );
 }
 
-export default HireUsCTA;
+export default FormHero;

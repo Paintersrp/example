@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EventCTA() {
+export default function BgImgHero() {
   const classes = useStyles();
 
   return (

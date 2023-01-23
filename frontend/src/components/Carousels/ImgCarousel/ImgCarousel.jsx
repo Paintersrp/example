@@ -64,7 +64,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CarouselX = () => {
+const CarouselX = ({ items }) => {
   const classes = useStyles();
 
   return (

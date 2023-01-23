@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import { Icon, Box } from "@material-ui/core";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,9 +58,9 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
   },
   description: {
-    fontSize: "0.9rem",
-    fontWeight: 700,
-    fontFamily: "Poppins",
+    fontSize: "0.95rem",
+    fontWeight: 400,
+    fontFamily: "Roboto",
     textAlign: "center",
     marginBottom: theme.spacing(1),
     color: "white",
@@ -102,13 +103,12 @@ export default function CompanyProcess({ data, title, subtitle }) {
           }}
         >
           <Paper elevation={9} className={classes.paper}>
-            <Typography variant="subtitle1" className={classes.subtitle}>
-              {subtitle}
-            </Typography>
-            <Typography variant="h3" className={classes.title}>
-              {title}
-            </Typography>
-
+            <TitleBlock
+              subtitle={subtitle}
+              title={title}
+              alignment="center"
+              showDivider={false}
+            />
             <Grid container spacing={2} className={classes.gridContainer}>
               {data.map((step, index) => (
                 <Grid

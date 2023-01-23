@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
+import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const reviews = [
   {
@@ -72,13 +73,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 25,
-  },
-  description: {
-    fontFamily: "Roboto",
-    color: "white",
-    fontWeight: 500,
-    fontSize: "0.85rem",
-    letterSpacing: 0.5,
+    width: "100%",
   },
 }));
 
@@ -88,34 +83,11 @@ const CustomerReviews = () => {
     <div className={classes.root}>
       <div className={classes.container}>
         <Paper className={classes.paper} elevation={9}>
-          <Typography
-            variant="subtitle1"
-            style={{
-              color: "gold",
-              fontFamily: "Poppins",
-              fontWeight: 700,
-              fontSize: "0.8rem",
-              margin: 0,
-              padding: 0,
-            }}
-          >
-            What Our Customers Are Saying
-          </Typography>
-          <Typography
-            variant="h6"
-            gutterBottom
-            style={{
-              color: "white",
-              fontFamily: "Poppins",
-              fontWeight: 700,
-              fontSize: "2.5rem",
-              borderBottom: 0,
-              margin: 0,
-              padding: 0,
-            }}
-          >
-            Customer Reviews
-          </Typography>
+          <TitleBlock
+            subtitle="What Our Customers Are Saying"
+            title="Customer Reviews"
+            alignment="Left"
+          />
           <Grid container spacing={3}>
             {reviews.map((review, index) => (
               <Grid
@@ -141,7 +113,11 @@ const CustomerReviews = () => {
                       "{review.text}"
                     </Typography>
                   </div>
-                  <div style={{ display: "flex" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                    }}
+                  >
                     <Avatar className={classes.avatar} src={review.avatar} />
                     <Typography
                       variant="body2"
