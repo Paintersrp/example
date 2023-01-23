@@ -20,15 +20,12 @@ import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
     padding: theme.spacing(2),
     backgroundColor: "#242424",
   },
   outerPaper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.primary,
-    backgroundColor: theme.palette.background.paper,
     margin: theme.spacing(1),
     backgroundColor: "#242424",
     color: "white",

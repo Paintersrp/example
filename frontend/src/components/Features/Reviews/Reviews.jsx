@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
     maxWidth: 1400,
     textAlign: "center",
-    color: theme.palette.text.secondary,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
