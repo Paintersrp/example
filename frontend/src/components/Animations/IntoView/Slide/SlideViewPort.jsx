@@ -33,7 +33,7 @@ import { motion, useAnimation } from "framer-motion";
 //   );
 // };
 
-export const SlideOnScroll = ({ children,  from }) => {
+export const SlideOnScroll = ({ children, from }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -53,19 +53,19 @@ export const SlideOnScroll = ({ children,  from }) => {
   let start;
   let end;
   if (from === "up") {
-    start = { y: "-100%", opacity: 1 };
+    start = { y: "-100%", opacity: 0 };
     end = { y: 0, opacity: 1, transition: { duration: 1 } };
   } else if (from === "down") {
-    start = { y: "100%", opacity: 1 };
+    start = { y: "100%", opacity: 0 };
     end = { y: 0, opacity: 1, transition: { duration: 1 } };
   } else if (from === "left") {
-    start = { x: "-100%", opacity: 1 };
+    start = { x: "-100%", opacity: 0 };
     end = { x: 0, opacity: 1, transition: { duration: 1 } };
   } else if (from === "right") {
-    start = { x: "100%", opacity: 1 };
+    start = { x: "100%", opacity: 0 };
     end = { x: 0, opacity: 1, transition: { duration: 1 } };
   } else {
-    start = { y: "100%", opacity: 1 };
+    start = { y: "100%", opacity: 0 };
     end = { y: 0, opacity: 1, transition: { duration: 1 } };
   }
 

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     display: "flex",
     flexDirection: "column",
-    boxShadow: theme.shadows[5],
+    boxShadow: theme.shadows[3],
     padding: theme.spacing(2),
     borderRadius: 14,
     position: "relative",
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "&:hover": {
       transform: "scale(1.02)",
-      boxShadow: theme.shadows[10],
+      boxShadow: theme.shadows[6],
     },
   },
   testimonialHeading: {
@@ -59,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
   },
   testimonialAvatar: {
     fontFamily: "Poppins",
-    backgroundColor: "#1C1C1C",
     color: "white",
     justifyContent: "center",
     alignItems: "center",
@@ -67,8 +66,10 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       marginBottom: theme.spacing(1),
     },
-    "&:hover": {
-      transform: "scale(1.05)",
+    "& .MuiAvatar-root": {
+      width: 50,
+      height: 50,
+      marginRight: 10,
     },
   },
   testimonialAvatarName: {
@@ -81,7 +82,6 @@ const useStyles = makeStyles((theme) => ({
   },
   testimonialAvatarTitle: {
     fontFamily: "Poppins",
-    backgroundColor: "#1C1C1C",
     color: "white",
     fontSize: "0.85rem",
     "&:hover": {
@@ -116,6 +116,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     backgroundColor: "#1C1C1C",
     color: "white",
+  },
+  avatar: {
+    "& .MuiAvatar-root": {
+      width: 80,
+      height: 80,
+    },
   },
 }));
 

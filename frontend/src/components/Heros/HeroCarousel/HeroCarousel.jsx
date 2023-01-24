@@ -14,8 +14,8 @@ import { NumberCounter, TypingEffect } from "../../../pages/Test/Test";
 import { Link } from "react-router-dom";
 import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
 import { TypingIn } from "../../Animations/Typography/TypingIn/TypingIn";
+import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
 import CarouselX from "../../Carousels/ImgCarousel/ImgCarousel";
-import Carousel from "react-material-ui-carousel";
 
 const CustomButton = withStyles({
   label: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Poppins",
     backgroundColor: "#212121",
-    paddingTop: theme.spacing(12),
+    paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(12),
     position: "relative",
   },
@@ -160,36 +160,18 @@ export default function HeroCarousel({ items }) {
   return (
     <Box className={classes.root}>
       <div className={classes.overlay} />
-      <Container maxWidth="lg" className={classes.gridContainer}>
+      <Container style={{ maxWidth: "95%" }} className={classes.gridContainer}>
         <Grid container className={classes.grid}>
-          <Slide in={true} direction="right" timeout={1000}>
-            <Grid item xs={12} md={6} className={classes.gridItemLeft}>
-              <Box className={classes.title}>Custom Designs</Box>
-              <Typography variant="h1" className={classes.heading}>
-                Modern Framework, <br />
-                Design, and Hosting
-              </Typography>
-              <Box className={classes.text}>
-                <TypingEffect
-                  duration="0.02"
-                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus pretium elit sed consectetur ultricies. Praesent
-                  lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin
-                  sollicitudin, tellus et scelerisque hendrerit, leo turpis
-                  ornare diam, ac fermentum massa diam a nisi."
-                ></TypingEffect>
-              </Box>
-              <CustomButton
-                component={Link}
-                to="/about"
-                color="primary"
-                variant="contained"
-                className={classes.btnCta}
-              >
-                Get Started
-              </CustomButton>
-            </Grid>
-          </Slide>
+          <Grid item xs={12} md={6} className={classes.gridItemLeft}>
+            <HeroBlock
+              title="Custom Designs"
+              heading="Modern Framework, <br /> Design, and Hosting"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium elit sed consectetur ultricies. Praesent lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare diam, ac fermentum massa diam a nisi."
+              btnText="Get Started"
+              btnLink="/about"
+            />
+          </Grid>
+
           <Grid item xs={12} md={6}>
             <SlideOnScroll from="right">
               <CarouselX items={items} />

@@ -10,6 +10,7 @@ import {
   CardContent,
   CardActions,
 } from "@material-ui/core";
+import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
 import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,16 +62,14 @@ export default function StandardHero() {
           md={6}
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <div style={{ maxWidth: "80%" }}>
-            <TitleBlock
-              subtitle="Get Started"
-              title="Let's bring your ideas to life"
-              description="We understand that every project is unique and requires a
-                personalized approach. Our team is here to help you turn
-                your vision into reality. Whether you need a new website, mobile app, or just some
-                help with digital marketing, we've got you covered."
-              alignment="Center"
-              showDivider={true}
+          <div style={{}}>
+            <HeroBlock
+              title="Custom Designs"
+              heading="Modern Framework, <br /> Design, and Hosting"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium elit sed consectetur ultricies. Praesent lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare diam, ac fermentum massa diam a nisi."
+              btnText="Get Started"
+              btnLink="/about"
+              showButton={false}
             />
             <Box
               mt={4}

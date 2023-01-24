@@ -28,7 +28,10 @@ import {
   FaHome,
   FaSignInAlt,
   FaUnlockAlt,
+  FaHSquare,
+  FaHandLizard,
 } from "react-icons/fa";
+import { TbLetterF } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { GiEnergySword } from "react-icons/gi";
 
@@ -106,6 +109,28 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.dark,
     },
   },
+  linkText: {
+    "& .MuiTypography-body1": {
+      color: "white",
+      fontFamily: "Poppins",
+      fontWeight: "500",
+      fontSize: "0.9rem",
+    },
+    "& input": {
+      color: "white",
+    },
+  },
+  sublinkText: {
+    "& .MuiTypography-body1": {
+      color: "white",
+      fontFamily: "Poppins",
+      fontWeight: "400",
+      fontSize: "0.8rem",
+    },
+    "& input": {
+      color: "white",
+    },
+  },
   appName: {
     display: "flex",
     alignItems: "center",
@@ -149,8 +174,18 @@ const items = [
     name: "Demos",
     icon: <FaBoxOpen size={22} />,
     children: [
-      { name: "Hero Components", link: "/heroes" },
-      { name: "Feature Components", link: "/features" },
+      {
+        name: "Hero Components",
+        link: "/heroes",
+        icon: <FaHSquare size={22} />,
+      },
+      {
+        name: "Feature Components",
+        link: "/features",
+        icon: (
+          <FaHandLizard style={{ transform: "rotate(180deg)" }} size={22} />
+        ),
+      },
     ],
   },
 ];
@@ -233,7 +268,7 @@ export default function DrawerBased() {
               <ListItemIcon style={{ color: "white" }}>
                 {item.icon}
               </ListItemIcon>
-              <ListItemText primary={item.name} />
+              <ListItemText primary={item.name} className={classes.linkText} />
               {item.children &&
                 (menuOpen[item.name] ? <ExpandLess /> : <ExpandMore />)}
             </ListItem>
@@ -249,7 +284,13 @@ export default function DrawerBased() {
                       to={subItem.link}
                       onClick={handleSubMenu(item.name)}
                     >
-                      <ListItemText primary={subItem.name} />
+                      <ListItemIcon style={{ color: "white" }}>
+                        {subItem.icon}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={subItem.name}
+                        className={classes.sublinkText}
+                      />
                     </ListItem>
                   ))}
                 </List>
@@ -271,7 +312,7 @@ export default function DrawerBased() {
         <ListItemIcon style={{ color: "white" }}>
           <FaSignInAlt />
         </ListItemIcon>
-        <ListItemText primary="Login" />
+        <ListItemText primary="Login" className={classes.linkText} />
       </ListItem>
 
       <ListItem
@@ -284,7 +325,7 @@ export default function DrawerBased() {
         <ListItemIcon style={{ color: "white" }}>
           <FaUnlockAlt FaSignInAlt />
         </ListItemIcon>
-        <ListItemText primary="Register" />
+        <ListItemText primary="Register" className={classes.linkText} />
       </ListItem>
     </div>
   );

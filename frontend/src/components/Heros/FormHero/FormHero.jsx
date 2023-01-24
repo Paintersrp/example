@@ -11,6 +11,7 @@ import {
   MenuItem,
   Paper,
   Divider,
+  Slide,
 } from "@material-ui/core";
 import {
   FaPhone,
@@ -22,6 +23,7 @@ import {
 import * as Yup from "yup";
 import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 import ContactForm from "../../Forms/Contact/ContactForm";
+import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -158,7 +160,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: "#242424",
     padding: 20,
-    maxWidth: "75%",
+    maxWidth: "95%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -271,8 +273,8 @@ function FormHero() {
                 alignItems: "center",
               }}
             >
-              <div style={{ maxWidth: "80%" }}>
-                <TitleBlock
+              <div style={{}}>
+                {/* <TitleBlock
                   subtitle="Get Started"
                   title="Let's bring your ideas to life"
                   description="We understand that every project is unique and requires a
@@ -281,66 +283,80 @@ function FormHero() {
                 help with digital marketing, we've got you covered."
                   alignment="Center"
                   showDivider={true}
+                /> */}
+                <HeroBlock
+                  title="Custom Designs"
+                  heading="Modern Framework, <br /> Design, and Hosting"
+                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium elit sed consectetur ultricies. Praesent lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare diam, ac fermentum massa diam a nisi."
+                  btnText="Get Started"
+                  btnLink="/about"
+                  showButton={false}
                 />
               </div>
+              <Slide in={true} direction="right" timeout={1000}>
+                <Grid item xs={12} md={6}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: 10,
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      startIcon={<FaPhone />}
+                      href="tel:555-555-5555"
+                      className={classes.button}
+                      style={{ marginRight: 5 }}
+                    >
+                      Call Us
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      startIcon={<FaVoicemail />}
+                      href="mailto:hello@example.com"
+                      className={classes.button}
+                    >
+                      Email Us
+                    </Button>
+                  </div>
+                  <div className={classes.socialLinks}>
+                    <a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={classes.socialLink}
+                    >
+                      <FaLinkedin />
+                    </a>
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={classes.socialLink}
+                    >
+                      <FaFacebook />
+                    </a>
+                    <a
+                      href="https://twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={classes.socialLink}
+                    >
+                      <FaTwitter />
+                    </a>
+                  </div>
+                </Grid>
+              </Slide>
+            </Grid>
 
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: 10,
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  startIcon={<FaPhone />}
-                  href="tel:555-555-5555"
-                  className={classes.button}
-                  style={{ marginRight: 50 }}
-                >
-                  Call Us
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  startIcon={<FaVoicemail />}
-                  href="mailto:hello@example.com"
-                  className={classes.button}
-                >
-                  Email Us
-                </Button>
-              </div>
-              <div className={classes.socialLinks}>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={classes.socialLink}
-                >
-                  <FaLinkedin />
-                </a>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={classes.socialLink}
-                >
-                  <FaFacebook />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={classes.socialLink}
-                >
-                  <FaTwitter />
-                </a>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <ContactForm selectOptions={options} />
-            </Grid>
+            <Slide in={true} direction="left" timeout={1000}>
+              <Grid item xs={12} md={6}>
+                <ContactForm selectOptions={options} />
+              </Grid>
+            </Slide>
           </Grid>
         </Paper>
       </div>

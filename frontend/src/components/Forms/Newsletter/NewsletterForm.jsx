@@ -58,34 +58,24 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     margin: theme.spacing(1),
-    width: "100%",
-    color: "white",
-    borderColor: theme.palette.grey[600],
-    "& label.Mui-focused": {
-      color: focusedColor,
-    },
-    "& .MuiOutlinedInput-notchedOutline": {
-      borderColor: "white",
-    },
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#fdd835",
-    },
-    "& :hover .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#fdd835",
-    },
-    // focused color for input with variant='standard'
-    "& .MuiInput-underline:after": {
-      borderBottomColor: focusedColor,
-    },
-    // focused color for input with variant='filled'
-    "& .MuiFilledInput-underline:after": {
-      borderBottomColor: focusedColor,
-    },
-    // focused color for input with variant='outlined'
     "& .MuiOutlinedInput-root": {
       "&.Mui-focused fieldset": {
-        borderColor: focusedColor,
+        borderColor: "#e0e0e0",
       },
+      "& fieldset": {
+        borderColor: "white",
+      },
+      "&:hover fieldset": {
+        borderColor: "#e0e0e0",
+      },
+    },
+    "& .MuiFormLabel-root": {
+      color: "white",
+      fontWeight: "700",
+      fontSize: "0.9rem",
+    },
+    "& input": {
+      color: "white",
     },
   },
   submit: {
@@ -143,7 +133,15 @@ export default function BetterNewsletter() {
             label="Email Address"
           />
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              style={{
+                display: "flex",
+                width: "100%",
+                justifyContent: "center",
+              }}
+            >
               <CustomButton
                 variant="contained"
                 color="primary"

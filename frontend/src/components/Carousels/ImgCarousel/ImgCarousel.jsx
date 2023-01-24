@@ -1,31 +1,11 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "react-material-ui-carousel";
 import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Paper } from "@material-ui/core";
 
-const items = [
-  {
-    image: "images/masonry/img1.jpg",
-    buttonText: "View Project",
-    buttonLink: "/item-1",
-  },
-  {
-    image: "images/masonry/img2.jpg",
-    buttonText: "View Project",
-    buttonLink: "/item-2",
-  },
-  {
-    image: "images/masonry/img3.jpg",
-    buttonText: "View Project",
-    buttonLink: "/item-3",
-  },
-];
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   carousel: {
     display: "flex",
     flexDirection: "column",
@@ -36,8 +16,7 @@ const useStyles = makeStyles({
   },
   paper: {
     minWidth: 330,
-    backgroundColor: "#fafafa",
-    padding: "0.5rem",
+    backgroundColor: "#000000",
     width: "100%",
   },
   card: {
@@ -62,21 +41,74 @@ const useStyles = makeStyles({
   button: {
     marginTop: "auto",
   },
-});
+  btnContainer: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  thumbnailGallery: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
+  thumbnail: {
+    width: "15%",
+    height: "80px",
+    objectFit: "cover",
+    padding: "5px",
+    marginTop: "5px",
+    marginBottom: "5px",
+    cursor: "pointer",
+    "&:hover": {
+      transform: "scale(1.05)",
+      boxShadow: theme.shadows[7],
+      backgroundColor: "#555555",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "20%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "25%",
+    },
+  },
+}));
 
 const CarouselX = ({ items }) => {
   const classes = useStyles();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
+  const [isManualClick, setIsManualClick] = useState(false);
+
+  const handleClick = (index) => {
+    setAutoPlayEnabled(false);
+    setIsManualClick(true);
+    setActiveIndex(index);
+  };
+
+  const handleChange = (index) => {
+    if (!isManualClick) return;
+    setAutoPlayEnabled(false);
+    setTimeout(() => {
+      setAutoPlayEnabled(true);
+      setIsManualClick(false);
+    }, 250);
+  };
 
   return (
     <div className={classes.carousel}>
-      <Paper elevation={3} className={classes.paper}>
+      <Paper elevation={0} className={classes.paper}>
         <Carousel
           navButtonsAlwaysVisible={true}
           animation="fade"
-          autoPlay={true}
-          interval={3000}
-          timeout={300}
+          autoPlay={autoPlayEnabled}
+          onChange={handleChange}
+          interval={7500}
+          timeout={500}
           swipe={true}
+          index={activeIndex}
+          pauseOnHover={true}
         >
           {items.map((item, index) => (
             <div>
@@ -87,17 +119,30 @@ const CarouselX = ({ items }) => {
                   className={classes.media}
                 />
               </Card>
-              <Button
-                variant="contained"
-                color="primary"
-                href={item.buttonLink}
-                className={classes.button}
-              >
-                {item.buttonText}
-              </Button>
+              <div className={classes.btnContainer}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={item.buttonLink}
+                  className={classes.button}
+                >
+                  {item.buttonText}
+                </Button>
+              </div>
             </div>
           ))}
         </Carousel>
+        <div className={classes.thumbnailGallery}>
+          {items.map((item, index) => (
+            <img
+              src={item.image}
+              alt={item.title}
+              className={classes.thumbnail}
+              key={index}
+              onClick={() => handleClick(index)}
+            />
+          ))}
+        </div>
       </Paper>
     </div>
   );
