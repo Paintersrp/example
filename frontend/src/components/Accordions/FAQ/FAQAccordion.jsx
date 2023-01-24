@@ -1,28 +1,9 @@
 import React from "react";
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
-  Paper,
-} from "@material-ui/core";
-import { MdExpandMore } from "react-icons/Md";
-import { FaQuestion } from "react-icons/fa";
+import { Typography, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import faqData from "./faqData";
 import { Grid } from "@material-ui/core";
-
-const transitionProps = {
-  timeout: {
-    enter: 400,
-    exit: 400,
-  },
-  mountOnEnter: true,
-  unmountOnExit: true,
-  addEndListener: (node, done) => {
-    node.addEventListener("transitionend", done, false);
-  },
-};
+import AccordionQA from "../../Parts/AccordionQA/AccordionQA";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,34 +11,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#1C1C1C",
     color: theme.palette.common.white,
     padding: theme.spacing(4),
-  },
-  question: {
-    display: "flex",
-    alignItems: "center",
-  },
-  icon: {
-    marginRight: theme.spacing(1),
-    marginBottom: 4,
-    color: "white",
-    fontSize: "1rem",
-  },
-  heading: {
-    fontSize: "1.2rem",
-    fontWeight: 700,
-    fontFamily: "Poppins",
-    color: "white",
-  },
-  details: {
-    padding: theme.spacing(2),
-    backgroundColor: "#242424",
-    color: "white",
-    fontFamily: "Poppins",
-    textAlign: "left",
-  },
-  summary: {
-    backgroundColor: "#242424",
-    fontFamily: "Poppins",
-    color: "white",
   },
   title: {
     textAlign: "center",
@@ -74,15 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 const FAQAccordion = () => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState([]);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    if (isExpanded) {
-      setExpanded([...expanded, panel]);
-    } else {
-      setExpanded(expanded.filter((p) => p !== panel));
-    }
-  };
 
   return (
     <>
@@ -101,28 +45,18 @@ const FAQAccordion = () => {
           <Grid container spacing={2}>
             {faqData.map((faq) => (
               <Grid item xs={12}>
-                <Accordion
-                  expanded={expanded.includes(faq.id)}
-                  onChange={handleChange(faq.id)}
-                  disableGutters="true"
-                  TransitionProps={transitionProps}
-                >
-                  <AccordionSummary
-                    expandIcon={<MdExpandMore color="white" />}
-                    aria-controls={`${faq.id}-content`}
-                    id={`${faq.id}-header`}
-                    className={classes.summary}
-                  >
-                    <div className={classes.question}>
-                      <Typography className={classes.heading}>
-                        {faq.question}
-                      </Typography>
-                    </div>
-                  </AccordionSummary>
-                  <AccordionDetails className={classes.details}>
-                    <Typography>{faq.answer}</Typography>
-                  </AccordionDetails>
-                </Accordion>
+                {/* 
+                AccordionQA is a component that renders Accordion Question and Answer sections using a passed in FAQ from a Data Array 
+                Example of FAQ Data Array:
+                {
+                  question: "Do you offer international shipping?",
+                  answer:
+                    "Yes, we offer international shipping. Please note that shipping rates and delivery times may vary depending on the destination and shipping method chosen.",
+                  id: "1",
+                },
+
+                */}
+                <AccordionQA faq={faq} />
               </Grid>
             ))}
           </Grid>

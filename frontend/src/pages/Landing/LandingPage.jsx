@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import LatestNews from "../../components/Features/LatestNews/LatestNews";
 import PricingOverview from "../../components/Pricing/StandardPricing/Pricing";
 import BetterTestimonials from "../../components/Testimonials/SpeechBubbleTestimonials/SpeechBubbles";
-import HeroCarousel from "../../components/Heros/HeroCarousel/HeroCarousel";
+import HeroCarousel from "../../components/Heroes/HeroCarousel/HeroCarousel";
 import BetterNewsletter from "../../components/Forms/Newsletter/NewsletterForm";
 import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {

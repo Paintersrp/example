@@ -7,6 +7,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import CheckIcon from "@material-ui/icons/Check";
 import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import { FaTimes } from "react-icons/fa";
 
 const useStyles = makeStyles((theme) => ({
   detailsContainer: {
@@ -64,6 +66,20 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     boxShadow: "0px 0px 10px #00000066",
   },
+  closeIcon: {
+    right: 10,
+    top: 10,
+    position: "absolute",
+    fontSize: "1rem",
+    color: "white",
+    backgroundColor: "inherit",
+    justifyContent: "right",
+    cursor: "pointer",
+    "&:hover": {
+      transform: "scale(1.05)",
+      color: "red",
+    },
+  },
 }));
 
 export default function PricingDetails({ plan, close }) {
@@ -84,6 +100,9 @@ export default function PricingDetails({ plan, close }) {
     >
       <div className={classes.testboi}>
         <DialogContent dividers={true} className={classes.detailsContainer}>
+          <Icon className={classes.closeIcon} onClick={handleClose}>
+            <FaTimes />
+          </Icon>
           <Typography gutterBottom={true} className={classes.detailsTitle}>
             {plan.title} Plan
           </Typography>

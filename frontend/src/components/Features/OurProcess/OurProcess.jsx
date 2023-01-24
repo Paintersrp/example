@@ -2,10 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
-import { Icon, Box } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
+import FloatingFeature from "./FloatingFeature";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,57 +26,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#1C1C1C",
     maxWidth: 1400,
   },
-  iconContainer: {
-    textAlign: "center",
-    marginTop: 20,
-  },
-  icon: {
-    fontSize: "2rem",
-    color: "gold",
-  },
-  title: {
-    fontFamily: "Poppins",
-    textAlign: "center",
-    color: "white",
-    fontWeight: 700,
-    fontSize: "2rem",
-    border: 0,
-  },
-  subtitle: {
-    fontSize: "0.9rem",
-    fontWeight: 700,
-    fontFamily: "Poppins",
-    textAlign: "center",
-    color: "gold",
-  },
-  heading: {
-    fontFamily: "Poppins",
-    textAlign: "center",
-    fontWeight: 700,
-    fontSize: "1.5rem",
-    border: 0,
-  },
-  description: {
-    fontSize: "0.95rem",
-    fontWeight: 400,
-    fontFamily: "Roboto",
-    textAlign: "center",
-    marginBottom: theme.spacing(1),
-    color: "white",
-  },
   gridContainer: {
     display: "flex",
     justifyContent: "center",
     minWidth: 350,
-  },
-  stepContainer: {
-    display: "flex",
-    justifyContent: "center",
-    maxWidth: 550,
-  },
-  divider: {
-    color: "white",
-    backgroundColor: "white",
   },
   center: {
     display: "flex",
@@ -119,24 +71,7 @@ export default function OurProcess({ data, title, subtitle }) {
                   lg={4}
                   className={classes.center}
                 >
-                  <Grid container spacing={1} className={classes.stepContainer}>
-                    <Grid className={classes.iconContainer} item xs={12}>
-                      <step.icon className={classes.icon} />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Typography className={classes.heading}>
-                        {step.title}
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Typography
-                        variant="body1"
-                        className={classes.description}
-                      >
-                        {step.description}
-                      </Typography>
-                    </Grid>
-                  </Grid>
+                  <FloatingFeature step={step} />
                 </Grid>
               ))}
             </Grid>

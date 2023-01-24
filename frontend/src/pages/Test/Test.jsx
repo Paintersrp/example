@@ -62,7 +62,7 @@ import DesignIcon from "@material-ui/icons/Brush";
 import DevelopIcon from "@material-ui/icons/Code";
 import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
-import FormHero from "../../components/Heros/FormHero/FormHero";
+import FormHero from "../../components/Heroes/FormHero/FormHero";
 import Partners from "../../components/Features/Partners/Partners";
 import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
@@ -282,16 +282,6 @@ export default function TestPage() {
       <div className="yar-container">
         <div className="testerer">
           <AnimateSharedLayout>
-            {/* <div style={{ display: "flex", justifyContent: "center" }}>
-                <div
-                  style={{
-                    width: "75%",
-                    height: "75%",
-                  }}
-                >
-                  <CarouselX />
-                </div>
-              </div> */}
             <div>
               <FormHero />
             </div>

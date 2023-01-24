@@ -4,8 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import CompanyInfo from "../../components/Features/CompanyInfo/CompanyInfo";
 import TeamMembers from "../../components/Team/TileCards/MemberTiles";
 import FAQAccordion from "../../components/Accordions/FAQ/FAQAccordion";
-import BusinessContactInformation from "../../components/Contact/BasicContact/ContactSection";
+import BasicContact from "../../components/Contact/BasicContact/ContactSection";
 import CareersOpportunities from "../../components/Jobs/CareerOpportunities/CareerOpportunities";
+import BetterContact from "../../components/Contact/BetterContact/BetterContact";
 
 const members = [
   {
@@ -53,7 +54,7 @@ function AboutPage() {
           <CareersOpportunities />
         </div>
         <div className="card-container-about">
-          <BusinessContactInformation members={members} />
+          <BetterContact />
         </div>
         <Divider variant="fullWidth" className={classes.divider} />
         <div className="card-container-about">

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "react-material-ui-carousel";
 import Card from "@material-ui/core/Card";
@@ -30,13 +30,6 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 0,
     objectFit: "cover",
-  },
-  cardContent: {
-    height: "44%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
   },
   button: {
     marginTop: "auto",

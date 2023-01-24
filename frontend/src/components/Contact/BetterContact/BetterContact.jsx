@@ -1,198 +1,64 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Grid,
-  Paper,
-  Typography,
-  IconButton,
-  FormControl,
-  InputLabel,
-  Select,
-  TextField,
-  Button,
-  MenuItem,
-} from "@material-ui/core";
-import { FaAdn, Fa500Px, FaAccusoft } from "react-icons/fa";
-import { useForm } from "react-hook-form";
-
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import { Grid, Paper, Typography } from "@material-ui/core";
+import ContactForm from "../../Forms/Contact/ContactForm";
+import SocialSection from "./SocialSection";
+import ContactSection from "./ContactSection";
+import HoursSection from "./HoursSection";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    maxWidth: "85%",
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.secondary,
+    color: "white",
+    backgroundColor: "#1C1C1C",
   },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  form: {
+  contactContainer: {
     display: "flex",
     flexDirection: "column",
-    margin: "auto",
-    width: "fit-content",
-  },
-  formControl: {
-    marginTop: theme.spacing(2),
-    minWidth: 120,
+    padding: 20,
   },
 }));
 
-export default function ContactInfo() {
+export default function BetterContact() {
   const classes = useStyles();
-  const [state, setState] = useState({
-    age: "",
-    name: "",
-    email: "",
-    message: "",
-    error: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
-
-  const handleChange = (event) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.value,
-    });
-  };
-  const validate = () => {
-    let temp = { ...state.error };
-    temp.name = state.name === "" ? "Name is required" : "";
-    temp.email = state.email === "" ? "Email is required" : "";
-    temp.message = state.message === "" ? "Message is required" : "";
-    setState({
-      ...state,
-      error: temp,
-    });
-    return temp.name === "" && temp.email === "" && temp.message === "";
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validate()) {
-      console.log(state);
-      setState({
-        age: "",
-        name: "",
-        email: "",
-        message: "",
-        error: {
-          name: "",
-          email: "",
-          message: "",
-        },
-      });
-    }
-  };
+  const options = [
+    { label: "General Inquiry", value: "General Inquiry" },
+    { label: "Support", value: "Support" },
+    { label: "Partnership", value: "Partnership" },
+    { label: "Other", value: "Other" },
+  ];
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Typography variant="h5">Contact Information</Typography>
-            <IconButton aria-label="email" href="mailto:email@example.com">
-              <FaAdn fontSize="large" />
-              <Typography>email@example.com</Typography>
-            </IconButton>
-            <IconButton aria-label="phone" href="tel:+15555555555">
-              <Fa500Px fontSize="large" />
-              <Typography>+1 (555) 555-5555</Typography>
-            </IconButton>
-            <IconButton aria-label="location">
-              <FaAccusoft fontSize="large" />
-              <Typography>1234 Main St, City, State 12345</Typography>
-            </IconButton>
-            <Typography variant="h5">Follow us on</Typography>
-            <IconButton
-              aria-label="facebook"
-              href="https://www.facebook.com/example"
-            >
-              <FacebookIcon fontSize="large" />
-            </IconButton>
-            <IconButton aria-label="twitter" href="https://twitter.com/example">
-              <TwitterIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              aria-label="instagram"
-              href="https://www.instagram.com/example"
-            >
-              <InstagramIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              aria-label="linkedin"
-              href="https://www.linkedin.com/company/example"
-            >
-              <LinkedInIcon fontSize="large" />
-            </IconButton>
-            <form className={classes.form} onSubmit={handleSubmit}>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-label">
-                  Department
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={state.age}
-                  onChange={handleChange}
-                  name="age"
-                  inputProps={{
-                    name: "age",
-                    id: "age-simple",
-                  }}
-                >
-                  <option value="">None</option>
-                  <option value={10}>Sales</option>
-                  <option value={20}>Marketing</option>
-                  <option value={30}>Support</option>
-                </Select>
-              </FormControl>
-              <TextField
-                label="Name"
-                name="name"
-                onChange={handleChange}
-                value={state.name}
-                error={state.error.name !== ""}
-                helperText={state.error.name}
-              />
-              <TextField
-                label="Email"
-                name="email"
-                onChange={handleChange}
-                value={state.email}
-                error={state.error.email !== ""}
-                helperText={state.error.email}
-              />
-              <TextField
-                label="Message"
-                name="message"
-                onChange={handleChange}
-                value={state.message}
-                error={state.error.message !== ""}
-                helperText={state.error.message}
-                multiline
-                rows={4}
-              />
-              <Button type="submit" variant="contained" color="primary">
-                Submit
-              </Button>
-            </form>
-          </Paper>
+      <Paper className={classes.paper} elevation={9}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={12} md={6}>
+            <ContactSection />
+            <HoursSection />
+            <SocialSection />
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={6}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <div style={{ maxWidth: "85%" }}>
+              <Typography variant="h5" style={{ paddingBottom: 20 }}>
+                Contact Us
+              </Typography>
+              <ContactForm selectOptions={options} />
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
+      </Paper>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import {
   FaStackOverflow,
 } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Divider, Grid, Paper, Typography } from "@material-ui/core";
+import { Button, Grid, Paper } from "@material-ui/core";
 import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       cursor: "pointer",
       transform: "scale(1.05)",
+      color: "gold",
     },
   },
   cta: {

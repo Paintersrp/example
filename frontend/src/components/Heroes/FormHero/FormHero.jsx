@@ -274,16 +274,6 @@ function FormHero() {
               }}
             >
               <div style={{}}>
-                {/* <TitleBlock
-                  subtitle="Get Started"
-                  title="Let's bring your ideas to life"
-                  description="We understand that every project is unique and requires a
-                personalized approach. Our team is here to help you turn
-                your vision into reality. Whether you need a new website, mobile app, or just some
-                help with digital marketing, we've got you covered."
-                  alignment="Center"
-                  showDivider={true}
-                /> */}
                 <HeroBlock
                   title="Custom Designs"
                   heading="Modern Framework, <br /> Design, and Hosting"

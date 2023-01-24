@@ -1,7 +1,7 @@
-import BgImgHero from "../../../components/Heros/BgImgHero/BgImgHero";
-import FormHero from "../../../components/Heros/FormHero/FormHero";
-import HeroCarousel from "../../../components/Heros/HeroCarousel/HeroCarousel";
-import StandardHero from "../../../components/Heros/StandardHero/StandardHero";
+import BgImgHero from "../../../components/Heroes/BgImgHero/BgImgHero";
+import FormHero from "../../../components/Heroes/FormHero/FormHero";
+import HeroCarousel from "../../../components/Heroes/HeroCarousel/HeroCarousel";
+import StandardHero from "../../../components/Heroes/StandardHero/StandardHero";
 import Demo from "../Demo";
 
 const items = [

@@ -1,14 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Grid,
-  Typography,
-  Box,
-  Divider,
-  Button,
-  Paper,
-  CardMedia,
-  Card,
-} from "@material-ui/core";
+import { Grid, Typography, Box, Button, Paper } from "@material-ui/core";
 import { FaCheck, FaHeart, FaStar, FaRocket } from "react-icons/fa";
 import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
@@ -20,33 +11,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     display: "flex",
     minHeight: 550,
-  },
-  title: {
-    fontSize: "2.5rem",
-    fontWeight: "700",
-    textAlign: "left",
-    margin: 0,
-    padding: 0,
-  },
-  description: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(4),
-    textAlign: "left",
-    fontSize: "0.95rem",
-    fontWeight: 500,
-    fontFamily: "Poppins",
-  },
-  subtitle: {
-    fontSize: "0.85rem",
-    fontWeight: "700",
-    textAlign: "left",
-    color: "gold",
-    marginBottom: theme.spacing(2),
-  },
-  subtext: {
-    fontSize: "1rem",
-    fontWeight: "500",
-    textAlign: "center",
   },
   featureContainer: {
     display: "flex",
@@ -71,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.dark,
     },
   },
+  btnContainer: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: 20,
+  },
   gridContainer: {
     display: "flex",
     justifyContent: "center",
@@ -80,24 +49,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#1C1C1C",
     color: "white",
     padding: 30,
-  },
-  media: {
-    paddingTop: "56.25%",
-  },
-  card: {
-    boxShadow: theme.shadows[1],
-    width: "100%",
-    height: "100%",
-  },
-  cardContent: {
-    textAlign: "center",
-  },
-  imgContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    display: "flex",
-    maxHeight: 550,
-    minHeight: 550,
   },
   iconContainer: {
     display: "flex",
@@ -173,14 +124,16 @@ export default function FeatureCTA() {
                 icon={feature.icon}
               />
             ))}
-            <Button
-              variant="contained"
-              className={classes.btnCta}
-              size="medium"
-              color="primary"
-            >
-              Learn More
-            </Button>
+            <div className={classes.btnContainer}>
+              <Button
+                variant="contained"
+                className={classes.btnCta}
+                size="medium"
+                color="primary"
+              >
+                Learn More
+              </Button>
+            </div>
           </Paper>
         </Grid>
       </Grid>

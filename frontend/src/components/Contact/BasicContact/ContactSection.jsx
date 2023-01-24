@@ -151,7 +151,7 @@ const options = [
   { label: "Other", value: "Other" },
 ];
 
-export default function BusinessContactInformation() {
+export default function BasicContact() {
   const classes = useStyles();
   const [inquiryType, setInquiryType] = React.useState("");
   const [name, setName] = React.useState("");

@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { FaCode, FaPencilRuler, FaServer } from "react-icons/fa";
 import { Typography, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
 

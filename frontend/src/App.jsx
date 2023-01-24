@@ -12,8 +12,8 @@ import Navbar from "./components/Navigation/Sidebar/Sidebar";
 import Sidebar from "./components/Navigation/Sidebar/Sidebar";
 import TestPage from "./pages/Test/Test";
 import PricingOverview from "./components/Pricing/StandardPricing/Pricing";
-import HeroDemo from "./pages/Demos/Heroes/HeroesDemo";
-import FeatureDemo from "./pages/Demos/Features/FeaturesDemo";
+import HeroDemo from "./pages/Demoes/Heroes/HeroesDemo";
+import FeatureDemo from "./pages/Demoes/Features/FeaturesDemo";
 import DrawerBased from "./components/Navigation/DrawerBased/DrawerBased";
 
 function App() {

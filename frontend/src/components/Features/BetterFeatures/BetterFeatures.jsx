@@ -2,24 +2,6 @@ import React from "react";
 import { Box, Grid, Typography } from "@material-ui/core";
 import { FaHelicopter, FaDonate, FaTruckPickup } from "react-icons/fa";
 
-const Feature = ({ title, text, icon }) => {
-  return (
-    <Grid container direction="column" alignItems="center">
-      <Grid item>{icon}</Grid>
-      <Grid item>
-        <Typography variant="subtitle1" align="center">
-          {title}
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Typography variant="body2" color="textSecondary" align="center">
-          {text}
-        </Typography>
-      </Grid>
-    </Grid>
-  );
-};
-
 const featureData = [
   {
     icon: <FaHelicopter size={40} />,
@@ -37,6 +19,24 @@ const featureData = [
     text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...",
   },
 ];
+
+const Feature = ({ title, text, icon }) => {
+  return (
+    <Grid container direction="column" alignItems="center">
+      <Grid item>{icon}</Grid>
+      <Grid item>
+        <Typography variant="subtitle1" align="center">
+          {title}
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="body2" color="textSecondary" align="center">
+          {text}
+        </Typography>
+      </Grid>
+    </Grid>
+  );
+};
 
 export default function BetterFeatures() {
   return (

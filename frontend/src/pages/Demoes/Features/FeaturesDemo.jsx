@@ -21,7 +21,7 @@ import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
 import Demo from "../Demo";
 import BetterFeatures from "../../../components/Features/BetterFeatures/BetterFeatures";
-import EventSchedule from "../../../components/Features/EventSchedule/EventSchedule";
+import EventSchedule from "../../../components/Features/EventSchedule-WIP/EventSchedule";
 import FeatureCTA from "../../../components/Features/FeatureCTA/FeatureCTA";
 import FeaturedProducts from "../../../components/Features/FeaturedProducts/FeaturedProduct";
 import FeatureTiles from "../../../components/Features/FeatureTiles/FeatureTiles";
@@ -65,27 +65,27 @@ const partners = [
 const products = [
   {
     id: 1,
-    name: "Product 1",
-    image: "https://via.placeholder.com/300x200",
+    name: "Camera",
+    image: "images/products/product1.webp",
     rating: 4,
     price: "10.99",
-    description: "This is a sample product 1",
+    description: "Takes Pictures",
   },
   {
     id: 2,
-    name: "Product 2",
-    image: "https://via.placeholder.com/300x200",
+    name: "Titty Camera",
+    image: "images/products/product2.jpeg",
     rating: 3,
     price: "20.99",
-    description: "This is a sample product 2",
+    description: "It's a fucking camera",
   },
   {
     id: 3,
-    name: "Product 3",
-    image: "https://via.placeholder.com/300x200",
+    name: "Drugs",
+    image: "images/products/product3.jpeg",
     rating: 5,
     price: "30.99",
-    description: "This is a sample product 3",
+    description: "Take em",
   },
   // and so on
 ];
