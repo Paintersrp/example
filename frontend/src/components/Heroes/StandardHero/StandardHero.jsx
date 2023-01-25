@@ -1,38 +1,19 @@
 import {
   Container,
   Grid,
-  Typography,
   Button,
   makeStyles,
   Box,
   Card,
   CardMedia,
-  CardContent,
-  CardActions,
 } from "@material-ui/core";
 import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
-import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     maxWidth: "100%",
     padding: 20,
     marginBottom: 40,
-  },
-  heading: {
-    fontWeight: 800,
-    fontSize: "2.25rem",
-    marginBottom: theme.spacing(2),
-  },
-  subheading: {
-    fontWeight: 400,
-    fontSize: "1rem",
-    marginBottom: theme.spacing(2),
-  },
-  preheading: {
-    fontWeight: 700,
-    fontSize: "0.8rem",
-    color: "gold",
   },
   media: {
     height: 0,
@@ -41,12 +22,6 @@ const useStyles = makeStyles((theme) => ({
   card: {
     boxShadow: theme.shadows[1],
     margin: theme.spacing(0, 0),
-  },
-  cardContent: {
-    textAlign: "center",
-  },
-  action: {
-    justifyContent: "center",
   },
 }));
 

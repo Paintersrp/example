@@ -17,32 +17,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SocialSection() {
+export default function SocialSection({ title }) {
   const classes = useStyles();
 
   return (
     <>
-      <Typography variant="h5" style={{ paddingTop: 40 }}>
-        Follow us on
-      </Typography>
-      <IconButton aria-label="facebook" href="https://www.facebook.com/example">
-        <FacebookIcon fontSize="large" className={classes.socialIcons} />
-      </IconButton>
-      <IconButton aria-label="twitter" href="https://twitter.com/example">
-        <TwitterIcon fontSize="large" className={classes.socialIcons} />
-      </IconButton>
-      <IconButton
-        aria-label="instagram"
-        href="https://www.instagram.com/example"
+      {title && (
+        <Typography
+          variant="h5"
+          style={{
+            paddingTop: 40,
+          }}
+        >
+          Follow Us
+        </Typography>
+      )}
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
       >
-        <InstagramIcon fontSize="large" className={classes.socialIcons} />
-      </IconButton>
-      <IconButton
-        aria-label="linkedin"
-        href="https://www.linkedin.com/company/example"
-      >
-        <LinkedInIcon fontSize="large" className={classes.socialIcons} />
-      </IconButton>
+        <IconButton
+          aria-label="facebook"
+          href="https://www.facebook.com/example"
+        >
+          <FacebookIcon fontSize="large" className={classes.socialIcons} />
+        </IconButton>
+        <IconButton aria-label="twitter" href="https://twitter.com/example">
+          <TwitterIcon fontSize="large" className={classes.socialIcons} />
+        </IconButton>
+        <IconButton
+          aria-label="instagram"
+          href="https://www.instagram.com/example"
+        >
+          <InstagramIcon fontSize="large" className={classes.socialIcons} />
+        </IconButton>
+        <IconButton
+          aria-label="linkedin"
+          href="https://www.linkedin.com/company/example"
+        >
+          <LinkedInIcon fontSize="large" className={classes.socialIcons} />
+        </IconButton>
+      </div>
     </>
   );
 }

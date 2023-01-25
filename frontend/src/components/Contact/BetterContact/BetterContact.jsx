@@ -40,7 +40,7 @@ export default function BetterContact() {
           <Grid item xs={12} sm={12} md={6}>
             <ContactSection />
             <HoursSection />
-            <SocialSection />
+            <SocialSection title={true} />
           </Grid>
 
           <Grid

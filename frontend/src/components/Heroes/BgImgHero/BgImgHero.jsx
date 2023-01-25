@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Button, Box, Grid, Paper } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,11 +17,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     zIndex: 5,
     position: "relative",
-  },
-  subheading: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: "2rem",
   },
   button: {
     color: "white",

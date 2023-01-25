@@ -1,29 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Grid,
-  Container,
-  Box,
-  Typography,
-  Button,
-  Slide,
-  CardMedia,
-  Card,
-  withStyles,
-} from "@material-ui/core";
-import { NumberCounter, TypingEffect } from "../../../pages/Test/Test";
-import { Link } from "react-router-dom";
+import { Grid, Container, Box } from "@material-ui/core";
 import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
-import { TypingIn } from "../../Animations/Typography/TypingIn/TypingIn";
 import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
 import CarouselX from "../../Carousels/ImgCarousel/ImgCarousel";
-
-const CustomButton = withStyles({
-  label: {
-    fontWeight: "700 !important",
-    fontFamily: "Poppins !important",
-    fontSize: "0.85rem !important",
-  },
-})(Button);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,69 +11,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(12),
     position: "relative",
-  },
-  overlay: {
-    fontFamily: "Poppins",
-    position: "absolute",
-    width: "50%",
-    height: "100%",
-    right: 0,
-    top: 0,
-    backgroundColor: "#212121",
-    display: "none",
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      backgroundColor: "#1C1C1C",
-    },
-    [theme.breakpoints.up("md")]: {
-      display: "block",
-    },
-  },
-  title: {
-    fontFamily: "Poppins",
-    fontWeight: 700,
-    textTransform: "uppercase",
-    marginBottom: theme.spacing(1),
-    fontSize: "1.25rem",
-    color: "gold",
-  },
-  heading: {
-    fontFamily: "Poppins",
-    color: "white",
-    marginBottom: theme.spacing(0),
-    fontSize: "2.25rem",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1.5rem",
-    },
-  },
-  text: {
-    fontFamily: "Poppins",
-    fontSize: "1.25rem",
-    color: theme.palette.grey[400],
-    padding: "20px",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1rem",
-      padding: "20px",
-    },
-  },
-  statTitle: {
-    fontFamily: "Poppins",
-    fontSize: "2.25rem",
-    color: "white",
-    textAlign: "left",
-    marginBottom: theme.spacing(2),
-    [theme.breakpoints.down("md")]: {
-      fontSize: "2rem",
-    },
-  },
-  statContent: {
-    fontFamily: "Poppins",
-    fontSize: "1.1rem",
-    color: "white",
-    [theme.breakpoints.down("md")]: {
-      fontSize: "1rem",
-      padding: "0px 20px 0px 20px",
-    },
   },
   gridContainer: {
     fontFamily: "Poppins",
@@ -115,43 +31,6 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "center",
     },
   },
-  gridItemRight: {
-    padding: "20px 20px 20px 0px",
-    fontFamily: "Poppins",
-    [theme.breakpoints.up("md")]: {
-      textAlign: "center",
-    },
-  },
-  statsGrid: {
-    fontFamily: "Poppins",
-    [theme.breakpoints.up("md")]: {
-      justifyContent: "center",
-    },
-  },
-  statsFlex: {
-    fontFamily: "Poppins",
-    display: "flex",
-    justifyContent: "center",
-    color: "gold",
-  },
-  btnCta: {
-    "&:hover": {
-      transform: "scale(1.02)",
-      boxShadow: theme.shadows[7],
-      backgroundColor: theme.palette.primary.dark,
-    },
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%",
-  },
-  card: {
-    boxShadow: theme.shadows[1],
-    margin: theme.spacing(0, 0),
-  },
-  cardContent: {
-    textAlign: "center",
-  },
 }));
 
 export default function HeroCarousel({ items }) {
@@ -159,7 +38,6 @@ export default function HeroCarousel({ items }) {
 
   return (
     <Box className={classes.root}>
-      <div className={classes.overlay} />
       <Container style={{ maxWidth: "95%" }} className={classes.gridContainer}>
         <Grid container className={classes.grid}>
           <Grid item xs={12} md={6} className={classes.gridItemLeft}>
@@ -182,29 +60,3 @@ export default function HeroCarousel({ items }) {
     </Box>
   );
 }
-
-const stats = [
-  {
-    title: "10",
-    operator: "+",
-    content:
-      "Analytics modules for detailed monitoring and real-time breakdowns",
-  },
-  {
-    title: "24",
-    operator: "+",
-    content:
-      "Prebuilt page templates to get every website off the ground and online ASAP",
-  },
-  {
-    title: "30",
-    operator: "+",
-    content:
-      "Styling options to get the most customization out of your website",
-  },
-  {
-    title: "24",
-    operator: "/7",
-    content: "Availability to discuss upgrades, changes, and ongoing support",
-  },
-];
