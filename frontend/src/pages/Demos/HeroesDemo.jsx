@@ -1,8 +1,8 @@
-import BgImgHero from "../../../components/Heroes/BgImgHero/BgImgHero";
-import FormHero from "../../../components/Heroes/FormHero/FormHero";
-import HeroCarousel from "../../../components/Heroes/HeroCarousel/HeroCarousel";
-import StandardHero from "../../../components/Heroes/StandardHero/StandardHero";
-import Demo from "../Demo";
+import BgImgHero from "../../components/Heroes/BgImgHero/BgImgHero";
+import FormHero from "../../components/Heroes/FormHero/FormHero";
+import HeroCarousel from "../../components/Heroes/HeroCarousel/HeroCarousel";
+import StandardHero from "../../components/Heroes/StandardHero/StandardHero";
+import Demo from "./Demo";
 
 const items = [
   {
@@ -57,10 +57,10 @@ const heroComponents = [
     component: StandardHero,
     title: "StandardHero",
   },
-  {
-    component: BgImgHero,
-    title: "BgImgHero",
-  },
+  // {
+  //   component: BgImgHero,
+  //   title: "BgImgHero",
+  // },
 ];
 
 export default function HeroDemo() {

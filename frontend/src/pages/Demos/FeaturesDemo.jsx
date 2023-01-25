@@ -1,6 +1,6 @@
-import CategoryTiles from "../../../components/Features/Categories/Categories";
-import CompanyInfo from "../../../components/Features/CompanyInfo/CompanyInfo";
-import IconScroller from "../../../components/Features/IconScroller/IconScroller";
+import CategoryTiles from "../../components/Features/Categories/Categories";
+import CompanyInfo from "../../components/Features/CompanyInfo/CompanyInfo";
+import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
   FaTwitter,
   FaFacebook,
@@ -19,17 +19,17 @@ import DesignIcon from "@material-ui/icons/Brush";
 import DevelopIcon from "@material-ui/icons/Code";
 import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
-import Demo from "../Demo";
-import BetterFeatures from "../../../components/Features/BetterFeatures/BetterFeatures";
-import EventSchedule from "../../../components/Features/EventSchedule-WIP/EventSchedule";
-import FeatureCTA from "../../../components/Features/FeatureCTA/FeatureCTA";
-import FeaturedProducts from "../../../components/Features/FeaturedProducts/FeaturedProduct";
-import FeatureTiles from "../../../components/Features/FeatureTiles/FeatureTiles";
-import LatestNews from "../../../components/Features/LatestNews/LatestNews";
-import OurProcess from "../../../components/Features/OurProcess/OurProcess";
-import Partners from "../../../components/Features/Partners/Partners";
-import Reviews from "../../../components/Features/Reviews/Reviews";
-import WhatWeDo from "../../../components/Features/WhatWeDo/WhatWeDo";
+import Demo from "./Demo";
+import BetterFeatures from "../../components/Features/BetterFeatures/BetterFeatures";
+import EventSchedule from "../../components/Features/EventSchedule-WIP/EventSchedule";
+import FeatureCTA from "../../components/Features/FeatureCTA/FeatureCTA";
+import FeaturedProducts from "../../components/Features/FeaturedProducts/FeaturedProduct";
+import FeatureTiles from "../../components/Features/FeatureTiles/FeatureTiles";
+import LatestNews from "../../components/Features/LatestNews/LatestNews";
+import OurProcess from "../../components/Features/OurProcess/OurProcess";
+import Partners from "../../components/Features/Partners/Partners";
+import Reviews from "../../components/Features/Reviews/Reviews";
+import WhatWeDo from "../../components/Features/WhatWeDo/WhatWeDo";
 
 const partners = [
   {

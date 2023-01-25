@@ -8,9 +8,9 @@ import {
   CardMedia,
   Slide,
 } from "@material-ui/core";
-import SocialSection from "../../Contact/BetterContact/SocialSection";
+import SocialSection from "../../Parts/SocialSection";
 import ContactButtons from "../../Parts/ContactButtons";
-import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
+import HeroBlock from "../../Parts/HeroBlock";
 
 const useStyles = makeStyles((theme) => ({
   container: {

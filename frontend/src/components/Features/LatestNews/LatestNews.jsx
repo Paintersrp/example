@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import articles from "./articles.json";
 import ArticleCard from "./ArticleCard";
-import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
+import TitleBlock from "../../Parts/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {

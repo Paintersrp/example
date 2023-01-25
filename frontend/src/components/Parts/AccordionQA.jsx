@@ -4,6 +4,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
+  Grid,
 } from "@material-ui/core";
 import { MdExpandMore } from "react-icons/Md";
 import { makeStyles } from "@material-ui/core/styles";
@@ -40,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AccordionQA = ({ faq }) => {
+  console.log(faq);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState([]);
 
@@ -64,26 +66,28 @@ const AccordionQA = ({ faq }) => {
   };
 
   return (
-    <Accordion
-      expanded={expanded.includes(faq.id)}
-      onChange={handleChange(faq.id)}
-      disableGutters="true"
-      TransitionProps={transitionProps}
-    >
-      <AccordionSummary
-        expandIcon={<MdExpandMore color="white" />}
-        aria-controls={`${faq.id}-content`}
-        id={`${faq.id}-header`}
-        className={classes.summary}
+    <Grid>
+      <Accordion
+        expanded={expanded.includes(faq.id)}
+        onChange={handleChange(faq.id)}
+        disableGutters="true"
+        TransitionProps={transitionProps}
       >
-        <div className={classes.question}>
-          <Typography className={classes.heading}>{faq.question}</Typography>
-        </div>
-      </AccordionSummary>
-      <AccordionDetails className={classes.details}>
-        <Typography>{faq.answer}</Typography>
-      </AccordionDetails>
-    </Accordion>
+        <AccordionSummary
+          expandIcon={<MdExpandMore color="white" />}
+          aria-controls={`${faq.id}-content`}
+          id={`${faq.id}-header`}
+          className={classes.summary}
+        >
+          <div className={classes.question}>
+            <Typography className={classes.heading}>{faq.question}</Typography>
+          </div>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          <Typography>{faq.answer}</Typography>
+        </AccordionDetails>
+      </Accordion>
+    </Grid>
   );
 };
 

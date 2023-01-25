@@ -5,8 +5,8 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Box from "@material-ui/core/Box";
 import "./InformationSection.css";
-import ContentBlock from "./ContentBlock";
-import CoreValues from "./CoreValues";
+import ContentBlock from "../../Parts/ContentBlock";
+import CoreValues from "../../Parts/CoreValues";
 
 const useStyles = makeStyles((theme) => ({
   root: {

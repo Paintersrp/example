@@ -3,7 +3,7 @@ import { Typography, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import faqData from "./faqData";
 import { Grid } from "@material-ui/core";
-import AccordionQA from "../../Parts/AccordionQA/AccordionQA";
+import AccordionQA from "../../Parts/AccordionQA";
 
 const useStyles = makeStyles((theme) => ({
   root: {

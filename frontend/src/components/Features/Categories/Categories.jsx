@@ -13,7 +13,7 @@ import {
   FaFootballBall,
 } from "react-icons/fa";
 import Button from "@material-ui/core/Button";
-import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
+import TitleBlock from "../../Parts/TitleBlock";
 import LinkTile from "./LinkTile";
 
 const useStyles = makeStyles((theme) => ({

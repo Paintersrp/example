@@ -1,6 +1,6 @@
 import { Grid, useTheme, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
+import TitleBlock from "../../Parts/TitleBlock";
 import ProductCard from "./ProductCard";
 
 const useStyles = makeStyles((theme) => ({

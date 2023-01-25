@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProfileEditor() {
+function ProfileForm() {
   const classes = useStyles();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -92,4 +92,4 @@ function ProfileEditor() {
   );
 }
 
-export default ProfileEditor;
+export default ProfileForm;

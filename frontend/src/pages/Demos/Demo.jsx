@@ -61,13 +61,22 @@ function Demo({ demoTitle, components }) {
               variant="fullWidth"
               className={classes.divider}
             />
-            <div key={index} className="">
+            <div
+              key={index}
+              style={{
+                paddingBottom: 100,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <h2
                 style={{
                   textAlign: "center",
                   color: "white",
                   margin: 0,
-                  paddingBottom: 20,
+                  paddingBottom: 80,
                 }}
               >
                 {hero.title}

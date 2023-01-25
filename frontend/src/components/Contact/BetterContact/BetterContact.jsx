@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Paper, Typography } from "@material-ui/core";
 import ContactForm from "../../Forms/Contact/ContactForm";
-import SocialSection from "./SocialSection";
+import SocialSection from "../../Parts/SocialSection";
 import ContactSection from "./ContactSection";
 import HoursSection from "./HoursSection";
 import ContactButtons from "../../Parts/ContactButtons";

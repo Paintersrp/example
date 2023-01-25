@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BetterNewsletter() {
+export default function NewsletterForm() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [state, setState] = useState("initial");

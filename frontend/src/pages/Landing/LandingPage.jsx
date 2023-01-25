@@ -6,7 +6,7 @@ import LatestNews from "../../components/Features/LatestNews/LatestNews";
 import PricingOverview from "../../components/Pricing/StandardPricing/Pricing";
 import BetterTestimonials from "../../components/Testimonials/SpeechBubbleTestimonials/SpeechBubbles";
 import HeroCarousel from "../../components/Heroes/HeroCarousel/HeroCarousel";
-import BetterNewsletter from "../../components/Forms/Newsletter/NewsletterForm";
+import NewsletterForm from "../../components/Forms/Newsletter/NewsletterForm";
 import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
   FaTwitter,
@@ -112,7 +112,7 @@ function LandingPage() {
         <LatestNews />
       </div>
       <div className="">
-        <BetterNewsletter />
+        <NewsletterForm />
       </div>
     </div>
   );

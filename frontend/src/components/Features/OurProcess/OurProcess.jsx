@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Box } from "@material-ui/core";
-import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
-import FloatingFeature from "./FloatingFeature";
+import TitleBlock from "../../Parts/TitleBlock";
+import FloatingFeature from "../../Parts/FloatingFeature";
 
 const useStyles = makeStyles((theme) => ({
   root: {

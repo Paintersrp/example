@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Container, Box, Slide } from "@material-ui/core";
 import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
-import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
+import HeroBlock from "../../Parts/HeroBlock";
 import CarouselX from "../../Carousels/ImgCarousel/ImgCarousel";
 import ContactButtons from "../../Parts/ContactButtons";
-import SocialSection from "../../Contact/BetterContact/SocialSection";
+import SocialSection from "../../Parts/SocialSection";
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Grid, Paper } from "@material-ui/core";
-import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
+import TitleBlock from "../../Parts/TitleBlock";
 
 const useStyles = makeStyles((theme) => ({
   root: {

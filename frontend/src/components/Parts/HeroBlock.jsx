@@ -9,7 +9,7 @@ import {
   withStyles,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { TypingEffect } from "../../../pages/Test/Test";
+import { TypingEffect } from "../../pages/Test/Test";
 
 const CustomButton = withStyles({
   label: {

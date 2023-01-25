@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import TitleBlock from "../../Parts/TitleBlock/TitleBlock";
+import TitleBlock from "../../Parts/TitleBlock";
 import ReviewCard from "./ReviewCard";
 
 const reviews = [
