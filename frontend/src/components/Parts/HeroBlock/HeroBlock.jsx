@@ -48,18 +48,26 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gridItemLeft: {
-    padding: "20px 20px 20px 0px",
     fontFamily: "Poppins",
     [theme.breakpoints.up("md")]: {
       textAlign: "center",
     },
   },
   btnCta: {
+    minWidth: 140,
+    boxShadow: theme.shadows[3],
+    backgroundColor: "#1C1C1C",
+    color: theme.palette.primary.contrastText,
     "&:hover": {
       transform: "scale(1.02)",
       boxShadow: theme.shadows[7],
-      backgroundColor: theme.palette.primary.dark,
+      backgroundColor: theme.palette.action.hover,
     },
+  },
+  btnContainer: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
   },
 }));
 
@@ -74,18 +82,18 @@ const HeroBlock = ({
   const classes = useStyles();
 
   return (
-    <Slide in={true} direction="right" timeout={1000}>
-      <Grid item xs={12} md={12} className={classes.gridItemLeft}>
-        <Box className={classes.title}>{title}</Box>
-        <Typography
-          variant="h1"
-          className={classes.heading}
-          dangerouslySetInnerHTML={{ __html: heading }}
-        />
-        <Box className={classes.text}>
-          <TypingEffect duration="0.02" text={text}></TypingEffect>
-        </Box>
-        {showButton && (
+    <Grid item xs={12} md={12} className={classes.gridItemLeft}>
+      <Box className={classes.title}>{title}</Box>
+      <Typography
+        variant="h1"
+        className={classes.heading}
+        dangerouslySetInnerHTML={{ __html: heading }}
+      />
+      <Box className={classes.text}>
+        <TypingEffect duration="0.02" text={text}></TypingEffect>
+      </Box>
+      {showButton && (
+        <div className={classes.btnContainer}>
           <CustomButton
             component={Link}
             to={btnLink}
@@ -95,9 +103,9 @@ const HeroBlock = ({
           >
             {btnText}
           </CustomButton>
-        )}
-      </Grid>
-    </Slide>
+        </div>
+      )}
+    </Grid>
   );
 };
 

@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard";
 const useStyles = makeStyles((theme) => ({
   root: {
     justifyContent: "center",
-    maxWidth: "100%",
+    width: "100%",
   },
   cardContainer: {
     justifyContent: "center",
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: "#242424",
-    maxWidth: "100%",
+    width: "70%",
     padding: 20,
   },
 }));
@@ -36,7 +36,7 @@ function FeaturedProducts({ products }) {
   return (
     <div className={classes.root}>
       <div className={classes.flexGrid}>
-        <Paper elevation={9} className={classes.paper}>
+        <Paper elevation={3} className={classes.paper}>
           <Grid container spacing={2} className={classes.gridContainer}>
             <TitleBlock
               subtitle="Featured Products"

@@ -1,8 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Container, Box } from "@material-ui/core";
+import { Grid, Container, Box, Slide } from "@material-ui/core";
 import { SlideOnScroll } from "../../Animations/IntoView/Slide/SlideViewPort";
 import HeroBlock from "../../Parts/HeroBlock/HeroBlock";
 import CarouselX from "../../Carousels/ImgCarousel/ImgCarousel";
+import ContactButtons from "../../Parts/ContactButtons";
+import SocialSection from "../../Contact/BetterContact/SocialSection";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "center",
     },
   },
+  contactContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
 }));
 
 export default function HeroCarousel({ items }) {
@@ -40,15 +47,22 @@ export default function HeroCarousel({ items }) {
     <Box className={classes.root}>
       <Container style={{ maxWidth: "95%" }} className={classes.gridContainer}>
         <Grid container className={classes.grid}>
-          <Grid item xs={12} md={6} className={classes.gridItemLeft}>
-            <HeroBlock
-              title="Custom Designs"
-              heading="Modern Framework, <br /> Design, and Hosting"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium elit sed consectetur ultricies. Praesent lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare diam, ac fermentum massa diam a nisi."
-              btnText="Get Started"
-              btnLink="/about"
-            />
-          </Grid>
+          <Slide in={true} direction="right" timeout={1000}>
+            <Grid item xs={12} md={6} className={classes.gridItemLeft}>
+              <HeroBlock
+                title="Custom Designs"
+                heading="Modern Framework, <br /> Design, and Hosting"
+                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium elit sed consectetur ultricies. Praesent lacinia luctus lacus, sit amet cursus nisl faucibus ac. Proin sollicitudin, tellus et scelerisque hendrerit, leo turpis ornare diam, ac fermentum massa diam a nisi."
+                btnText="Get Started"
+                btnLink="/about"
+              />
+
+              <Grid item xs={12} md={12} className={classes.contactContainer}>
+                <ContactButtons />
+                <SocialSection />
+              </Grid>
+            </Grid>
+          </Slide>
 
           <Grid item xs={12} md={6}>
             <SlideOnScroll from="right">

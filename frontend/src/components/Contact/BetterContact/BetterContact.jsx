@@ -5,6 +5,7 @@ import ContactForm from "../../Forms/Contact/ContactForm";
 import SocialSection from "./SocialSection";
 import ContactSection from "./ContactSection";
 import HoursSection from "./HoursSection";
+import ContactButtons from "../../Parts/ContactButtons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,8 +42,8 @@ export default function BetterContact() {
             <ContactSection />
             <HoursSection />
             <SocialSection title={true} />
+            <ContactButtons />
           </Grid>
-
           <Grid
             item
             xs={12}

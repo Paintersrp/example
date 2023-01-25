@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 375,
     minWidth: 325,
     height: "100%",
+    "&:hover": {
+      transform: "scale(1.01)",
+      boxShadow: theme.shadows[14],
+    },
   },
   cardMedia: {
     paddingTop: "56.25%", // 16:9
