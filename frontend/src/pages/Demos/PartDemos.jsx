@@ -13,8 +13,47 @@ import SocialSection from "../../components/Parts/SocialSection";
 import TitleBlock from "../../components/Parts/TitleBlock";
 import Demo from "./Demo";
 import AccordionQA from "../../components/Parts/AccordionQA";
+import TestimonialCard from "../../components/Parts/TestimonialCard";
+import TeamGrid from "../../components/Team/_SquareCards/SquareCards";
+import PricingTier from "../../components/Pricing/_MinimalPricing/MinimalPricing";
+import AdvancedSnackbar from "../../components/Parts/Snackbar";
+import ComplexFooter from "../../components/Footer/_ComplexFooter/ComplexFooter";
+
+const members = [
+  {
+    name: "John Doe",
+    position: "CEO",
+    image: "images/members/member2.webp",
+    profile: "https://example.com/john-doe",
+    skills: ["Leadership", "Strategy", "Business Development"],
+    linkedin: "https://linkedin.com/john-doe",
+    twitter: "https://twitter.com/johndoe",
+  },
+];
 
 const formComponents = [
+  {
+    component: ComplexFooter,
+    title: "ComplexFooter",
+  },
+  {
+    component: PricingTier,
+    title: "PricingTier",
+  },
+  {
+    component: TestimonialCard,
+    title: "TestimonialCard",
+    props: {
+      name: "Jane Doe",
+      testimonial:
+        "I was extremely impressed with the level of service and expertise provided by this company. They exceeded my expectations and I would highly recommend them to anyone.",
+      company: "ABC Inc.",
+      position: "CEO",
+      image: "https://randomuser.com/api/portraits/women/1.jpg",
+      color: "gold",
+      textcolor: "#1C1C1C",
+    },
+  },
   {
     component: AccordionQA,
     title: "AccordionQA",
@@ -79,6 +118,42 @@ const formComponents = [
           "Our experienced designers create visually stunning websites that accurately reflect your brand and appeal.",
         icon: DesignIcon,
       },
+    },
+  },
+  {
+    component: AdvancedSnackbar,
+    title: "AdvancedSnackbar",
+    props: {
+      message: "This is a success message",
+      type: "success",
+      position: "top-right",
+    },
+  },
+  {
+    component: AdvancedSnackbar,
+    title: "AdvancedSnackbar",
+    props: {
+      message: "This is an error message",
+      type: "error",
+      position: "bottom-right",
+    },
+  },
+  {
+    component: AdvancedSnackbar,
+    title: "AdvancedSnackbar",
+    props: {
+      message: "This is an warning message",
+      type: "warning",
+      position: "bottom-left",
+    },
+  },
+  {
+    component: AdvancedSnackbar,
+    title: "AdvancedSnackbar",
+    props: {
+      message: "This is an info message",
+      type: "info",
+      position: "top-left",
     },
   },
 ];

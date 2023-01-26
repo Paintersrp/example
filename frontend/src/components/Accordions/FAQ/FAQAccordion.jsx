@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import faqData from "./faqData";
 import { Grid } from "@material-ui/core";
 import AccordionQA from "../../Parts/AccordionQA";
+import { Tabs, Tab } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,10 +24,36 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "100%",
   },
+  tab: {
+    backgroundColor: "#212121",
+    width: "20%",
+    color: "#f9f9f9",
+    fontWeight: "700",
+    fontFamily: "Poppins",
+    textTransform: "uppercase",
+    fontSize: "0.85rem",
+    minWidth: "auto",
+    marginRight: theme.spacing(1),
+    "&:focus": {
+      color: "#f9f9f9",
+    },
+    "&:hover": {
+      transform: "scale(1.02)",
+    },
+  },
+  tabsIndicator: {
+    backgroundColor: "#f9f9f9",
+  },
 }));
 
 const FAQAccordion = () => {
   const classes = useStyles();
+
+  const [currentCategory, setCurrentCategory] = useState("Shipping");
+
+  const handleTabChange = (event, newValue) => {
+    setCurrentCategory(newValue);
+  };
 
   return (
     <>
@@ -42,20 +69,22 @@ const FAQAccordion = () => {
           </Typography>
         </Grid>
         <Paper elevation={6} className={classes.root}>
-          <Grid container spacing={2}>
-            {faqData.map((faq) => (
+          <Tabs
+            value={currentCategory}
+            onChange={handleTabChange}
+            classes={{ indicator: classes.tabsIndicator }}
+          >
+            {Object.keys(faqData).map((category) => (
+              <Tab
+                label={category}
+                value={category}
+                classes={{ root: classes.tab }}
+              />
+            ))}
+          </Tabs>
+          <Grid container spacing={2} style={{ marginTop: 0 }}>
+            {faqData[currentCategory].map((faq) => (
               <Grid item xs={12}>
-                {/* 
-                AccordionQA is a component that renders Accordion Question and Answer sections using a passed in FAQ from a Data Array 
-                Example of FAQ Data Array:
-                {
-                  question: "Do you offer international shipping?",
-                  answer:
-                    "Yes, we offer international shipping. Please note that shipping rates and delivery times may vary depending on the destination and shipping method chosen.",
-                  id: "1",
-                },
-
-                */}
                 <AccordionQA faq={faq} />
               </Grid>
             ))}

@@ -203,16 +203,16 @@ const featureComponents = [
   },
   {
     component: WhatWeDo,
-    title: "WhatWeDo",
+    title: "WhatWeDo WIP",
     props: { data: whatWeDoData },
   },
   {
     component: EventSchedule,
-    title: "EventSchedule",
+    title: "EventSchedule WIP",
   },
   {
     component: BetterFeatures,
-    title: "BetterFeatures",
+    title: "BetterFeatures WIP",
   },
 ];
 

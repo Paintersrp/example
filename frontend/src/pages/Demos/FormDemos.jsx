@@ -24,7 +24,7 @@ const formComponents = [
   },
   {
     component: ProfileForm,
-    title: "ProfileForm",
+    title: "ProfileForm WIP",
   },
 ];
 
