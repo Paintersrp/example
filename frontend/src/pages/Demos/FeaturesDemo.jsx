@@ -30,6 +30,8 @@ import OurProcess from "../../components/Features/OurProcess/OurProcess";
 import Partners from "../../components/Features/Partners/Partners";
 import Reviews from "../../components/Features/Reviews/Reviews";
 import WhatWeDo from "../../components/Features/WhatWeDo/WhatWeDo";
+import MinimalTestimonials from "../../components/Testimonials/_MinimalTestimonials/MinimalTestimonials";
+import PricingTier from "../../components/Pricing/_MinimalPricing/MinimalPricing";
 
 const partners = [
   {
@@ -153,7 +155,344 @@ const whatWeDoData = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "John Doe",
+    company: "Acme Inc.",
+    review:
+      "I have been extremely satisfied with the services provided by this company. They exceeded my expectations.",
+    avatar: "https://i.pravatar.cc/150?img=1",
+  },
+  {
+    name: "Jane Smith",
+    company: "XYZ Corp.",
+    review:
+      "The team at this company was professional and efficient. I would recommend them to anyone.",
+    avatar: "https://i.pravatar.cc/150?img=2",
+  },
+  {
+    name: "Bob Johnson",
+    company: "ABC LLC.",
+    review:
+      "I was impressed with the level of expertise and attention to detail demonstrated by the team.",
+    avatar: "https://i.pravatar.cc/150?img=3",
+  },
+];
+
+const eventSets2 = [
+  {
+    day: "Monday",
+    events: [
+      {
+        date: "January 1, 2022",
+        time: "9:00 AM",
+        description:
+          "I have been extremely satisfied with the services provided by this company. They exceeded my expectations.",
+        presenter: "John Doe",
+        company: "Acme Inc.",
+        location: "Conference Room A",
+        link: "https://www.example.com/event1",
+      },
+      {
+        date: "January 1, 2022",
+        time: "10:00 AM",
+        description: "Event 2",
+        presenter: "Jane Smith",
+        company: "ABC Corp.",
+        location: "Conference Room B",
+        link: "https://www.example.com/event2",
+      },
+      {
+        date: "January 1, 2022",
+        time: "9:00 AM",
+        description: "Event 3",
+        presenter: "John Doe",
+        company: "Acme Inc.",
+        location: "Conference Room A",
+        link: "https://www.example.com/event1",
+      },
+      {
+        date: "January 1, 2022",
+        time: "10:00 AM",
+        description: "Event 4",
+        presenter: "Jane Smith",
+        company: "ABC Corp.",
+        location: "Conference Room B",
+        link: "https://www.example.com/event2",
+      },
+      {
+        date: "January 1, 2022",
+        time: "9:00 AM",
+        description: "Event 5",
+        presenter: "John Doe",
+        company: "Acme Inc.",
+        location: "Conference Room A",
+        link: "https://www.example.com/event1",
+      },
+      {
+        date: "January 1, 2022",
+        time: "10:00 AM",
+        description: "Event 6",
+        presenter: "Jane Smith",
+        company: "ABC Corp.",
+        location: "Conference Room B",
+        link: "https://www.example.com/event2",
+      },
+    ],
+  },
+  {
+    day: "Tuesday",
+    events: [
+      {
+        date: "January 2, 2022",
+        time: "9:00 AM",
+        description: "Event 3",
+        presenter: "Bob Johnson",
+        company: "XYZ Inc.",
+        location: "Conference Room C",
+        link: "https://www.example.com/event3",
+      },
+      {
+        date: "January 2, 2022",
+        time: "10:00 AM",
+        description: "Event 4",
+        presenter: "Mary Brown",
+        company: "MyCompany LLC.",
+        location: "Conference Room D",
+        link: "https://www.example.com/event4",
+      },
+    ],
+  },
+  {
+    day: "Wednesday",
+    events: [
+      {
+        date: "January 2, 2022",
+        time: "9:00 AM",
+        description: "Event 3",
+        presenter: "Bob Johnson",
+        company: "XYZ Inc.",
+        location: "Conference Room C",
+        link: "https://www.example.com/event3",
+      },
+      {
+        date: "January 2, 2022",
+        time: "10:00 AM",
+        description: "Event 4",
+        presenter: "Mary Brown",
+        company: "MyCompany LLC.",
+        location: "Conference Room D",
+        link: "https://www.example.com/event4",
+      },
+    ],
+  },
+  {
+    day: "Thursday",
+    events: [
+      {
+        date: "January 2, 2022",
+        time: "9:00 AM",
+        description: "Event 3",
+        presenter: "Bob Johnson",
+        company: "XYZ Inc.",
+        location: "Conference Room C",
+        link: "https://www.example.com/event3",
+      },
+      {
+        date: "January 2, 2022",
+        time: "10:00 AM",
+        description: "Event 4",
+        presenter: "Mary Brown",
+        company: "MyCompany LLC.",
+        location: "Conference Room D",
+        link: "https://www.example.com/event4",
+      },
+    ],
+  },
+];
+
+const faqData = {
+  Shipping: [
+    {
+      question: "Do you offer international shipping?",
+      answer:
+        "Yes, we offer international shipping. Please note that shipping rates and delivery times may vary depending on the destination and shipping method chosen.",
+      id: "1",
+    },
+    {
+      question: "How long does it take for my order to ship?",
+      answer:
+        "Orders typically ship within 1-2 business days. Shipping times may vary depending on your location.",
+      id: "2",
+    },
+  ],
+  Returns: [
+    {
+      question: "What is your return policy?",
+      answer:
+        "We accept returns within 30 days of purchase. Items must be in their original condition.",
+      id: "3",
+    },
+    {
+      question: "How do I initiate a return?",
+      answer: "To initiate a return, please contact us at returns@example.com",
+      id: "4",
+    },
+  ],
+  Payment: [
+    {
+      question: "What forms of payment do you accept?",
+      answer: "We accept Visa, Mastercard, American Express, and PayPal.",
+      id: "5",
+    },
+    {
+      question: "Is it safe to use my credit card on your website?",
+      answer:
+        "Yes, our website is secured with SSL encryption to ensure the safety of your personal information.",
+      id: "6",
+    },
+  ],
+};
+
+const eventSets = {
+  Monday: [
+    {
+      date: "January 1, 2022",
+      time: "9:00 AM",
+      description:
+        "I have been extremely satisfied with the services provided by this company. They exceeded my expectations.",
+      presenter: "John Doe",
+      company: "Acme Inc.",
+      location: "Conference Room A",
+      link: "https://www.example.com/event1",
+    },
+    {
+      date: "January 1, 2022",
+      time: "10:00 AM",
+      description: "Event 2",
+      presenter: "Jane Smith",
+      company: "ABC Corp.",
+      location: "Conference Room B",
+      link: "https://www.example.com/event2",
+    },
+    {
+      date: "January 1, 2022",
+      time: "9:00 AM",
+      description: "Event 3",
+      presenter: "John Doe",
+      company: "Acme Inc.",
+      location: "Conference Room A",
+      link: "https://www.example.com/event1",
+    },
+    {
+      date: "January 1, 2022",
+      time: "10:00 AM",
+      description: "Event 4",
+      presenter: "Jane Smith",
+      company: "ABC Corp.",
+      location: "Conference Room B",
+      link: "https://www.example.com/event2",
+    },
+    {
+      date: "January 1, 2022",
+      time: "9:00 AM",
+      description: "Event 5",
+      presenter: "John Doe",
+      company: "Acme Inc.",
+      location: "Conference Room A",
+      link: "https://www.example.com/event1",
+    },
+    {
+      date: "January 1, 2022",
+      time: "10:00 AM",
+      description: "Event 6",
+      presenter: "Jane Smith",
+      company: "ABC Corp.",
+      location: "Conference Room B",
+      link: "https://www.example.com/event2",
+    },
+  ],
+  Tuesday: [
+    {
+      date: "January 2, 2022",
+      time: "9:00 AM",
+      description: "Event 3",
+      presenter: "Bob Johnson",
+      company: "XYZ Inc.",
+      location: "Conference Room C",
+      link: "https://www.example.com/event3",
+    },
+    {
+      date: "January 2, 2022",
+      time: "10:00 AM",
+      description: "Event 4",
+      presenter: "Mary Brown",
+      company: "MyCompany LLC.",
+      location: "Conference Room D",
+      link: "https://www.example.com/event4",
+    },
+  ],
+  Wednesday: [
+    {
+      date: "January 2, 2022",
+      time: "9:00 AM",
+      description: "Event 3",
+      presenter: "Bob Johnson",
+      company: "XYZ Inc.",
+      location: "Conference Room C",
+      link: "https://www.example.com/event3",
+    },
+    {
+      date: "January 2, 2022",
+      time: "10:00 AM",
+      description: "Event 4",
+      presenter: "Mary Brown",
+      company: "MyCompany LLC.",
+      location: "Conference Room D",
+      link: "https://www.example.com/event4",
+    },
+  ],
+  Thursday: [
+    {
+      date: "January 2, 2022",
+      time: "9:00 AM",
+      description: "Event 3",
+      presenter: "Bob Johnson",
+      company: "XYZ Inc.",
+      location: "Conference Room C",
+      link: "https://www.example.com/event3",
+    },
+    {
+      date: "January 2, 2022",
+      time: "10:00 AM",
+      description: "Event 4",
+      presenter: "Mary Brown",
+      company: "MyCompany LLC.",
+      location: "Conference Room D",
+      link: "https://www.example.com/event4",
+    },
+  ],
+};
+
 const featureComponents = [
+  {
+    component: EventSchedule,
+    title: "EventSchedule",
+    props: {
+      eventSets,
+    },
+  },
+  {
+    component: MinimalTestimonials,
+    title: "MinimalTestimonials",
+    props: {
+      testimonials,
+    },
+  },
+  {
+    component: PricingTier,
+    title: "PricingTier",
+  },
   {
     component: CategoryTiles,
     title: "CategoryTiles",
@@ -162,11 +501,11 @@ const featureComponents = [
     component: CompanyInfo,
     title: "CompanyInfo",
   },
-  {
-    component: IconScroller,
-    title: "IconScroller",
-    props: { data: partners },
-  },
+  // {
+  //   component: IconScroller,
+  //   title: "IconScroller",
+  //   props: { data: partners },
+  // },
   {
     component: FeatureCTA,
     title: "FeatureCTA",
@@ -205,10 +544,6 @@ const featureComponents = [
     component: WhatWeDo,
     title: "WhatWeDo WIP",
     props: { data: whatWeDoData },
-  },
-  {
-    component: EventSchedule,
-    title: "EventSchedule WIP",
   },
   {
     component: BetterFeatures,

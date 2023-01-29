@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: 20,
     backgroundColor: "#242424",
+    borderRadius: 14,
   },
   icon: {
     margin: theme.spacing(1),

@@ -31,6 +31,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GiEnergySword, GiPlatform } from "react-icons/gi";
+import { MdContactSupport } from "react-icons/Md";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -166,6 +167,11 @@ const items = [
     name: "Contact",
     icon: <FaAddressCard size={22} />,
     link: "/about",
+  },
+  {
+    name: "Support",
+    icon: <MdContactSupport size={22} />,
+    link: "/ticket",
   },
   {
     name: "Demos",

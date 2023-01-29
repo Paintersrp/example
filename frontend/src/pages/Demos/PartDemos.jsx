@@ -14,20 +14,64 @@ import TitleBlock from "../../components/Parts/TitleBlock";
 import Demo from "./Demo";
 import AccordionQA from "../../components/Parts/AccordionQA";
 import TestimonialCard from "../../components/Parts/TestimonialCard";
-import TeamGrid from "../../components/Team/_SquareCards/SquareCards";
 import PricingTier from "../../components/Pricing/_MinimalPricing/MinimalPricing";
 import AdvancedSnackbar from "../../components/Parts/Snackbar";
 import ComplexFooter from "../../components/Footer/_ComplexFooter/ComplexFooter";
+import TeamCard from "../../components/Team/_SquareCards/SquareCards";
+import MinimalTestimonials from "../../components/Testimonials/_MinimalTestimonials/MinimalTestimonials";
 
-const members = [
+// {
+//     component: TeamCard,
+//     title: "TeamCard",
+//     props: {
+//       image: "images/members/member1.webp",
+//       name: "John Doe",
+//       position: "CEO",
+//       socials: [
+//         {
+//           platform: "LinkedIn",
+//           link: "https://www.linkedin.com/in/johndoe",
+//         },
+//         {
+//           platform: "Twitter",
+//           link: "https://twitter.com/johndoe",
+//         },
+//       ],
+//       skills: [
+//         {
+//           skill: "Node.js",
+//         },
+//         {
+//           skill: "React",
+//         },
+//         {
+//           skill: "JavaScript",
+//         },
+//       ],
+//     },
+//   },
+
+const testimonials = [
   {
     name: "John Doe",
-    position: "CEO",
-    image: "images/members/member2.webp",
-    profile: "https://example.com/john-doe",
-    skills: ["Leadership", "Strategy", "Business Development"],
-    linkedin: "https://linkedin.com/john-doe",
-    twitter: "https://twitter.com/johndoe",
+    company: "Acme Inc.",
+    review:
+      "I have been extremely satisfied with the services provided by this company. They exceeded my expectations.",
+    avatar: "https://i.pravatar.cc/150?img=1",
+  },
+  {
+    name: "Jane Smith",
+    company: "XYZ Corp.",
+    review:
+      "The team at this company was professional and efficient. I would recommend them to anyone.",
+    avatar: "https://i.pravatar.cc/150?img=2",
+  },
+  {
+    name: "Bob Johnson",
+    company: "ABC LLC.",
+    review:
+      "I was impressed with the level of expertise and attention to detail demonstrated by the team.",
+    avatar: "https://i.pravatar.cc/150?img=3",
   },
 ];
 
@@ -35,10 +79,6 @@ const formComponents = [
   {
     component: ComplexFooter,
     title: "ComplexFooter",
-  },
-  {
-    component: PricingTier,
-    title: "PricingTier",
   },
   {
     component: TestimonialCard,

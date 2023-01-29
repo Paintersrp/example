@@ -1,163 +1,161 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(6),
-    color: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
-    minHeight: 550,
-  },
-  gridContainer: {
     backgroundColor: "#1C1C1C",
-    padding: 20,
+    padding: theme.spacing(4),
+    borderRadius: 14,
+    width: "60%",
+    minHeight: 500,
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+    },
   },
-  dayHeading: {
-    fontSize: "1.5rem",
-    fontWeight: 700,
-    fontFamily: "Poppins",
+  card: {
+    borderRadius: 7,
     color: "white",
-    borderRadius: theme.shape.borderRadius,
-  },
-  eventList: {
+    backgroundColor: "#242424",
     width: "100%",
+    marginBottom: 15,
+    boxShadow:
+      "0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)",
+    "&:hover": {
+      boxShadow:
+        "0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)",
+    },
   },
-  event: {
-    display: "flex",
-    alignItems: "center",
-  },
-  eventName: {
-    fontSize: "1rem",
-    fontWeight: 500,
+  title: {
     fontFamily: "Poppins",
-    flex: 1,
-    color: "white",
+    fontWeight: 600,
+    fontSize: "1.5rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.25rem",
+    },
   },
-  eventTime: {
-    fontSize: "1rem",
-    fontWeight: 500,
+  pos: {
     fontFamily: "Poppins",
-    flex: 1,
-    textAlign: "right",
-    color: "white",
-  },
-  divider: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    color: "white",
-    backgroundColor: "white",
-  },
-  subheading: {
-    fontWeight: "bold",
-    marginBottom: theme.spacing(1),
-  },
-  heading: {
-    fontWeight: "bold",
-    marginBottom: theme.spacing(2),
+    fontWeight: 500,
+    marginTop: theme.spacing(4),
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.85rem",
+    },
   },
   description: {
-    fontWeight: "light",
-    marginBottom: theme.spacing(2),
+    fontFamily: "Poppins",
+    fontWeight: 500,
+    fontSize: "1.2rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1rem",
+    },
+  },
+  moreInformation: {
+    marginTop: theme.spacing(50),
+    color: theme.palette.secondary.main,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.85rem",
+    },
+  },
+  tab: {
+    borderRadius: 7,
+    display: "flex",
+    backgroundColor: "#212121",
+    color: "#f9f9f9",
+    fontWeight: "700",
+    fontFamily: "Poppins",
+    textTransform: "uppercase",
+    marginLeft: 5,
+    marginRight: 5,
+    fontSize: "0.85rem",
+    "&:focus": {
+      color: "#f9f9f9",
+    },
+    "&:hover": {
+      transform: "scale(1.02)",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "0.7rem",
+    },
+  },
+  tabs: {
+    marginBottom: 20,
+  },
+  tabsIndicator: {
+    backgroundColor: "#f9f9f9",
+  },
+  flexContainer: {
+    display: "flex",
+    width: "100%",
   },
 }));
 
-export default function EventSchedule() {
+export default function EventSchedule({ eventSets }) {
   const classes = useStyles();
-  const eventData = [
-    {
-      day: "Monday",
-      events: [
-        { name: "Event 1", time: "9:00 AM" },
-        { name: "Event 2", time: "11:00 AM" },
-        { name: "Event 3", time: "1:00 PM" },
-      ],
-    },
-    {
-      day: "Tuesday",
-      events: [
-        { name: "Event 4", time: "9:00 AM" },
-        { name: "Event 5", time: "11:00 AM" },
-        { name: "Event 6", time: "1:00 PM" },
-      ],
-    },
-    {
-      day: "Wednesday",
-      events: [
-        { name: "Event 1", time: "9:00 AM" },
-        { name: "Event 2", time: "11:00 AM" },
-        { name: "Event 3", time: "1:00 PM" },
-      ],
-    },
-    {
-      day: "Thursday",
-      events: [
-        { name: "Event 4", time: "9:00 AM" },
-        { name: "Event 5", time: "11:00 AM" },
-        { name: "Event 6", time: "1:00 PM" },
-      ],
-    },
-    //...
-  ];
+  const [value, setValue] = React.useState("Monday");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
-    <Paper elevation={9} className={classes.root}>
-      <Typography
-        className={classes.subheading}
-        variant="subtitle2"
-        component="p"
+    <div className={classes.root}>
+      <Tabs
+        variant="fullWidth"
+        value={value}
+        onChange={handleChange}
+        className={classes.tabs}
+        classes={{
+          indicator: classes.tabsIndicator,
+          flexContainer: classes.flexContainer,
+        }}
       >
-        Expo Upcoming Events
-      </Typography>
-      <Typography className={classes.heading} variant="h5" component="h3">
-        Upcoming Expo Events
-      </Typography>
-      <Typography
-        className={classes.description}
-        variant="subtitle1"
-        component="p"
-      >
-        A list of events for a 4 day expo.
-      </Typography>
-      <Divider className={classes.divider} />
-      <Grid container spacing={2} className={classes.gridContainer}>
-        {eventData.map((day, index) => (
-          <Grid item xs={12} key={day.day}>
-            <Typography
-              className={classes.dayHeading}
-              variant="h6"
-              component="h4"
-            >
-              {day.day}
-            </Typography>
-            <List className={classes.eventList}>
-              {day.events.map((event) => (
-                <ListItem key={event.name} className={classes.event}>
-                  <ListItemText
-                    primary={event.name}
-                    secondary={event.time}
-                    classes={{
-                      primary: classes.eventName,
-                      secondary: classes.eventTime,
-                    }}
-                  />
-                </ListItem>
-              ))}
-            </List>
-            {index !== eventData.length - 1 && (
-              <Divider className={classes.divider} />
-            )}
-          </Grid>
+        {Object.keys(eventSets).map((eventSet) => (
+          <Tab
+            label={eventSet}
+            value={eventSet}
+            classes={{ root: classes.tab }}
+          />
+        ))}
+      </Tabs>
+      <Grid container spacing={2}>
+        {eventSets[value].map((event) => (
+          <Card key={event.id} className={classes.card}>
+            <CardContent>
+              <Grid container spacing={2}>
+                <Grid item xs={2}>
+                  <Typography className={classes.title}>
+                    {event.time}
+                  </Typography>
+                </Grid>
+                <Grid item xs={10}>
+                  <Typography className={classes.title}>
+                    {event.title}
+                  </Typography>
+                  <Typography className={classes.description}>
+                    {event.description}
+                  </Typography>
+                  <Typography className={classes.pos}>
+                    {event.presenter} - {event.company}
+                  </Typography>
+                  <Typography
+                    className={classes.moreInformation}
+                    component="a"
+                    target="_blank"
+                  >
+                    {event.location}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
         ))}
       </Grid>
-    </Paper>
+    </div>
   );
 }

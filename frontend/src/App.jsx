@@ -13,6 +13,7 @@ import FeatureDemo from "./pages/Demos/FeaturesDemo";
 import DrawerBased from "./components/Navigation/DrawerBased/DrawerBased";
 import FormDemo from "./pages/Demos/FormDemos";
 import PartsDemo from "./pages/Demos/PartDemos";
+import SupportPage from "./pages/Support/SupportPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="/ticket" element={<SupportPage />} />
 
         <Route path="/services" element={<TestPage />} />
         <Route path="/contact" element={<AboutPage />} />

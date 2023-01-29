@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "react-material-ui-carousel";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
-import { Paper } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   carousel: {
@@ -41,28 +41,20 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   thumbnailGallery: {
+    maxHeight: "80px",
+    minWidth: "100%",
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-around",
   },
   thumbnail: {
-    width: "15%",
-    height: "80px",
+    width: "100%",
+    height: "100%",
     objectFit: "cover",
-    padding: "5px",
-    marginTop: "5px",
-    marginBottom: "5px",
     cursor: "pointer",
     "&:hover": {
-      transform: "scale(1.05)",
+      transform: "scale(1.01)",
       boxShadow: theme.shadows[7],
-      backgroundColor: "#555555",
-    },
-    [theme.breakpoints.down("md")]: {
-      width: "20%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "25%",
+      border: "0.5px solid gold",
     },
   },
 }));
@@ -126,15 +118,19 @@ const CarouselX = ({ items }) => {
           ))}
         </Carousel>
         <div className={classes.thumbnailGallery}>
-          {items.map((item, index) => (
-            <img
-              src={item.image}
-              alt={item.title}
-              className={classes.thumbnail}
-              key={index}
-              onClick={() => handleClick(index)}
-            />
-          ))}
+          <Grid container spacing={0}>
+            {items.map((item, index) => (
+              <Grid item xs={2} style={{ maxHeight: "80px" }}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={classes.thumbnail}
+                  key={index}
+                  onClick={() => handleClick(index)}
+                />
+              </Grid>
+            ))}
+          </Grid>
         </div>
       </Paper>
     </div>

@@ -1,6 +1,8 @@
 import BgImgHero from "../../components/Heroes/BgImgHero/BgImgHero";
 import FormHero from "../../components/Heroes/FormHero/FormHero";
 import HeroCarousel from "../../components/Heroes/HeroCarousel/HeroCarousel";
+import HeroCountdown from "../../components/Heroes/HeroCountdown/HeroCountdown";
+import OtherHero from "../../components/Heroes/OtherHero/OtherHero";
 import StandardHero from "../../components/Heroes/StandardHero/StandardHero";
 import Demo from "./Demo";
 
@@ -44,6 +46,21 @@ const items = [
 ];
 
 const heroComponents = [
+  {
+    component: OtherHero,
+    title: "OtherHero",
+    props: {
+      title: "Welcome to My App",
+      subtitle: "Learn more about our services",
+      tagline: "Discover the best way to improve your business",
+      buttonText: "Learn More",
+      buttonLink: "#services",
+    },
+  },
+  {
+    component: HeroCountdown,
+    title: "HeroCountdown",
+  },
   {
     component: FormHero,
     title: "FormHero",

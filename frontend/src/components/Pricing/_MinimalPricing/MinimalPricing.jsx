@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
+    width: "100%",
   },
   pricingCard: {
     zIndex: 2,
@@ -96,7 +97,7 @@ const PricingTier = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={0}>
         <Grid item xs={12} sm={6} md={4} className={classes.gridContainer}>
           <PricingCard
             title="Basic"
