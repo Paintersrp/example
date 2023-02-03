@@ -32,7 +32,6 @@ def article_list(request):
 
 @csrf_exempt
 def article_detail(request, pk):
-    print("Working")
     article = get_object_or_404(Article, pk=pk)
     serializer = ArticleSerializer(article)
 
@@ -41,7 +40,6 @@ def article_detail(request, pk):
 
 @csrf_exempt
 def article_delete(request, pk):
-    print("NotWorking")
     article = get_object_or_404(Article, pk=pk)
     article.delete()
     return HttpResponse(status=204)
@@ -57,7 +55,6 @@ def article_create(request):
 
         token = authorization_header.split(" ")[1]
         username = jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"])
-        print(username)
         user = User.objects.get(username=username["user"])
 
         form_data = request.POST
@@ -82,8 +79,6 @@ def article_create(request):
             article = serializer.create(validated_data=data, username=user)
 
             return JsonResponse(serializer.data, status=201)
-        else:
-            print(serializer.errors)
 
         return JsonResponse(serializer.errors, status=400)
 
@@ -133,7 +128,6 @@ def login_view(request):
 
     if request.method == "POST":
         data = json.loads(request.body)
-        print(data)
 
         if not data["username"] or not data["password"]:
             return JsonResponse({"error": "Missing required fields"}, status=400)
@@ -164,7 +158,6 @@ def register(request):
 
     if request.method == "POST":
         data = json.loads(request.body)
-        print(data["username"])
 
         if not data["username"] or not data["email"] or not data["password"]:
             return JsonResponse({"error": "Missing required fields"}, status=400)

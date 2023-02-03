@@ -63,14 +63,6 @@ class ArticleSerializer(serializers.ModelSerializer):
         return article
 
     def update(self, instance, validated_data):
-        print("Test:", validated_data.get("title"))
-        # data = {
-        #     "title": validated_data.get("title")
-        #     "content": obj.content,
-        #     "author": obj.author,
-        #     "tags": [{"name": tag.name} for tag in obj.tags.all()],
-        #     "image": obj.image,
-        # }
         instance.title = validated_data.get("title", instance.title)
         instance.content = validated_data.get("content", instance.content)
         instance.image = validated_data.get("image", instance.image)
@@ -85,9 +77,7 @@ class ArticleSerializer(serializers.ModelSerializer):
                 tag_objs.append(tag)
             instance.tags.set(tag_objs)
 
-        print("Testttttt")
         Article.objects.filter(id=17).update()
         instance.save()
-        print("Testtttttteeettt")
 
         return instance
