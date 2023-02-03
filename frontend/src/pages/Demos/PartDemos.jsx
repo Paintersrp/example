@@ -19,6 +19,7 @@ import AdvancedSnackbar from "../../components/Parts/Snackbar";
 import ComplexFooter from "../../components/Footer/_ComplexFooter/ComplexFooter";
 import TeamCard from "../../components/Team/_SquareCards/SquareCards";
 import MinimalTestimonials from "../../components/Testimonials/_MinimalTestimonials/MinimalTestimonials";
+import ImageGallery from "../../components/Gallery/Quilted/ImageGallery";
 
 // {
 //     component: TeamCard,
@@ -75,7 +76,51 @@ const testimonials = [
   },
 ];
 
+const images2 = [
+  {
+    id: 1,
+    url: "images/masonry/img1.jpg",
+    title: "Image 1",
+    description: "Titters cuck cuck cuck cuck cuck cuck cuck cuck Titters",
+  },
+  {
+    id: 2,
+    url: "images/masonry/img2.jpg",
+    title: "Image 2",
+    description: "Titters",
+  },
+  {
+    id: 3,
+    url: "images/masonry/img3.jpg",
+    title: "Image 3",
+    description: "Titters",
+  },
+  {
+    id: 4,
+    url: "images/masonry/img4.jpeg",
+    title: "Image 4",
+    description: "Titters",
+  },
+  {
+    id: 5,
+    url: "images/masonry/img5.jpeg",
+    title: "Image 5",
+    description: "Titters",
+  },
+  {
+    id: 6,
+    url: "images/masonry/img6.jpeg",
+    title: "Image 6",
+    description: "Titters",
+  },
+];
+
 const formComponents = [
+  {
+    component: ImageGallery,
+    title: "ImageGallery",
+    props: { images: images2 },
+  },
   {
     component: ComplexFooter,
     title: "ComplexFooter",

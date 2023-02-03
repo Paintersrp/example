@@ -28,6 +28,7 @@ import {
   FaHSquare,
   FaHandLizard,
   FaCogs,
+  FaRegNewspaper,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GiEnergySword, GiPlatform } from "react-icons/gi";
@@ -152,6 +153,11 @@ const items = [
     name: "Home",
     icon: <FaHome size={22} />,
     link: "/",
+  },
+  {
+    name: "Articles",
+    icon: <FaRegNewspaper size={22} />,
+    link: "/articles",
   },
   {
     name: "About",

@@ -15,6 +15,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import { IoLogoAngular } from "react-icons/io";
+import Cookies from "js-cookie";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -131,9 +132,9 @@ const LoginForm = () => {
     event.preventDefault();
     if (validateForm()) {
       axios
-        .post("/api/login", formData)
+        .post("http://127.0.0.1:8000/api/login/", formData)
         .then((res) => {
-          console.log(res);
+          Cookies.set("jwt", res.data.jwt, { expires: 7 });
         })
         .catch((err) => {
           console.error(err);

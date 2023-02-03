@@ -14,6 +14,8 @@ import DrawerBased from "./components/Navigation/DrawerBased/DrawerBased";
 import FormDemo from "./pages/Demos/FormDemos";
 import PartsDemo from "./pages/Demos/PartDemos";
 import SupportPage from "./pages/Support/SupportPage";
+import IndividualArticleView from "./pages/Articles/IndividualArticleView";
+import ArticleList from "./pages/Articles/ArticleList";
 
 function App() {
   return (
@@ -28,14 +30,20 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="/ticket" element={<SupportPage />} />
-
         <Route path="/services" element={<TestPage />} />
         <Route path="/contact" element={<AboutPage />} />
-
         <Route path="/heroes" element={<HeroDemo />} />
         <Route path="/features" element={<FeatureDemo />} />
         <Route path="/forms" element={<FormDemo />} />
         <Route path="/parts" element={<PartsDemo />} />
+
+        <Route path="/articles" element={<ArticleList />} />
+        <Route path="/articles/:id" element={<IndividualArticleView />} />
+
+        {/* <Route path="/articles" element={<ArticleTest />} /> */}
+        {/* <Route path="/articles/:id" element={<IndividualArticleView />} /> */}
+
+        {/* <Route path="/admin" element={<AdminDashboard />} /> */}
       </Routes>
       <MuiFooter />
     </Router>

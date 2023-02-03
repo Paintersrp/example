@@ -1,62 +1,108 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import status
+from rest_framework import status, generics, viewsets
 from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.hashers import make_password, check_password
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from rest_framework.response import Response
 from django.db import IntegrityError
-from .models import Expense, User
-from .serializers import ExpenseSerializer, UserSerializer
+from .models import User, Article
+from .serializers import UserSerializer, ArticleSerializer
 import json
 import jwt
 
+"""      ARTICLE HANDLING SECTION       """
 
-@csrf_exempt
-@api_view(["PATCH", "GET"])
-def expense_list_api_view(request):
-    """Func String"""
 
-    if request.method == "GET":
-        expenses = Expense.objects.all()
-        serializer = ExpenseSerializer(expenses, many=True)
-
-        return JsonResponse({"expenses": serializer.data})
-
-    elif request.method == "POST":
-        data = json.loads(request.body)
-        serializer = ExpenseSerializer(data=data)
-
-        if serializer.is_valid():
-            serializer.save()
-
-            return JsonResponse({"expense": serializer.data})
-        return JsonResponse({"error": serializer.errors})
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
 
 
 @csrf_exempt
-def expense_detail_api_view(request, pk):
-    """Func String"""
+def article_list(request):
+    articles = Article.objects.all()
+    serializer = ArticleSerializer(articles, many=True)
+    return JsonResponse({"articles": serializer.data})
 
-    expense = get_object_or_404(Expense, pk=pk)
 
-    if request.method == "DELETE":
-        expense.delete()
-        return JsonResponse({"message": "Expense deleted"})
+@csrf_exempt
+def article_detail(request, pk):
+    print("Working")
+    article = get_object_or_404(Article, pk=pk)
+    serializer = ArticleSerializer(article)
 
-    elif request.method == "PUT":
-        data = json.loads(request.body)
-        serializer = ExpenseSerializer(expense, data=data)
+    return JsonResponse(serializer.data)
+
+
+@csrf_exempt
+def article_delete(request, pk):
+    print("NotWorking")
+    article = get_object_or_404(Article, pk=pk)
+    article.delete()
+    return HttpResponse(status=204)
+
+
+@csrf_exempt
+def article_create(request):
+    if request.method == "POST":
+        authorization_header = request.headers.get("Authorization")
+
+        if not authorization_header:
+            return JsonResponse({"error": "Missing authorization header"}, status=401)
+
+        token = authorization_header.split(" ")[1]
+        username = jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"])
+        print(username)
+        user = User.objects.get(username=username["user"])
+
+        form_data = request.POST
+        title = form_data.get("title")
+        content = form_data.get("content")
+        tags = form_data.get("tags")
+
+        if request.FILES.get("image"):
+            image = request.FILES.get("image")
+        else:
+            image = None
+
+        data = {"title": title, "content": content, "tags": tags, "image": image}
+
+        if isinstance(data.get("tags"), str):
+            tags = data["tags"].split(",")
+            data["tags"] = [{"name": tag.strip()} for tag in tags]
+
+        serializer = ArticleSerializer(data=data)
 
         if serializer.is_valid():
-            serializer.save()
-            return JsonResponse({"expense": serializer.data})
+            article = serializer.create(validated_data=data, username=user)
 
-        return JsonResponse({"error": serializer.errors})
+            return JsonResponse(serializer.data, status=201)
+        else:
+            print(serializer.errors)
+
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def article_update(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    data = json.loads(request.body)
+
+    serializer = ArticleSerializer(article, data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+        return JsonResponse(serializer.data)
+
+    return JsonResponse(serializer.errors, status=400)
+
+
+"""      REGISTER/LOGIN SECTION       """
 
 
 @csrf_exempt
@@ -68,26 +114,11 @@ def verify_jwt(request):
         return JsonResponse({"error": "Missing authorization header"}, status=401)
 
     token = authorization_header.split(" ")[1]
-    test2 = jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"])
-    print(test2)
 
     if not jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"]):
         return JsonResponse({"authenticated": False}, status=401)
     else:
         return JsonResponse({"authenticated": True})
-
-    # try:
-    #     test = jwt.decode(token, settings.SECRET_KEY)
-    #     test2 = jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"])
-    #     print(test2)
-
-    # except jwt.ExpiredSignatureError:
-    #     return JsonResponse({"authenticated": False}, status=401)
-
-    # except jwt.DecodeError:
-    #     return JsonResponse({"authenticated": False}, status=401)
-
-    # return JsonResponse({"authenticated": True})
 
 
 @csrf_exempt
@@ -102,6 +133,7 @@ def login_view(request):
 
     if request.method == "POST":
         data = json.loads(request.body)
+        print(data)
 
         if not data["username"] or not data["password"]:
             return JsonResponse({"error": "Missing required fields"}, status=400)
@@ -114,7 +146,9 @@ def login_view(request):
             return JsonResponse({"error": "Invalid username or password"}, status=401)
 
         login(request, user)
-        token = jwt.encode({"id": user.id}, settings.SECRET_KEY, algorithm="HS256")
+        token = jwt.encode(
+            {"user": data["username"]}, settings.SECRET_KEY, algorithm="HS256"
+        )
         response = JsonResponse({"jwt": token})
         response.set_cookie(key="jwt", value=token, httponly=True)
 
@@ -130,6 +164,7 @@ def register(request):
 
     if request.method == "POST":
         data = json.loads(request.body)
+        print(data["username"])
 
         if not data["username"] or not data["email"] or not data["password"]:
             return JsonResponse({"error": "Missing required fields"}, status=400)
