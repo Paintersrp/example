@@ -24,14 +24,14 @@ A powerful and flexible React framework for building modern websites, with a rob
 
 ### Frontend
 
-1. Clone the repository: `git clone https://github.com/<username>/react-website-framework.git`
-2. Change into the frontend directory: `cd react-website-framework/frontend`
+1. Clone the repository: `git clone https://github.com/Paintersrp/example.git`
+2. Change into the frontend directory: `cd example/frontend`
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
 
 ### Backend
 
-1. Change into the backend directory: `cd react-website-framework/backend`
+1. Change into the backend directory: `cd example`
 2. Install the dependencies: `pip install -r requirements.txt`
 3. Run migrations: `python manage.py migrate`
 4. Create a superuser: `python manage.py createsuperuser`
@@ -42,13 +42,6 @@ A powerful and flexible React framework for building modern websites, with a rob
 - [React](https://reactjs.org/)
 - [Django](https://www.djangoproject.com/)
 - [Django Rest Framework](https://www.django-rest-framework.org/)
-- [Bootstrap](https://getbootstrap.com/)
+- [MaterialUI](https://mui.com/)
+- [Redux](https://redux.js.org/)
 - [axios](https://github.com/axios/axios) for making API calls in React
-
-## Contributing
-
-If you'd like to contribute to this project, please make a pull request. We welcome contributions of all kinds, including bug fixes, new features, and documentation improvements.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
