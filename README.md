@@ -24,7 +24,8 @@ A powerful and flexible React framework for building modern websites, with a rob
 
 ### Frontend
 
-1. Clone the repository: `git clone https://github.com/Paintersrp/example.git`
+1. Clone the repository:
+   `git clone https://github.com/Paintersrp/example.git`
 2. Change into the frontend directory: `cd example/frontend`
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
