@@ -51,20 +51,13 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import "./test.css";
-import FeatureCTA from "../../components/Features/FeatureCTA/FeatureCTA";
 import { FaCode, FaPencilRuler, FaServer } from "react-icons/fa";
-import CategoryTiles from "../../components/Features/Categories/Categories";
-import FeaturedProducts from "../../components/Features/FeaturedProducts/FeaturedProduct";
-import OurProcess from "../../components/Features/OurProcess/OurProcess";
 import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 import LockIcon from "@material-ui/icons/Lock";
 import DesignIcon from "@material-ui/icons/Brush";
 import DevelopIcon from "@material-ui/icons/Code";
 import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
-import FormHero from "../../components/Heroes/FormHero/FormHero";
-import Partners from "../../components/Features/Partners/Partners";
-import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
   FaTwitter,
   FaFacebook,
@@ -74,7 +67,14 @@ import {
   FaGithub,
   FaStackOverflow,
 } from "react-icons/fa";
+import FormHero from "../../components/Heroes/FormHero/FormHero";
+import CategoryTiles from "../../components/Features/Commerce/Categories/Categories";
 import Reviews from "../../components/Features/Reviews/Reviews";
+import IconScroller from "../../components/Animations/IconScroller/IconScroller";
+import OurProcess from "../../components/Features/Business/OurProcess/OurProcess";
+import FeatureCTA from "../../components/Features/Content/FeatureCTA/FeatureCTA";
+import FeaturedProducts from "../../components/Features/Commerce/FeaturedProducts/FeaturedProduct";
+import Partners from "../../components/Features/Business/Partners/Partners";
 
 const members = [
   {
@@ -312,22 +312,6 @@ export default function TestPage() {
             <div>
               <Partners />
             </div>
-
-            {/* <div>
-              <WhatWeDo2 data={data} />
-            </div> */}
-
-            {/*}    
-            <div>
-              <ContactInfo />
-            </div>   */}
-
-            {/* <div>
-                <EventCTA />
-              </div> */}
-            {/* <div>
-                <ExpoEvents />
-              </div> */}
           </AnimateSharedLayout>
         </div>
       </div>

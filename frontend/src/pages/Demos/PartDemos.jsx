@@ -4,22 +4,19 @@ import DesignIcon from "@material-ui/icons/Brush";
 import DevelopIcon from "@material-ui/icons/Code";
 import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
-import ContactButtons from "../../components/Parts/ContactButtons";
-import ContentBlock from "../../components/Parts/ContentBlock";
-import CoreValues from "../../components/Parts/CoreValues";
-import FloatingFeature from "../../components/Parts/FloatingFeature";
-import HeroBlock from "../../components/Parts/HeroBlock";
-import SocialSection from "../../components/Parts/SocialSection";
-import TitleBlock from "../../components/Parts/TitleBlock";
 import Demo from "./Demo";
-import AccordionQA from "../../components/Parts/AccordionQA";
-import TestimonialCard from "../../components/Parts/TestimonialCard";
-import PricingTier from "../../components/Pricing/_MinimalPricing/MinimalPricing";
-import AdvancedSnackbar from "../../components/Parts/Snackbar";
-import ComplexFooter from "../../components/Footer/_ComplexFooter/ComplexFooter";
-import TeamCard from "../../components/Team/_SquareCards/SquareCards";
-import MinimalTestimonials from "../../components/Testimonials/_MinimalTestimonials/MinimalTestimonials";
-import ImageGallery from "../../components/Gallery/Quilted/ImageGallery";
+import ContactButtons from "../../components/Elements/Buttons/ContactButtons";
+import SocialSection from "../../components/Elements/Buttons/SocialButtons";
+import HeroBlock from "../../components/Elements/TextBlocks/HeroBlock";
+import FloatingFeature from "../../components/Features/Content/FloatingFeature";
+import CoreValues from "../../components/Features/Business/CompanyInfo/CoreValues";
+import AdvancedSnackbar from "../../components/Elements/Snackbars/Snackbar";
+import ContentBlock from "../../components/Elements/TextBlocks/ContentBlock";
+import TitleBlock from "../../components/Elements/TextBlocks/TitleBlock";
+import AccordionQA from "../../components/Features/Accordions/AccordionQA";
+import TestimonialCard from "../../components/Features/Testimonials/TestimonialCard";
+import ComplexFooter from "../../navigation/Components/Footer/_ComplexFooter/ComplexFooter";
+import ImageGallery from "../../components/Images/Gallery/ImageGallery";
 
 // {
 //     component: TeamCard,

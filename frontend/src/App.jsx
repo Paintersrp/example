@@ -1,16 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./components/Other/HOC/ScrollToTop/ScrollToTop";
-import SEOHeader from "./components/Other/SEOHeader/SEOHeader";
 import RegisterForm from "./components/Forms/Register/RegisterForm";
 import LoginForm from "./components/Forms/Login/LoginForm";
-import MuiFooter from "./components/Footer/SimpleFooter/SimpleFooter";
 import LandingPage from "./pages/Landing/LandingPage";
 import AboutPage from "./pages/About/AboutPage";
 import TestPage from "./pages/Test/Test";
 import HeroDemo from "./pages/Demos/HeroesDemo";
 import FeatureDemo from "./pages/Demos/FeaturesDemo";
-import DrawerBased from "./components/Navigation/DrawerBased/DrawerBased";
+import DrawerBased from "./navigation/Components/DrawerBased/DrawerBased";
 import FormDemo from "./pages/Demos/FormDemos";
 import PartsDemo from "./pages/Demos/PartDemos";
 import SupportPage from "./pages/Support/SupportPage";
@@ -19,13 +16,14 @@ import ArticleList from "./pages/Articles/ArticleList";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./Theme";
+import ScrollToTop from "./components/Elements/HOC/ScrollToTop";
+import Footer from "./navigation/Components/Footer/SimpleFooter/SimpleFooter";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <SEOHeader />
         <ScrollToTop />
         <DrawerBased />
         <Routes>
@@ -45,7 +43,7 @@ function App() {
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:id" element={<IndividualArticleView />} />
         </Routes>
-        <MuiFooter />
+        <Footer />
       </Router>
     </ThemeProvider>
   );

@@ -1,13 +1,4 @@
 import React from "react";
-import FeatureTiles from "../../components/Features/FeatureTiles/FeatureTiles";
-import { Grid } from "@material-ui/core";
-import Container from "@material-ui/core/Container";
-import LatestNews from "../../components/Features/LatestNews/LatestNews";
-import PricingOverview from "../../components/Pricing/StandardPricing/Pricing";
-import BetterTestimonials from "../../components/Testimonials/SpeechBubbleTestimonials/SpeechBubbles";
-import HeroCarousel from "../../components/Heroes/HeroCarousel/HeroCarousel";
-import NewsletterForm from "../../components/Forms/Newsletter/NewsletterForm";
-import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
   FaTwitter,
   FaFacebook,
@@ -17,6 +8,13 @@ import {
   FaGithub,
   FaStackOverflow,
 } from "react-icons/fa";
+import IconScroller from "../../components/Animations/IconScroller/IconScroller";
+import FeatureTiles from "../../components/Features/Content/FeatureTiles/FeatureTiles";
+import LatestNews from "../../components/Features/News/LatestNews";
+import PricingOverview from "../../components/Features/Pricing/StandardPricing/Pricing";
+import BetterTestimonials from "../../components/Features/Testimonials/SpeechBubbleTestimonials/SpeechBubbles";
+import NewsletterForm from "../../components/Forms/Newsletter/NewsletterForm";
+import HeroCarousel from "../../components/Heroes/HeroCarousel/HeroCarousel";
 import "./MainSection.css";
 
 const partners = [
@@ -105,7 +103,6 @@ function LandingPage() {
         <FeatureTiles />
       </div>
       <div className="car-container">
-        {/* <TestimonialSection /> */}
         <BetterTestimonials />
       </div>
       <div className="">

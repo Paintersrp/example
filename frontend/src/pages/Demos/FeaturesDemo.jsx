@@ -1,6 +1,3 @@
-import CategoryTiles from "../../components/Features/Categories/Categories";
-import CompanyInfo from "../../components/Features/CompanyInfo/CompanyInfo";
-import IconScroller from "../../components/Features/IconScroller/IconScroller";
 import {
   FaTwitter,
   FaFacebook,
@@ -20,18 +17,20 @@ import DevelopIcon from "@material-ui/icons/Code";
 import HostingIcon from "@material-ui/icons/Public";
 import LaunchIcon from "@material-ui/icons/Launch";
 import Demo from "./Demo";
-import BetterFeatures from "../../components/Features/BetterFeatures/BetterFeatures";
-import EventSchedule from "../../components/Features/EventSchedule-WIP/EventSchedule";
-import FeatureCTA from "../../components/Features/FeatureCTA/FeatureCTA";
-import FeaturedProducts from "../../components/Features/FeaturedProducts/FeaturedProduct";
-import FeatureTiles from "../../components/Features/FeatureTiles/FeatureTiles";
-import LatestNews from "../../components/Features/LatestNews/LatestNews";
-import OurProcess from "../../components/Features/OurProcess/OurProcess";
-import Partners from "../../components/Features/Partners/Partners";
+import EventSchedule from "../../components/Features/Content/EventSchedule-WIP/EventSchedule";
+import MinimalTestimonials from "../../components/Features/Testimonials/_MinimalTestimonials/MinimalTestimonials";
+import PricingTier from "../../components/Features/Pricing/_MinimalPricing/MinimalPricing";
+import CategoryTiles from "../../components/Features/Commerce/Categories/Categories";
+import CompanyInfo from "../../components/Features/Business/CompanyInfo/CompanyInfo";
+import FeatureCTA from "../../components/Features/Content/FeatureCTA/FeatureCTA";
+import FeaturedProducts from "../../components/Features/Commerce/FeaturedProducts/FeaturedProduct";
+import FeatureTiles from "../../components/Features/Content/FeatureTiles/FeatureTiles";
+import OurProcess from "../../components/Features/Business/OurProcess/OurProcess";
+import Partners from "../../components/Features/Business/Partners/Partners";
 import Reviews from "../../components/Features/Reviews/Reviews";
-import WhatWeDo from "../../components/Features/WhatWeDo/WhatWeDo";
-import MinimalTestimonials from "../../components/Testimonials/_MinimalTestimonials/MinimalTestimonials";
-import PricingTier from "../../components/Pricing/_MinimalPricing/MinimalPricing";
+import LatestNews from "../../components/Features/News/LatestNews";
+import WhatWeDo from "../../components/Features/Business/WhatWeDo/WhatWeDo";
+import BetterFeatures from "../../components/Features/Content/BetterFeatures/BetterFeatures";
 
 const partners = [
   {
@@ -501,11 +500,6 @@ const featureComponents = [
     component: CompanyInfo,
     title: "CompanyInfo",
   },
-  // {
-  //   component: IconScroller,
-  //   title: "IconScroller",
-  //   props: { data: partners },
-  // },
   {
     component: FeatureCTA,
     title: "FeatureCTA",

@@ -1,12 +1,11 @@
 import React from "react";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import CompanyInfo from "../../components/Features/CompanyInfo/CompanyInfo";
-import TeamMembers from "../../components/Team/TileCards/MemberTiles";
-import FAQAccordion from "../../components/Accordions/FAQ/FAQAccordion";
-import BasicContact from "../../components/Contact/BasicContact/ContactSection";
-import CareersOpportunities from "../../components/Jobs/CareerOpportunities/CareerOpportunities";
-import BetterContact from "../../components/Contact/BetterContact/BetterContact";
+import BetterContact from "../../components/Features/Contact/BetterContact/BetterContact";
+import TeamMembers from "../../components/Features/Team/TileCards/MemberTiles";
+import CompanyInfo from "../../components/Features/Business/CompanyInfo/CompanyInfo";
+import CareersOpportunities from "../../components/Features/CareerOpportunities/CareerOpportunities";
+import FAQAccordion from "../../components/Features/Accordions/FAQ/FAQAccordion";
 
 const members = [
   {

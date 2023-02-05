@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { Grid, Paper, Slide } from "@material-ui/core";
+import HeroBlock from "../../Elements/TextBlocks/HeroBlock";
+import ContactButtons from "../../Elements/Buttons/ContactButtons";
+import SocialSection from "../../Elements/Buttons/SocialButtons";
 import ContactForm from "../../Forms/Contact/ContactForm";
-import HeroBlock from "../../Parts/HeroBlock";
-import SocialSection from "../../Parts/SocialSection";
-import ContactButtons from "../../Parts/ContactButtons";
 
 const useStyles = makeStyles((theme) => ({
   root: {

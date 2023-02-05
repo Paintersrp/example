@@ -13,6 +13,7 @@ import AddIcon from "@material-ui/icons/Add";
 import CreateUpdateArticle from "./ArticleCreateUpdate";
 import { CardActions, Chip, Grid } from "@material-ui/core";
 import DOMPurify from "dompurify";
+import ContentLayout from "../../components/Layout/ContentLayout";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#242424",
   },
   list: {
-    width: "90%",
+    width: "100%",
     backgroundColor: "#242424",
     color: "white",
   },
@@ -102,13 +103,19 @@ const ArticleList = () => {
   }, []);
 
   return (
-    <div className={classes.root}>
+    <ContentLayout
+      title="Articles"
+      description="Where the articles be yo."
+      keywords="news, posts, articles"
+      image="https://example.com/image.png"
+      url="https://example.com/example-page"
+    >
       <List className={classes.list}>
         <Grid container spacing={3}>
           {articles.map((article) => (
             <Grid
               item
-              xs={6}
+              xs={12}
               sm={6}
               md={6}
               lg={6}
@@ -221,7 +228,7 @@ const ArticleList = () => {
         <AddIcon />
       </Fab>
       <CreateUpdateArticle open={open} setOpen={setOpen} />
-    </div>
+    </ContentLayout>
   );
 };
 
