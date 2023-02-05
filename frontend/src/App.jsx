@@ -16,37 +16,38 @@ import PartsDemo from "./pages/Demos/PartDemos";
 import SupportPage from "./pages/Support/SupportPage";
 import IndividualArticleView from "./pages/Articles/IndividualArticleView";
 import ArticleList from "./pages/Articles/ArticleList";
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import theme from "./Theme";
 
 function App() {
   return (
-    <Router>
-      <SEOHeader />
-      <ScrollToTop />
-      <DrawerBased />
-      <Routes>
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/test" element={<TestPage />} />
-        <Route path="/ticket" element={<SupportPage />} />
-        <Route path="/services" element={<TestPage />} />
-        <Route path="/contact" element={<AboutPage />} />
-        <Route path="/heroes" element={<HeroDemo />} />
-        <Route path="/features" element={<FeatureDemo />} />
-        <Route path="/forms" element={<FormDemo />} />
-        <Route path="/parts" element={<PartsDemo />} />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <SEOHeader />
+        <ScrollToTop />
+        <DrawerBased />
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="/ticket" element={<SupportPage />} />
+          <Route path="/services" element={<TestPage />} />
+          <Route path="/contact" element={<AboutPage />} />
+          <Route path="/heroes" element={<HeroDemo />} />
+          <Route path="/features" element={<FeatureDemo />} />
+          <Route path="/forms" element={<FormDemo />} />
+          <Route path="/parts" element={<PartsDemo />} />
 
-        <Route path="/articles" element={<ArticleList />} />
-        <Route path="/articles/:id" element={<IndividualArticleView />} />
-
-        {/* <Route path="/articles" element={<ArticleTest />} /> */}
-        {/* <Route path="/articles/:id" element={<IndividualArticleView />} /> */}
-
-        {/* <Route path="/admin" element={<AdminDashboard />} /> */}
-      </Routes>
-      <MuiFooter />
-    </Router>
+          <Route path="/articles" element={<ArticleList />} />
+          <Route path="/articles/:id" element={<IndividualArticleView />} />
+        </Routes>
+        <MuiFooter />
+      </Router>
+    </ThemeProvider>
   );
 }
 

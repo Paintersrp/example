@@ -111,6 +111,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+JAZZMIN_SETTINGS = {
+    "site_title": "EDGELORDS",
+    "site_header": "EDGELORDS",
+    "site_logo": None,
+    "login_logo": None,
+    "login_logo_dark": None,
+    "site_logo_classes": "img-circle",
+    "site_icon": "",
+    "welcome_sign": "Welcome!",
+    "copyright": "EDGELORDS Ltd",
+    "search_model": ["api.User"],
+    "user_avatar": None,
+    "icons": {
+        "api.Article": "fas fa-newspaper",
+        "api.User": "fas fa-users",
+        "api.Tag": "fas fa-tag",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+    "use_google_fonts_cdn": True,
+    "show_ui_builder": False,
+    "changeform_format": "horizontal_tabs",
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

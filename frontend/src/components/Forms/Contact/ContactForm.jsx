@@ -179,7 +179,6 @@ const ContactForm = (props) => {
     console.log(formData);
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-      // handle form submission here
       console.log(formData);
     } catch (err) {
       const errors = {};
@@ -197,7 +196,7 @@ const ContactForm = (props) => {
     <form onSubmit={handleSubmit}>
       <Grid container spacing={0}>
         <Grid item xs={12}>
-          <FormControl fullWidth variant="outlined" className={classes.field}>
+          <FormControl fullWidth variant="outlined">
             <InputLabel id="subject-label">Subject</InputLabel>
             <Select
               error={formData.errors.subject}

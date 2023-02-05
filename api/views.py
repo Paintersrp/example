@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import status, generics, viewsets
+from rest_framework import status, viewsets
 from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.hashers import make_password, check_password
 from django.conf import settings
@@ -105,6 +105,7 @@ def verify_jwt(request):
     """Func String"""
 
     authorization_header = request.headers.get("Authorization")
+
     if not authorization_header:
         return JsonResponse({"error": "Missing authorization header"}, status=401)
 
@@ -112,6 +113,7 @@ def verify_jwt(request):
 
     if not jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"]):
         return JsonResponse({"authenticated": False}, status=401)
+
     else:
         return JsonResponse({"authenticated": True})
 

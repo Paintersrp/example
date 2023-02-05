@@ -67,14 +67,16 @@ class ArticleSerializer(serializers.ModelSerializer):
         instance.content = validated_data.get("content", instance.content)
         instance.image = validated_data.get("image", instance.image)
         instance.author = User.objects.get(username=instance.author)
-
         tags = validated_data.get("tags")
+
         if tags:
             tag_objs = []
+
             for tag_dict in tags:
                 tag_name = tag_dict.get("name")
                 tag, created = Tag.objects.get_or_create(name=tag_name)
                 tag_objs.append(tag)
+
             instance.tags.set(tag_objs)
 
         Article.objects.filter(id=17).update()

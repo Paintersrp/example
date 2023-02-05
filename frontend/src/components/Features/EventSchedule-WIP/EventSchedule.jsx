@@ -129,9 +129,7 @@ export default function EventSchedule({ eventSets }) {
             <CardContent>
               <Grid container spacing={2}>
                 <Grid item xs={2}>
-                  <Typography className={classes.title}>
-                    {event.time}
-                  </Typography>
+                  <Typography variant="h3">{event.time}</Typography>
                 </Grid>
                 <Grid item xs={10}>
                   <Typography className={classes.title}>

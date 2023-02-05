@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider } from "@material-ui/core";
+import { Divider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,17 +42,9 @@ function Demo({ demoTitle, components }) {
             padding: 0,
           }}
         >
-          <h1
-            style={{
-              textAlign: "center",
-              color: "white",
-              margin: 0,
-              paddingTop: 20,
-              fontSize: "2.25rem",
-            }}
-          >
+          <Typography variant="h1" style={{ color: "white", paddingTop: 20 }}>
             {demoTitle}
-          </h1>
+          </Typography>
         </div>
         {components.map((hero, index) => (
           <>
@@ -71,16 +63,12 @@ function Demo({ demoTitle, components }) {
                 alignItems: "center",
               }}
             >
-              <h2
-                style={{
-                  textAlign: "center",
-                  color: "white",
-                  margin: 0,
-                  paddingBottom: 80,
-                }}
+              <Typography
+                variant="h2"
+                style={{ color: "white", paddingBottom: 20 }}
               >
                 {hero.title}
-              </h2>
+              </Typography>
               {React.createElement(hero.component, hero.props)}
             </div>
           </>

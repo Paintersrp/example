@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
   gridContainer: {
     display: "flex",
     flexDirection: "column",
-    padding: 30,
   },
   flexGrid: {
     justifyContent: "center",
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: "#242424",
-    width: "70%",
+    width: "80%",
     padding: 20,
   },
 }));

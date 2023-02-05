@@ -4,6 +4,10 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 from .models import User, Article, Tag
+from django.contrib.admin import AdminSite
+
+admin_site = AdminSite(name="admin")
+admin_site.site_header = "EDGELORDS"
 
 
 class ArticleForm(forms.ModelForm):
@@ -48,24 +52,30 @@ class ArticleAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
+
         if request.user.is_superuser:
             return queryset
+
         return queryset.filter(author=request.user)
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "author" and not request.user.is_superuser:
             kwargs["queryset"] = User.objects.filter(id=request.user.id)
+
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     def get_actions(self, request):
         actions = super().get_actions(request)
+
         if not request.user.is_superuser:
             del actions["delete_selected"]
+
         return actions
 
     def save_model(self, request, obj, form, change):
         if not request.user.is_superuser and not change:
             obj.author = request.user
+
         obj.save()
 
 
