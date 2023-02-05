@@ -15,7 +15,7 @@ import IndividualArticleView from "./pages/Articles/IndividualArticleView";
 import ArticleList from "./pages/Articles/ArticleList";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "./Theme";
+import theme from "./theme";
 import ScrollToTop from "./components/Elements/HOC/ScrollToTop";
 import Footer from "./navigation/Components/Footer/SimpleFooter/SimpleFooter";
 import PrivateRoute from "./navigation/Routes/PrivateRoute";
