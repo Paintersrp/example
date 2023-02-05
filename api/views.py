@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status, viewsets
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.contrib.auth.hashers import make_password, check_password
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -110,12 +110,17 @@ def verify_jwt(request):
         return JsonResponse({"error": "Missing authorization header"}, status=401)
 
     token = authorization_header.split(" ")[1]
+    try:
+        decoded_token = jwt.decode(
+            jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"]
+        )
+        username = decoded_token["user"]
+        user = User.objects.get(username=username)
 
-    if not jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"]):
+    except (jwt.exceptions.DecodeError, User.DoesNotExist):
         return JsonResponse({"authenticated": False}, status=401)
 
-    else:
-        return JsonResponse({"authenticated": True})
+    return JsonResponse({"authenticated": True, "is_superuser": user.is_superuser})
 
 
 @csrf_exempt
@@ -189,6 +194,25 @@ def register(request):
 
     else:
         return JsonResponse({"error": "Invalid request method"}, status=405)
+
+
+def logout_view(request):
+    authorization_header = request.headers.get("Authorization")
+    if not authorization_header:
+        return JsonResponse({"error": "Missing authorization header"}, status=401)
+
+    token = authorization_header.split(" ")[1]
+    try:
+        decoded_token = jwt.decode(
+            jwt=token, key=settings.SECRET_KEY, algorithms=["HS256"]
+        )
+        username = decoded_token["user"]
+        user = User.objects.get(username=username)
+        logout(request)
+        return JsonResponse({"message": "User logged out successfully"})
+
+    except (jwt.exceptions.DecodeError, User.DoesNotExist):
+        return JsonResponse({"error": "Error logging out the user"}, status=400)
 
 
 @api_view(["PATCH", "GET"])

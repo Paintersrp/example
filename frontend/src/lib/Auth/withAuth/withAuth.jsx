@@ -1,44 +1,35 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setAuth, setUser } from "../../Actions/auth";
+import axiosInstance from "../../Axios/axiosInstance";
+import Cookies from "js-cookie";
 
-function withAuth(WrappedComponent) {
-  return function (props) {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [error, setError] = useState(null);
+const withAuth = (WrappedComponent) => {
+  const HOC = (props) => {
+    const dispatch = useDispatch();
 
     useEffect(() => {
-      axios
-        .get("http://localhost:8000/api/verify/", {
-          headers: {
-            Authorization: `JWT ${getCookie("jwt")}`,
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          setIsAuthenticated(true);
-        })
-        .catch((error) => {
-          setError(error.response.data.error);
-        });
-    }, []);
+      if (Cookies.get("jwt")) {
+        axiosInstance
+          .get("/verify/")
+          .then((res) => {
+            dispatch(setAuth(true));
+            dispatch(setUser(res.data.is_superuser));
+          })
+          .catch((err) => {
+            dispatch(setAuth(false));
+            dispatch(setUser(false));
+          });
+      } else {
+        dispatch(setAuth(false));
+        dispatch(setUser(false));
+      }
+    }, [dispatch]);
 
-    if (error) {
-      window.location.href = "/login";
-      return null;
-    }
-
-    if (isAuthenticated) {
-      return <WrappedComponent {...props} />;
-    } else {
-      return <p className="flex justify-center text-[26px]">Loading...</p>;
-    }
+    return <WrappedComponent {...props} />;
   };
-}
 
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-}
+  return HOC;
+};
 
 export default withAuth;

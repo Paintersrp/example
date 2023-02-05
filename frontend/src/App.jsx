@@ -18,8 +18,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./theme";
 import ScrollToTop from "./components/Elements/HOC/ScrollToTop";
 import Footer from "./navigation/Components/Footer/SimpleFooter/SimpleFooter";
-import PrivateRoute from "./navigation/Routes/PrivateRoute";
+import PrivateRoute from "./navigation/Routes/ProtectedRoute";
 import AdminRoute from "./navigation/Routes/AdminRoute";
+import withAuth from "./lib/Auth/withAuth/withAuth";
 
 {
   /* 
@@ -71,4 +72,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuth(App);

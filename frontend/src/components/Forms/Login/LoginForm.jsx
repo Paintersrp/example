@@ -19,6 +19,7 @@ import axiosInstance from "../../../lib/Axios/axiosInstance";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AdvancedSnackbar from "../../Elements/Snackbars/Snackbar";
+import { setAuth, setUser } from "../../../lib/Actions/auth";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -146,14 +147,9 @@ const LoginForm = () => {
       axiosInstance
         .post("/login/", formData)
         .then((response) => {
-          const is_authenticated = response.data.isAuthenticated;
-          const is_superuser = response.data.isSuperUser;
+          dispatch(setAuth(response.data.isAuthenticated));
+          dispatch(setUser(response.data.isSuperUser));
           Cookies.set("jwt", response.data.jwt, { expires: 7 });
-          dispatch({
-            type: "SET_AUTH",
-            payload: { is_authenticated, is_superuser },
-          });
-
           navigate("/");
         })
         .catch((err) => {

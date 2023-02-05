@@ -29,10 +29,14 @@ import {
   FaHandLizard,
   FaCogs,
   FaRegNewspaper,
+  FaSignOutAlt,
+  FaUserAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GiEnergySword, GiPlatform } from "react-icons/gi";
 import { MdContactSupport } from "react-icons/Md";
+import { useSelector } from "react-redux";
+import handleLogout from "../../../lib/Auth/Logout";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -216,6 +220,7 @@ export default function DrawerBased() {
   const [menuOpen, setMenuOpen] = useState({});
   const [filteredItems, setFilteredItems] = useState(items);
   const [parentName, setParentName] = useState("");
+  const auth = useSelector((state) => state.auth);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -320,32 +325,66 @@ export default function DrawerBased() {
       </List>
 
       <Divider style={{ backgroundColor: "grey" }} />
-
-      <ListItem
-        button
-        className={classes.links}
-        component={Link}
-        to="/login"
-        onClick={toggleDrawer(false)}
-      >
-        <ListItemIcon style={{ color: "white" }}>
-          <FaSignInAlt />
-        </ListItemIcon>
-        <ListItemText primary="Login" className={classes.linkText} />
-      </ListItem>
-
-      <ListItem
-        button
-        className={classes.links}
-        component={Link}
-        to="/Register"
-        onClick={toggleDrawer(false)}
-      >
-        <ListItemIcon style={{ color: "white" }}>
-          <FaUnlockAlt FaSignInAlt />
-        </ListItemIcon>
-        <ListItemText primary="Register" className={classes.linkText} />
-      </ListItem>
+      <>
+        {auth.is_authenticated ? (
+          <>
+            <ListItem
+              button
+              className={classes.links}
+              component={Link}
+              to="/profile"
+              onClick={toggleDrawer(false)}
+            >
+              <ListItemIcon style={{ color: "white" }}>
+                <FaUserAlt />
+              </ListItemIcon>
+              <ListItemText primary="Profile" className={classes.linkText} />
+            </ListItem>
+            <ListItem
+              button
+              className={classes.links}
+              component={Link}
+              to="/"
+              onClick={() => {
+                toggleDrawer(false);
+                handleLogout();
+              }}
+            >
+              <ListItemIcon style={{ color: "white" }}>
+                <FaSignOutAlt />
+              </ListItemIcon>
+              <ListItemText primary="Logout" className={classes.linkText} />
+            </ListItem>
+          </>
+        ) : (
+          <>
+            <ListItem
+              button
+              className={classes.links}
+              component={Link}
+              to="/register"
+              onClick={toggleDrawer(false)}
+            >
+              <ListItemIcon style={{ color: "white" }}>
+                <FaUnlockAlt />
+              </ListItemIcon>
+              <ListItemText primary="Register" className={classes.linkText} />
+            </ListItem>
+            <ListItem
+              button
+              className={classes.links}
+              component={Link}
+              to="/login"
+              onClick={toggleDrawer(false)}
+            >
+              <ListItemIcon style={{ color: "white" }}>
+                <FaSignInAlt />
+              </ListItemIcon>
+              <ListItemText primary="Login" className={classes.linkText} />
+            </ListItem>
+          </>
+        )}
+      </>
     </div>
   );
 
