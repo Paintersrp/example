@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -14,6 +13,7 @@ import CreateUpdateArticle from "./ArticleCreateUpdate";
 import { CardActions, Chip, Grid } from "@material-ui/core";
 import DOMPurify from "dompurify";
 import ContentLayout from "../../components/Layout/ContentLayout";
+import axiosInstance from "../../lib/Axios/axiosInstance";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -91,16 +91,27 @@ const ArticleList = () => {
   const nav = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("http://localhost:8000/api/articles/");
-        setArticles(res.data.articles);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
+    axiosInstance
+      .get("/articles/")
+      .then((response) => {
+        setArticles(response.data.articles);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await axios.get("http://localhost:8000/api/articles/");
+  //       setArticles(res.data.articles);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <ContentLayout

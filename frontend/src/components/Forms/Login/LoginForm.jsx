@@ -4,7 +4,6 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -16,6 +15,10 @@ import {
 } from "@material-ui/core";
 import { IoLogoAngular } from "react-icons/io";
 import Cookies from "js-cookie";
+import axiosInstance from "../../../lib/Axios/axiosInstance";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import AdvancedSnackbar from "../../Elements/Snackbars/Snackbar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,6 +105,10 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginForm = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const [open, setOpen] = useState(true);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -128,16 +135,31 @@ const LoginForm = () => {
     });
   };
 
+  const handleClose = () => {
+    setOpen(false);
+    setError(null);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
-      axios
-        .post("http://127.0.0.1:8000/api/login/", formData)
-        .then((res) => {
-          Cookies.set("jwt", res.data.jwt, { expires: 7 });
+      axiosInstance
+        .post("/login/", formData)
+        .then((response) => {
+          const is_authenticated = response.data.isAuthenticated;
+          const is_superuser = response.data.isSuperUser;
+          Cookies.set("jwt", response.data.jwt, { expires: 7 });
+          dispatch({
+            type: "SET_AUTH",
+            payload: { is_authenticated, is_superuser },
+          });
+
+          navigate("/");
         })
         .catch((err) => {
-          console.error(err);
+          console.log(err);
+          setOpen(true);
+          setError("Invalid username or password.");
         });
     }
   };
@@ -211,8 +233,32 @@ const LoginForm = () => {
           </form>
         </Paper>
       </Container>
+      {error && (
+        <AdvancedSnackbar
+          open={open}
+          duration="4000"
+          message={error}
+          type="error"
+          position="top-center"
+          onClose={handleClose}
+        />
+      )}
     </div>
   );
 };
 
 export default LoginForm;
+
+// const handleSubmit = (event) => {
+//   event.preventDefault();
+//   if (validateForm()) {
+//     axios
+//       .post("http://127.0.0.1:8000/api/login/", formData)
+//       .then((res) => {
+//         Cookies.set("jwt", res.data.jwt, { expires: 7 });
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//       });
+//   }
+// };

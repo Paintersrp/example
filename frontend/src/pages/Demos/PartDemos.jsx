@@ -17,6 +17,7 @@ import AccordionQA from "../../components/Features/Accordions/AccordionQA";
 import TestimonialCard from "../../components/Features/Testimonials/TestimonialCard";
 import ComplexFooter from "../../navigation/Components/Footer/_ComplexFooter/ComplexFooter";
 import ImageGallery from "../../components/Images/Gallery/ImageGallery";
+import { useState } from "react";
 
 // {
 //     component: TeamCard,
@@ -206,26 +207,9 @@ const formComponents = [
     component: AdvancedSnackbar,
     title: "AdvancedSnackbar",
     props: {
+      open: true,
       message: "This is a success message",
       type: "success",
-      position: "top-right",
-    },
-  },
-  {
-    component: AdvancedSnackbar,
-    title: "AdvancedSnackbar",
-    props: {
-      message: "This is an error message",
-      type: "error",
-      position: "bottom-right",
-    },
-  },
-  {
-    component: AdvancedSnackbar,
-    title: "AdvancedSnackbar",
-    props: {
-      message: "This is an warning message",
-      type: "warning",
       position: "bottom-left",
     },
   },
@@ -233,9 +217,21 @@ const formComponents = [
     component: AdvancedSnackbar,
     title: "AdvancedSnackbar",
     props: {
+      open: true,
+      message: "This is an error message",
+      type: "error",
+      position: "bottom-right",
+    },
+  },
+
+  {
+    component: AdvancedSnackbar,
+    title: "AdvancedSnackbar",
+    props: {
+      open: true,
       message: "This is an info message",
       type: "info",
-      position: "top-left",
+      position: "bottom-center",
     },
   },
 ];

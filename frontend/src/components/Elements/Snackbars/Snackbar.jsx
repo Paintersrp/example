@@ -42,15 +42,12 @@ const useStyles = makeStyles((theme) => ({
 const AdvancedSnackbar = ({
   message,
   type,
-  duration = 50000000,
+  open,
+  onClose,
+  duration = 5000,
   position = "bottom-right",
 }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const iconVariants = {
     success: <CheckCircleIcon className={classes.iconVariant} />,
@@ -95,7 +92,7 @@ const AdvancedSnackbar = ({
   return (
     <Snackbar
       open={open}
-      onClose={handleClose}
+      onClose={onClose}
       autoHideDuration={duration}
       TransitionComponent={Fade}
       anchorOrigin={anchorOrigin}
@@ -107,7 +104,7 @@ const AdvancedSnackbar = ({
         </span>
       }
       action={
-        <IconButton color="inherit" onClick={handleClose}>
+        <IconButton color="inherit" onClick={onClose}>
           <CloseIcon className={classes.icon} />
         </IconButton>
       }

@@ -18,6 +18,22 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./Theme";
 import ScrollToTop from "./components/Elements/HOC/ScrollToTop";
 import Footer from "./navigation/Components/Footer/SimpleFooter/SimpleFooter";
+import PrivateRoute from "./navigation/Routes/PrivateRoute";
+import AdminRoute from "./navigation/Routes/AdminRoute";
+
+{
+  /* 
+    Private Route Example:
+        <Route exact path="/logout" element={<PrivateRoute />}>
+          <Route path="/logout" element={<RegisterForm />} />
+        </Route> 
+
+    Admin Route Example:
+        <Route exact path="/register" element={<AdminRoute />}>
+          <Route path="/register" element={<RegisterForm />} />
+        </Route> 
+  */
+}
 
 function App() {
   return (
@@ -27,19 +43,25 @@ function App() {
         <ScrollToTop />
         <DrawerBased />
         <Routes>
+          {/* Auth Routes */}
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
+
+          {/* Page Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/ticket" element={<SupportPage />} />
           <Route path="/services" element={<TestPage />} />
           <Route path="/contact" element={<AboutPage />} />
+
+          {/* Demo Routes */}
           <Route path="/heroes" element={<HeroDemo />} />
           <Route path="/features" element={<FeatureDemo />} />
           <Route path="/forms" element={<FormDemo />} />
           <Route path="/parts" element={<PartsDemo />} />
 
+          {/* Feature Routes */}
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:id" element={<IndividualArticleView />} />
         </Routes>
