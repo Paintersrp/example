@@ -39,7 +39,7 @@ A powerful and flexible React framework for building modern websites, with a rob
    `cd example`
 2. Install the dependencies:  
    `pip install -r requirements.txt`
-3. Run migrations:
+3. Run migrations:  
    `python manage.py migrate`
 4. Create a superuser:  
    `python manage.py createsuperuser`
