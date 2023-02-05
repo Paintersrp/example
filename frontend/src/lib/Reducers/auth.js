@@ -1,4 +1,4 @@
-import { SET_AUTH } from "../Actions/auth";
+import { SET_AUTH, SET_USER } from "../Actions/auth";
 
 const initialState = {
   is_authenticated: false,
@@ -12,8 +12,12 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         is_authenticated: action.payload,
-        is_superuser: action.payload,
         is_checked: true,
+      };
+    case SET_USER:
+      return {
+        ...state,
+        is_superuser: action.payload,
       };
     default:
       return state;
