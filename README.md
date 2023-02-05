@@ -26,17 +26,25 @@ A powerful and flexible React framework for building modern websites, with a rob
 
 1. Clone the repository:  
    `git clone https://github.com/Paintersrp/example.git`
-2. Change into the frontend directory: `cd example/frontend`
-3. Install the dependencies: `npm install`
-4. Start the development server: `npm start`
+2. Change into the frontend directory:  
+   `cd example/frontend`
+3. Install the dependencies:  
+   `npm install`
+4. Start the development server:  
+   `npm start`
 
 ### Backend
 
-1. Change into the backend directory: `cd example`
-2. Install the dependencies: `pip install -r requirements.txt`
-3. Run migrations: `python manage.py migrate`
-4. Create a superuser: `python manage.py createsuperuser`
-5. Start the development server: `python manage.py runserver`
+1. Change into the backend directory:  
+   `cd example`
+2. Install the dependencies:  
+   `pip install -r requirements.txt`
+3. Run migrations:
+   `python manage.py migrate`
+4. Create a superuser:  
+   `python manage.py createsuperuser`
+5. Start the development server:  
+   `python manage.py runserver`
 
 ## Built With
 
