@@ -145,7 +145,13 @@ def login_view(request):
         token = jwt.encode(
             {"user": data["username"]}, settings.SECRET_KEY, algorithm="HS256"
         )
-        response = JsonResponse({"jwt": token})
+        response = JsonResponse(
+            {
+                "jwt": token,
+                "isAuthenticated": user.is_authenticated,
+                "isSuperUser": user.is_superuser,
+            }
+        )
         response.set_cookie(key="jwt", value=token, httponly=True)
 
         return response

@@ -10,7 +10,7 @@ A powerful and flexible React framework for building modern websites, with a rob
 - CMS for managing and organizing your website's content
 - Modular design for easy customization and extension
 - Supports server-side rendering for improved performance and SEO
-- Responsive UI design using CSS and Bootstrap
+- Responsive UI design using CSS and Material UI
 
 ## Prerequisites
 
