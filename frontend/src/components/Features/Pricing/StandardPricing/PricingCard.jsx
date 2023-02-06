@@ -96,13 +96,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PricingCard({ index, plan }) {
   const classes = useStyles();
+  const [planData, setPlanData] = useState(plan);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [selectedContact, setSelectedContact] = useState(null);
   const [editing, setEditing] = useState(false);
 
-  const updateHeroBlock = (updatedHeroBlock) => {
-    setHeroblock(updatedHeroBlock);
-    setData(updatedHeroBlock);
+  const updatePlan = (updatePlan) => {
+    console.log("Test");
+    setPlanData(updatePlan);
     setEditing(false);
   };
 
@@ -116,13 +117,13 @@ export default function PricingCard({ index, plan }) {
           <CardContent>
             <CardMedia
               className={classes.media}
-              image={plan.image}
-              title={plan.title}
+              image={planData.image}
+              title={planData.title}
               justifyContent="center"
               alignItems="center"
             />
             <Typography className={classes.pricingTitle}>
-              <TypingEffect duration="0.2" text={plan.title} />
+              <TypingEffect duration="0.2" text={planData.title} />
             </Typography>
             <Grid
               container
@@ -131,11 +132,11 @@ export default function PricingCard({ index, plan }) {
               justifyContent="center"
             >
               <Typography className={classes.pricingPrice}>
-                <div style={{ display: "flex" }}>${plan.price}/month</div>
+                <div style={{ display: "flex" }}>${planData.price}/month</div>
               </Typography>
             </Grid>
             <List className={classes.pricingFeatures}>
-              {plan.features.map((feature, index) => (
+              {planData.features.map((feature, index) => (
                 <ListItem key={feature.id}>
                   <CheckIcon className={classes.checkIcon} />
                   {feature.detail}
@@ -152,7 +153,7 @@ export default function PricingCard({ index, plan }) {
                 </CustomButton>
                 {selectedPlan !== null && (
                   <PricingDetails
-                    plan={plan}
+                    plan={planData}
                     close={() => setSelectedPlan(null)}
                   />
                 )}
@@ -171,7 +172,7 @@ export default function PricingCard({ index, plan }) {
             </Grid>
           </CardContent>
         ) : (
-          <PricingEdit plan={plan} />
+          <PricingEdit updatePlan={updatePlan} plan={planData} />
         )}
       </Card>
     </>

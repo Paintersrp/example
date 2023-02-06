@@ -8,13 +8,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from rest_framework.response import Response
 from django.db import IntegrityError
-from .models import User, Article, HeroBlock, PricingPlan, Feature
+from .models import User, Article, HeroBlock, PricingPlan, Feature, SupportedSites
 from .serializers import (
     UserSerializer,
     ArticleSerializer,
     HeroBlockSerializer,
     PricingPlanSerializer,
     FeatureSerializer,
+    SupportedSitesSerializer,
 )
 from .authentication import JWTTokenAuthentication
 import json
@@ -265,13 +266,6 @@ def update_profile(request):
     Pricing Plan Section
 """
 
-from .models import PricingPlan, Feature, SupportedSites
-from .serializers import (
-    PricingPlanSerializer,
-    FeatureSerializer,
-    SupportedSitesSerializer,
-)
-
 
 class FeatureViewSet(viewsets.ModelViewSet):
     queryset = Feature.objects.all()
@@ -286,3 +280,44 @@ class SupportedSiteViewSet(viewsets.ModelViewSet):
 class PricingPlanViewSet(viewsets.ModelViewSet):
     queryset = PricingPlan.objects.all()
     serializer_class = PricingPlanSerializer
+
+    def update(self, request, *args, **kwargs):
+        plan = self.get_object()
+        serializer = PricingPlanSerializer(plan, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            plan = serializer.save()
+
+            features = request.data.get("features").split(",")
+            features = [{"detail": feature.strip()} for feature in features]
+            feature_ids = []
+            for feature_data in features:
+                feature, created = Feature.objects.get_or_create(
+                    detail=feature_data.get("detail")
+                )
+                feature_ids.append(feature.id)
+                if not created:
+                    feature.detail = feature_data.get("detail")
+                    feature.save()
+
+            supportedsites = request.data.get("supportedsites").split(",")
+            supportedsites = [{"site": site.strip()} for site in supportedsites]
+            supportedsite_ids = []
+            for supportedsite_data in supportedsites:
+                supportedsite, created = SupportedSites.objects.get_or_create(
+                    site=supportedsite_data.get("site")
+                )
+                supportedsite_ids.append(supportedsite.id)
+                if not created:
+                    supportedsite.site = supportedsite_data.get("site")
+                    supportedsite.save()
+
+            plan.features.set(feature_ids)
+            plan.supportedsites.set(supportedsite_ids)
+            plan.save()
+
+            serializer = PricingPlanSerializer(plan)
+
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

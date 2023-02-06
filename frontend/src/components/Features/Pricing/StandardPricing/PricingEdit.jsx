@@ -74,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
       margin: 5,
       fontSize: "0.8rem",
       width: "100%",
-      height: 40,
 
       "& fieldset": {
         borderColor: "white",
@@ -89,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiFormLabel-root": {
       margin: 5,
       color: "white",
-      fontWeight: "700",
+      fontWeight: "600",
       fontSize: "0.85rem",
     },
     "& input": {
@@ -132,10 +131,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PricingEdit = (plan) => {
-  const data = plan.plan;
-  console.log(data);
+const PricingEdit = ({ plan, updatePlan }) => {
   const classes = useStyles();
+  console.log(plan);
+  const [data, setData] = useState(plan);
+  const [title, setTitle] = useState(data.title);
+  const [price, setPrice] = useState(data.price);
+  const [bestFor, setBestFor] = useState(data.bestFor);
+  const [guarantee, setGuarantee] = useState(data.guarantee);
+  const [image, setImage] = useState(data.image);
+  console.log(image);
   const [features, setFeatures] = useState(
     data.features.map((tag) => tag.detail.trim())
   );
@@ -143,19 +148,20 @@ const PricingEdit = (plan) => {
     data.supportedsites.map((tag) => tag.site.trim())
   );
 
-  const handleContentChange = (value) => {
-    setContent(value);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     let formData = new FormData();
     formData.append("title", title);
-    formData.append("content", content);
-    formData.append("tags", tags.join(","));
-    if (image) {
+    formData.append("price", price);
+    formData.append("best_for", bestFor);
+    formData.append("guarantee", guarantee);
+    formData.append("features", features.join(","));
+    formData.append("supportedsites", sites.join(","));
+
+    if (image.name) {
       formData.append("image", image, image.name);
     }
+
     const config = {
       headers: {
         Authorization: `JWT ${getCookie("jwt")}`,
@@ -164,7 +170,7 @@ const PricingEdit = (plan) => {
     };
     try {
       await axios.patch(
-        `http://localhost:8000/api/articles/${id}/`,
+        `http://localhost:8000/api/pricing_plans/${data.id}/`,
         formData,
         config
       );
@@ -172,12 +178,12 @@ const PricingEdit = (plan) => {
       console.log(error);
     }
     try {
-      const res = await axios.get(`http://localhost:8000/api/articles/${id}/`);
-      setArticle(res.data);
-      setContent(res.data.content);
-      setTitle(res.data.title);
-      setTags(res.data.tags.map((tag) => tag.name.trim()));
-      setImage(res.data.image);
+      const res = await axios.get(
+        `http://localhost:8000/api/pricing_plans/${data.id}/`
+      );
+      setData(res.data);
+      updatePlan(res.data);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -216,22 +222,22 @@ const PricingEdit = (plan) => {
               className={classes.field}
               variant="outlined"
               label="Title"
-              value={data.title}
-              onChange={(event) => setText(event.target.value)}
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
             />
             <TextField
               className={classes.field}
               variant="outlined"
               label="Price"
-              value={data.price}
-              onChange={(event) => setText(event.target.value)}
+              value={price}
+              onChange={(event) => setPrice(event.target.value)}
             />
             <TextField
               className={classes.multiline}
               variant="outlined"
               label="Best For"
-              value={data.bestFor}
-              onChange={(event) => setText(event.target.value)}
+              value={bestFor}
+              onChange={(event) => setBestFor(event.target.value)}
               multiline
               minRows={4}
             />
@@ -240,8 +246,8 @@ const PricingEdit = (plan) => {
               className={classes.field}
               variant="outlined"
               label="Guarantee"
-              value={data.guarantee}
-              onChange={(event) => setText(event.target.value)}
+              value={guarantee}
+              onChange={(event) => setGuarantee(event.target.value)}
             />
             <Typography className={classes.title}>
               <input
