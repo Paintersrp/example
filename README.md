@@ -6,11 +6,11 @@ A powerful and flexible React framework for building modern websites, with a rob
 
 - Dynamic and highly customizable React framework for building modern websites
 - RESTful API backend powered by Django and DRF for managing content and data
-- User authentication and authorization with Django's built-in User model and DRF's Token Authentication
-- CMS for managing and organizing your website's content
+- User authentication and authorization with Custom Built user models and Token Authentication system
+- CMS for managing and organizing a website's content
 - Modular design for easy customization and extension
 - Supports server-side rendering for improved performance and SEO
-- Responsive UI design using CSS and Material UI
+- Responsive UX design using CSS and Material UI
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ A powerful and flexible React framework for building modern websites, with a rob
 3. Install the dependencies:  
    `npm install`
 4. Start the development server:  
-   `npm start`
+   `npm run dev`
 
 ### Backend
 
