@@ -94,7 +94,8 @@ const ArticleList = () => {
     axiosInstance
       .get("/articles/")
       .then((response) => {
-        setArticles(response.data.articles);
+        console.log(response.data);
+        setArticles(response.data);
       })
       .catch((err) => {
         setError(err);
@@ -149,7 +150,7 @@ const ArticleList = () => {
                       >
                         <CardMedia
                           className={classes.media}
-                          image={`http://127.0.0.1:8000/${article.image}`}
+                          image={`${article.image}`}
                           title={article.title}
                         />
                       </Grid>

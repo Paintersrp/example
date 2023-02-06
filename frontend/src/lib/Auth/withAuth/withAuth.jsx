@@ -13,16 +13,35 @@ const withAuth = (WrappedComponent) => {
         axiosInstance
           .get("/verify/")
           .then((res) => {
-            dispatch(setAuth(true));
-            dispatch(setUser(res.data.is_superuser));
+            dispatch(
+              setAuth({
+                is_authenticated: res.data.authenticated,
+              })
+            );
+            dispatch(
+              setUser({
+                is_superuser: res.data.is_superuser,
+                username: res.data.username,
+              })
+            );
           })
           .catch((err) => {
-            dispatch(setAuth(false));
-            dispatch(setUser(false));
+            dispatch(setAuth({ is_authenticated: false }));
+            dispatch(
+              setUser({
+                is_superuser: false,
+                username: "",
+              })
+            );
           });
       } else {
-        dispatch(setAuth(false));
-        dispatch(setUser(false));
+        dispatch(setAuth({ is_authenticated: false }));
+        dispatch(
+          setUser({
+            is_superuser: false,
+            username: "",
+          })
+        );
       }
     }, [dispatch]);
 

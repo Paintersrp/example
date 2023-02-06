@@ -9,7 +9,7 @@ import SocialSection from "../../Elements/Buttons/SocialButtons";
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Poppins",
-    backgroundColor: "#212121",
+    backgroundColor: theme.palette.background.default,
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(12),
     position: "relative",

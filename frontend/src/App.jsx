@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RegisterForm from "./components/Forms/Register/RegisterForm";
 import LoginForm from "./components/Forms/Login/LoginForm";
@@ -21,7 +21,8 @@ import Footer from "./navigation/Components/Footer/SimpleFooter/SimpleFooter";
 import PrivateRoute from "./navigation/Routes/ProtectedRoute";
 import AdminRoute from "./navigation/Routes/AdminRoute";
 import withAuth from "./lib/Auth/withAuth/withAuth";
-
+import ProfileForm from "./components/Forms/Profile/Profile";
+import UpdateArticleView from "./pages/Articles/UpdateArticleView";
 {
   /* 
     Private Route Example:
@@ -47,6 +48,7 @@ function App() {
           {/* Auth Routes */}
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
+          <Route path="/profile" element={<ProfileForm />} />
 
           {/* Page Routes */}
           <Route path="/" element={<LandingPage />} />
@@ -65,6 +67,7 @@ function App() {
           {/* Feature Routes */}
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:id" element={<IndividualArticleView />} />
+          <Route path="/articles/:id/update" element={<UpdateArticleView />} />
         </Routes>
         <Footer />
       </Router>

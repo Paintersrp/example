@@ -4,7 +4,7 @@ const theme = createTheme({
   palette: {
     primary: {
       light: "#7986cb",
-      main: "#3f51b5",
+      main: "#3f51b5AA",
       dark: "#303f9f",
       contrastText: "#fff",
     },
@@ -39,7 +39,7 @@ const theme = createTheme({
       contrastText: "rgba(0, 0, 0, 0.87)",
     },
     background: {
-      default: "#f5f5f5",
+      default: "#242424",
       paper: "#fff",
     },
     text: {
@@ -50,7 +50,7 @@ const theme = createTheme({
     },
     action: {
       active: "rgba(0, 0, 0, 0.54)",
-      hover: "rgba(0, 0, 0, 0.08)",
+      hover: "#3f51b5",
       hoverOpacity: 0.08,
       selected: "rgba(0, 0, 0, 0.14)",
       disabled: "rgba(0, 0, 0, 0.26)",
@@ -120,10 +120,8 @@ const theme = createTheme({
       letterSpacing: "0.01071em",
     },
     button: {
-      fontWeight: 500,
-      fontSize: "0.875rem",
-      lineHeight: 1.75,
-      letterSpacing: "0.02857em",
+      fontWeight: 600,
+      fontSize: "0.9rem",
       textTransform: "uppercase",
     },
     caption: {

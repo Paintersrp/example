@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
@@ -110,11 +110,7 @@ const LoginForm = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
-
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
@@ -141,17 +137,37 @@ const LoginForm = () => {
     setError(null);
   };
 
+  const handleCheckbox = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
       axiosInstance
         .post("/login/", formData)
         .then((response) => {
-          dispatch(setAuth(response.data.isAuthenticated));
-          dispatch(setUser(response.data.isSuperUser));
+          dispatch(
+            setAuth({
+              is_authenticated: response.data.authenticated,
+            })
+          );
+          dispatch(
+            setUser({
+              is_superuser: response.data.is_superuser,
+              username: response.data.username,
+            })
+          );
           Cookies.set("jwt", response.data.jwt, { expires: 7 });
-          navigate("/");
+          if (formData.rememberMe) {
+            Cookies.set("username", formData.username, { expires: 90 });
+          }
+          console.log(response.data);
         })
+        .then(navigate("/"))
         .catch((err) => {
           console.log(err);
           setOpen(true);
@@ -202,7 +218,14 @@ const LoginForm = () => {
             />
             <FormControlLabel
               className={classes.label}
-              control={<Checkbox value="remember" style={{ color: "white" }} />}
+              control={
+                <Checkbox
+                  checked={formData.rememberMe}
+                  onChange={handleCheckbox}
+                  name="rememberMe"
+                  style={{ color: "white" }}
+                />
+              }
               label="Remember me"
             />
             <Button

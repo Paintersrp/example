@@ -31,10 +31,11 @@ import {
   FaRegNewspaper,
   FaSignOutAlt,
   FaUserAlt,
+  FaDashcube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GiEnergySword, GiPlatform } from "react-icons/gi";
-import { MdContactSupport } from "react-icons/Md";
+import { MdAdminPanelSettings, MdContactSupport } from "react-icons/Md";
 import { useSelector } from "react-redux";
 import handleLogout from "../../../lib/Auth/Logout";
 
@@ -336,7 +337,7 @@ export default function DrawerBased() {
               onClick={toggleDrawer(false)}
             >
               <ListItemIcon style={{ color: "white" }}>
-                <FaUserAlt />
+                <FaUserAlt size={22} />
               </ListItemIcon>
               <ListItemText primary="Profile" className={classes.linkText} />
             </ListItem>
@@ -351,9 +352,23 @@ export default function DrawerBased() {
               }}
             >
               <ListItemIcon style={{ color: "white" }}>
-                <FaSignOutAlt />
+                <FaSignOutAlt size={22} />
               </ListItemIcon>
               <ListItemText primary="Logout" className={classes.linkText} />
+            </ListItem>
+            <ListItem
+              button
+              className={classes.links}
+              component="a"
+              href="http://localhost:8000/admin"
+              onClick={() => {
+                toggleDrawer(false);
+              }}
+            >
+              <ListItemIcon style={{ color: "white" }}>
+                <FaDashcube size={22} />
+              </ListItemIcon>
+              <ListItemText primary="Admin" className={classes.linkText} />
             </ListItem>
           </>
         ) : (
@@ -366,7 +381,7 @@ export default function DrawerBased() {
               onClick={toggleDrawer(false)}
             >
               <ListItemIcon style={{ color: "white" }}>
-                <FaUnlockAlt />
+                <FaUnlockAlt size={22} />
               </ListItemIcon>
               <ListItemText primary="Register" className={classes.linkText} />
             </ListItem>
@@ -378,7 +393,7 @@ export default function DrawerBased() {
               onClick={toggleDrawer(false)}
             >
               <ListItemIcon style={{ color: "white" }}>
-                <FaSignInAlt />
+                <FaSignInAlt size={22} />
               </ListItemIcon>
               <ListItemText primary="Login" className={classes.linkText} />
             </ListItem>

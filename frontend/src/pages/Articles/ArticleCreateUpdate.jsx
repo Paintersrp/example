@@ -77,7 +77,6 @@ const CreateUpdateArticle = ({ article, open, setOpen }) => {
 
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
-    console.log(image);
   };
 
   const handleTagsChange = (event) => {
@@ -118,7 +117,7 @@ const CreateUpdateArticle = ({ article, open, setOpen }) => {
         .catch((err) => console.error(err));
     } else {
       axios
-        .post("http://localhost:8000/api/articles/create/", formData, config)
+        .post("http://localhost:8000/api/articles/", formData, config)
         .then((res) => {
           setTitle("");
           setContent("");

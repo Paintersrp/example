@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -17,8 +17,12 @@ const useStyles = makeStyles({
 
 const QuillEditor = ({ value, onChange, modules, formats }) => {
   const classes = useStyles();
-  const [content, setContent] = useState(value);
+  const [content, setContent] = useState("tits");
   const quillRef = useRef(null);
+
+  useEffect(() => {
+    setContent(value);
+  });
 
   const handleChange = (value) => {
     setContent(value);

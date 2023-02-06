@@ -7,8 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import axios from "axios";
 import DOMPurify from "dompurify";
-import { useParams } from "react-router-dom";
-import { CardMedia, Grid } from "@material-ui/core";
+import { Link, useParams } from "react-router-dom";
+import { CardMedia, Grid, Button } from "@material-ui/core";
+import { useSelector } from "react-redux";
+import axiosInstance from "../../lib/Axios/axiosInstance";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,19 +59,19 @@ const IndividualArticleView = () => {
   const { id } = useParams();
   const [article, setArticle] = useState({});
   const classes = useStyles();
+  const { auth } = useSelector((state) => state);
+  console.log(auth.username);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          `http://localhost:8000/api/articles/${id}/`
-        );
-        setArticle(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
+    axiosInstance
+      .get(`/articles/${id}/`)
+      .then((response) => {
+        console.log(response.data);
+        setArticle(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
@@ -94,7 +96,7 @@ const IndividualArticleView = () => {
               >
                 <CardMedia
                   className={classes.image}
-                  image={`http://127.0.0.1:8000/${article.image}`}
+                  image={`${article.image}`}
                 />
               </div>
             </div>
@@ -111,6 +113,23 @@ const IndividualArticleView = () => {
         <CardActions className={classes.chips}>
           {article.tags &&
             article.tags.map((tag) => <Chip key={tag.name} label={tag.name} />)}
+          {(auth.is_superuser || auth.username === article.author) && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                width: "100%",
+              }}
+            >
+              <Button
+                component={Link}
+                to={`/articles/${article.id}/update`}
+                variant="contained"
+              >
+                Edit
+              </Button>
+            </div>
+          )}
         </CardActions>
       </Card>
     </div>

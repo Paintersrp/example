@@ -1,5 +1,5 @@
-export const SET_AUTH = 'SET_AUTH';
-export const SET_USER = 'SET_USER';
+export const SET_AUTH = "SET_AUTH";
+export const SET_USER = "SET_USER";
 
 export const setAuth = (isAuth) => {
   return {
@@ -8,9 +8,10 @@ export const setAuth = (isAuth) => {
   };
 };
 
-export const setUser = (is_superuser) => {
+export const setUser = (isUser) => {
+  console.log(isUser);
   return {
     type: SET_USER,
-    payload: is_superuser,
+    payload: isUser,
   };
 };
