@@ -9,7 +9,7 @@ import {
   withStyles,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { TypingEffect } from "../../../pages/Test/Test";
+import { TypingEffect } from "../../../../pages/Test/Test";
 
 const CustomButton = withStyles({
   label: {
@@ -39,9 +39,9 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontFamily: "Poppins",
-    fontSize: "1.25rem",
+    fontSize: "1rem",
     color: theme.palette.grey[400],
-    paddingBottom: 10,
+    paddingBottom: 40,
     paddingTop: 10,
     [theme.breakpoints.down("md")]: {
       fontSize: "1rem",
@@ -89,9 +89,7 @@ const HeroBlock = ({
         className={classes.heading}
         dangerouslySetInnerHTML={{ __html: heading }}
       />
-      <Box className={classes.text}>
-        <TypingEffect duration="0.02" text={text}></TypingEffect>
-      </Box>
+      <Box className={classes.text}>{text}</Box>
       {showButton && (
         <div className={classes.btnContainer}>
           <CustomButton

@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.admin import UserAdmin
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
-from .models import User, Article, Tag
+from .models import User, Article, Tag, HeroBlock, Feature, PricingPlan, SupportedSites
 from django.contrib.admin import AdminSite
 
 admin_site = AdminSite(name="admin")
@@ -84,6 +84,14 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ("username", "email")
     actions = ["delete_selected"]
 
+    fieldsets = (
+        (None, {"fields": ("title", "content", "author", "tags", "image")}),
+        (
+            "Metadata",
+            {"classes": ("collapse",), "fields": ("created_at", "updated_at")},
+        ),
+    )
+
     def delete_selected(self, request, queryset):
         for user in queryset:
             user.delete()
@@ -91,6 +99,35 @@ class CustomUserAdmin(UserAdmin):
     delete_selected.short_description = _("Delete selected users")
 
 
+class CustomHeroBlockAdmin(admin.ModelAdmin):
+    list_display = ("title", "heading", "text", "buttonText")
+
+
+class CustomPricingPlanAdmin(admin.ModelAdmin):
+    list_display = ("title", "price", "image")
+
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "title",
+                    "price",
+                    "image",
+                    "features",
+                    "bestFor",
+                    "guarantee",
+                    "supportedsites",
+                )
+            },
+        ),
+    )
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
+admin.site.register(Feature)
+admin.site.register(SupportedSites)
+admin.site.register(PricingPlan, CustomPricingPlanAdmin)
+admin.site.register(HeroBlock, CustomHeroBlockAdmin)
 admin.site.register(User, CustomUserAdmin)

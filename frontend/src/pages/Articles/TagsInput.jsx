@@ -61,7 +61,7 @@ const TagsInput = ({ tags, setTags }) => {
         <TextField
           variant="outlined"
           className={classes.field}
-          label="Add Tags"
+          label="Add Item"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyPress={(e) => {

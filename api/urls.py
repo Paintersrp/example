@@ -1,8 +1,25 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from . import views
-from .views import ArticleListCreateView, ArticleRetrieveUpdateDestroyView
+from .views import (
+    ArticleListCreateView,
+    ArticleRetrieveUpdateDestroyView,
+    HeroBlockAPIView,
+    PricingPlanViewSet,
+    FeatureViewSet,
+    SupportedSiteViewSet,
+)
+
+
+router = DefaultRouter()
+router.register(r"pricing_plans", PricingPlanViewSet)
+router.register(r"features", FeatureViewSet)
+router.register(r"supported_sites", SupportedSiteViewSet)
+
 
 urlpatterns = [
+    path("", include(router.urls)),
+    path("heroblock/", HeroBlockAPIView.as_view(), name="hero-block"),
     path("articles/", ArticleListCreateView.as_view(), name="article-list-create"),
     path(
         "articles/<int:pk>/",

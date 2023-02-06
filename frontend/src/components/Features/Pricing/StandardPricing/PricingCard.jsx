@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import PricingContact from "./PricingContact";
 import { TypingEffect } from "../../../../pages/Test/Test";
+import PricingEdit from "./PricingEdit";
 
 const CustomButton = withStyles({
   label: {
@@ -64,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     marginBottom: theme.spacing(2),
     textAlign: "center",
+    minHeight: 400,
   },
   pricingButton: {
     marginTop: theme.spacing(2),
@@ -92,65 +94,86 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PricingCard({ pricingData, plan, index }) {
+export default function PricingCard({ index, plan }) {
   const classes = useStyles();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [selectedContact, setSelectedContact] = useState(null);
+  const [editing, setEditing] = useState(false);
+
+  const updateHeroBlock = (updatedHeroBlock) => {
+    setHeroblock(updatedHeroBlock);
+    setData(updatedHeroBlock);
+    setEditing(false);
+  };
 
   return (
-    <Card className={classes.pricingCard} key={plan.title}>
-      <CardContent>
-        <CardMedia
-          className={classes.media}
-          image={plan.image}
-          title={plan.title}
-          justifyContent="center"
-          alignItems="center"
-        />
-        <Typography className={classes.pricingTitle}>
-          <TypingEffect duration="0.2" text={plan.title} />
-        </Typography>
-        <Grid container direction="row" align="center" justifyContent="center">
-          <Typography className={classes.pricingPrice}>
-            <div style={{ display: "flex" }}>${plan.price}/month</div>
-          </Typography>
-        </Grid>
-        <List className={classes.pricingFeatures}>
-          {plan.features.map((feature) => (
-            <ListItem key={feature}>
-              <CheckIcon className={classes.checkIcon} />
-              {feature}
-            </ListItem>
-          ))}
-        </List>
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <CustomButton
-              className={classes.pricingButton}
-              onClick={() => setSelectedPlan(index)}
+    <>
+      <Card className={classes.pricingCard} key={plan.title}>
+        <Button onClick={() => setEditing(!editing)}>
+          {editing ? "Cancel" : "Edit"}
+        </Button>
+        {!editing ? (
+          <CardContent>
+            <CardMedia
+              className={classes.media}
+              image={plan.image}
+              title={plan.title}
+              justifyContent="center"
+              alignItems="center"
+            />
+            <Typography className={classes.pricingTitle}>
+              <TypingEffect duration="0.2" text={plan.title} />
+            </Typography>
+            <Grid
+              container
+              direction="row"
+              align="center"
+              justifyContent="center"
             >
-              View Details
-            </CustomButton>
-            {selectedPlan !== null && (
-              <PricingDetails
-                plan={pricingData[selectedPlan]}
-                close={() => setSelectedPlan(null)}
-              />
-            )}
-          </Grid>
-          <Grid item xs={6}>
-            <CustomButton
-              className={classes.pricingButton}
-              onClick={() => setSelectedContact(1)}
-            >
-              Contact
-            </CustomButton>
-            {selectedContact !== null && (
-              <PricingContact close={() => setSelectedContact(null)} />
-            )}
-          </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
+              <Typography className={classes.pricingPrice}>
+                <div style={{ display: "flex" }}>${plan.price}/month</div>
+              </Typography>
+            </Grid>
+            <List className={classes.pricingFeatures}>
+              {plan.features.map((feature, index) => (
+                <ListItem key={feature.id}>
+                  <CheckIcon className={classes.checkIcon} />
+                  {feature.detail}
+                </ListItem>
+              ))}
+            </List>
+            <Grid container spacing={3}>
+              <Grid item xs={6}>
+                <CustomButton
+                  className={classes.pricingButton}
+                  onClick={() => setSelectedPlan(index)}
+                >
+                  View Details
+                </CustomButton>
+                {selectedPlan !== null && (
+                  <PricingDetails
+                    plan={plan}
+                    close={() => setSelectedPlan(null)}
+                  />
+                )}
+              </Grid>
+              <Grid item xs={6}>
+                <CustomButton
+                  className={classes.pricingButton}
+                  onClick={() => setSelectedContact(1)}
+                >
+                  Contact
+                </CustomButton>
+                {selectedContact !== null && (
+                  <PricingContact close={() => setSelectedContact(null)} />
+                )}
+              </Grid>
+            </Grid>
+          </CardContent>
+        ) : (
+          <PricingEdit plan={plan} />
+        )}
+      </Card>
+    </>
   );
 }

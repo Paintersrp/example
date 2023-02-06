@@ -83,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PricingDetails({ plan, close }) {
+  console.log(plan.supportedsites);
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
@@ -107,19 +108,19 @@ export default function PricingDetails({ plan, close }) {
             {plan.title} Plan
           </Typography>
           <Typography>
-            <strong>Best For:</strong> {plan.extraDetails.bestFor}
+            <strong>Best For:</strong> {plan.bestFor}
           </Typography>
           <Typography>
-            <strong>Guarantee:</strong> {plan.extraDetails.guarantee}
+            <strong>Guarantee:</strong> {plan.guarantee}
           </Typography>
           <Typography>
             <strong>Types of Sites Supported:</strong>
           </Typography>
           <List className={classes.detailsList}>
-            {plan.extraDetails.supportedSites.map((site) => (
-              <ListItem key={site}>
+            {plan.supportedsites.map((site, index) => (
+              <ListItem key={site.id}>
                 <CheckIcon className={classes.checkIcon} />
-                {site}
+                {site.site}
               </ListItem>
             ))}
           </List>

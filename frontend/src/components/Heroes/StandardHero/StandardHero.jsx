@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import SocialSection from "../../Elements/Buttons/SocialButtons";
 import ContactButtons from "../../Elements/Buttons/ContactButtons";
-import HeroBlock from "../../Elements/TextBlocks/HeroBlock";
+import HeroBlock from "../../Elements/TextBlocks/HeroBlock/HeroBlock";
 
 const useStyles = makeStyles((theme) => ({
   container: {

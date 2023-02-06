@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import status, generics
+from rest_framework import status, generics, mixins, viewsets
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -8,15 +8,42 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from rest_framework.response import Response
 from django.db import IntegrityError
-from .models import User, Article
-from .serializers import UserSerializer, ArticleSerializer
+from .models import User, Article, HeroBlock, PricingPlan, Feature
+from .serializers import (
+    UserSerializer,
+    ArticleSerializer,
+    HeroBlockSerializer,
+    PricingPlanSerializer,
+    FeatureSerializer,
+)
 from .authentication import JWTTokenAuthentication
 import json
 import jwt
 from rest_framework.decorators import authentication_classes, permission_classes
 
+"""         HERO BLOCK SECTION             """
 
-"""      ARTICLE HANDLING SECTION       """
+
+class HeroBlockAPIView(
+    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView
+):
+    queryset = HeroBlock.objects.all()
+    serializer_class = HeroBlockSerializer
+
+    def get_object(self):
+        return HeroBlock.objects.first()
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+
+"""         ARTICLE HANDLING SECTION       """
 
 
 class ArticleListCreateView(generics.ListCreateAPIView):
@@ -232,3 +259,30 @@ def update_profile(request):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+"""
+    Pricing Plan Section
+"""
+
+from .models import PricingPlan, Feature, SupportedSites
+from .serializers import (
+    PricingPlanSerializer,
+    FeatureSerializer,
+    SupportedSitesSerializer,
+)
+
+
+class FeatureViewSet(viewsets.ModelViewSet):
+    queryset = Feature.objects.all()
+    serializer_class = FeatureSerializer
+
+
+class SupportedSiteViewSet(viewsets.ModelViewSet):
+    queryset = SupportedSites.objects.all()
+    serializer_class = SupportedSitesSerializer
+
+
+class PricingPlanViewSet(viewsets.ModelViewSet):
+    queryset = PricingPlan.objects.all()
+    serializer_class = PricingPlanSerializer
